@@ -1,3 +1,8 @@
+---
+layout: default
+title: Cyborg
+parent: TryHackMe
+---
 # CTF Writeup: [Cyborg](https://tryhackme.com/room/cyborgt8)
 
 > **Platform:** [**TryHackMe**](https://tryhackme.com/) |

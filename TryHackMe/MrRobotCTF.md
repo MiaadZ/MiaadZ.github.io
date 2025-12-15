@@ -1,3 +1,8 @@
+---
+layout: default
+title: Mr Robot CTF
+parent: TryHackMe
+---
 # CTF Writeup: [Mr Robot CTF](https://tryhackme.com/room/mrrobot)
 
 > **Platform:** [**TryHackMe**](https://tryhackme.com/) |

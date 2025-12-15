@@ -1,3 +1,8 @@
+---
+layout: default
+title: Agent Sudo
+parent: TryHackMe
+---
 # CTF Writeup: [Agent Sudo](https://tryhackme.com/room/agentsudoctf)
 
 > **Platform:** [**TryHackMe**](https://tryhackme.com/) |
@@ -22,7 +27,7 @@ An initial scan of the target machine revealed three open ports:
     curl -A 'C' -L http://<Machine-IP>
     ```
     > **Output:** `Agent name: chris`
-
+With
 2.  With the username `chris`, I used `hydra` to brute-force the FTP password using the `rockyou.txt` wordlist.
 
     ```bash

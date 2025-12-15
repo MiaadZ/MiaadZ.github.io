@@ -1,3 +1,8 @@
+---
+layout: default
+title: Compiled
+parent: TryHackMe
+---
 # CTF Writeup: [Compiled](https://tryhackme.com/room/compiled)
 
 > **Platform:** [**TryHackMe**](https://tryhackme.com/) |

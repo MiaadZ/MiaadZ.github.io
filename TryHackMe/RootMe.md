@@ -1,3 +1,8 @@
+---
+layout: default
+title: RootMe
+parent: TryHackMe
+---
 # CTF Writeup: [RootMe](https://tryhackme.com/room/rrootme)
 
 > **Platform:** [**TryHackMe**](https://tryhackme.com/) |

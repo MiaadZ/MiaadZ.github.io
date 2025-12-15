@@ -1,3 +1,8 @@
+---
+layout: default
+title: lookup
+parent: TryHackMe
+---
 # CTF Writeup: [lookup](https://tryhackme.com/room/lookup)
 
 > **Platform:** [**TryHackMe**](https://tryhackme.com/) |

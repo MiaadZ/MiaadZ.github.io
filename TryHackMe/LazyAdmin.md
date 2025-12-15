@@ -1,3 +1,8 @@
+---
+layout: default
+title: LazyAdmin
+parent: TryHackMe
+---
 # CTF Writeup: [LazyAdmin](https://tryhackme.com/room/lazyadmin)
 
 > **Platform:** [**TryHackMe**](https://tryhackme.com/) |

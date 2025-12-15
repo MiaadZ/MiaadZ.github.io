@@ -1,1 +1,14 @@
+title: MiaadZ | Security
+description: Offensive Security Portfolio & CTF Writeups.
 remote_theme: pmarsceill/just-the-docs
+
+# This removes the "View on GitHub" button if you want it cleaner
+aux_links:
+  "GitHub Profile":
+    - //github.com/MiaadZ
+
+# Color Scheme (Dark mode is hacker-friendly)
+color_scheme: dark
+
+# Search settings (enabled by default)
+search_enabled: true

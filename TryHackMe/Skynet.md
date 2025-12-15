@@ -1,4 +1,12 @@
+---
+layout: default
+title: Skynet
+parent: TryHackMe
+---
 # CTF Writeup: [Skynet](https://tryhackme.com/room/skynet)
+![Category](https://img.shields.io/badge/Category-Network%20%2F%20Web-blue)
+![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green)
+![Tags](https://img.shields.io/badge/Tags-SMB%20%7C%20RFI%20%7C%20Tar%20Wildcard-orange)
 
 > **Platform:** [**TryHackMe**](https://tryhackme.com/) |
 > **OS:** Linux |

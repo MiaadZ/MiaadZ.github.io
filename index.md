@@ -24,6 +24,11 @@ nav_order: 1
 ![Splunk](https://img.shields.io/badge/Splunk-000000?logo=splunk&logoColor=white)
 ![Nmap](https://img.shields.io/badge/Nmap-User-blue)
 
+![Reverse Engineering](https://img.shields.io/badge/Reverse_Engineering-Assembly_%26_GDB-purple)
+![PrivEsc](https://img.shields.io/badge/Linux_PrivEsc-Sudo_%26_Wildcards-red)
+![Code Review](https://img.shields.io/badge/Source_Code_Analysis-Bash_%26_Go-success)
+![CMS](https://img.shields.io/badge/CMS_Exploitation-Wordpress_%26_Cuppa-orange)
+
 ### 🕸️ Web Exploitation
 * **[Mr Robot]({{ site.baseurl }}/TryHackMe/MrRobotCTF)** - Wordpress XML-RPC & RCE.
 * **[RootMe]({{ site.baseurl }}/TryHackMe/RootMe)** - File Upload Bypasses.

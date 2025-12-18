@@ -4,30 +4,23 @@ title: Home
 nav_order: 1
 ---
 # CTF Portfolio: MiaadZ ([S3Z4R](https://tryhackme.com/p/S3Z4R))
-> **Role:** Peneteration Tester | 
-> **Status:** Top 10% @ [TryHackMe](https://tryhackme.com/)
+> **Peneteration Tester** | 
+> **Top 10% @**[![TryHackMe](https://img.shields.io/badge/TryHackMe-S3Z4R-green?logo=tryhackme&logoColor=white)](https://tryhackme.com/p/S3Z4R)
 
-[![TryHackMe](https://img.shields.io/badge/TryHackMe-S3Z4R-green?logo=tryhackme&logoColor=white)](https://tryhackme.com/p/S3Z4R)
 ---
 ### 🛠️ Skills
 
-![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
-![Bash](https://img.shields.io/badge/Bash-4EAA25?logo=gnu-bash&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-4479A1?logo=mysql&logoColor=white)
-
 ![Linux](https://img.shields.io/badge/Linux-FCC624?logo=linux&logoColor=black)
 ![Kali](https://img.shields.io/badge/Kali_Linux-557C94?logo=kali-linux&logoColor=white)
+![Bash](https://img.shields.io/badge/Bash-4EAA25?logo=gnu-bash&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-4479A1?logo=mysql&logoColor=white)
 
 ![Metasploit](https://img.shields.io/badge/Metasploit-333333?logo=metasploit&logoColor=white)
 ![Burp Suite](https://img.shields.io/badge/Burp_Suite-FF6633?logo=burpsuite&logoColor=white)
 ![Wireshark](https://img.shields.io/badge/Wireshark-1679A7?logo=wireshark&logoColor=white)
 ![Splunk](https://img.shields.io/badge/Splunk-000000?logo=splunk&logoColor=white)
 ![Nmap](https://img.shields.io/badge/Nmap-User-blue)
-
-![Reverse Engineering](https://img.shields.io/badge/Reverse_Engineering-Assembly_%26_GDB-purple)
-![PrivEsc](https://img.shields.io/badge/Linux_PrivEsc-Sudo_%26_Wildcards-red)
-![Code Review](https://img.shields.io/badge/Source_Code_Analysis-Bash_%26_Go-success)
-![CMS](https://img.shields.io/badge/CMS_Exploitation-Wordpress_%26_Cuppa-orange)
 
 ### 🕸️ Web Exploitation
 * **[Mr Robot]({{ site.baseurl }}/TryHackMe/MrRobotCTF)** - Wordpress XML-RPC & RCE.

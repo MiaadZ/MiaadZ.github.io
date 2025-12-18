@@ -7,6 +7,7 @@ nav_order: 1
 > **Role:** Peneteration Tester | 
 > **Status:** Top 10% @ [TryHackMe](https://tryhackme.com/)
 
+[![TryHackMe](https://img.shields.io/badge/TryHackMe-User-CRIMSON?logo=tryhackme&style=flat)](https://tryhackme.com/p/S3Z4R)
 <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=1251099" style="background: transparent; border:none;"></iframe>
 ---
 ## 🎯 My Skills (The Matrix)

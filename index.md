@@ -3,17 +3,13 @@ layout: home
 title: Home
 nav_order: 1
 ---
-
-# Security Portfolio: MiaadZ (S3Z4R)
+# CTF Portfolio: MiaadZ ([S3Z4R](https://tryhackme.com/p/S3Z4R))
 > **Role:** Peneteration Tester | 
-> **Status:** Top 10% at [TryHackMe](https://tryhackme.com/p/S3Z4R)
+> **Status:** Top 10% @ [TryHackMe](https://tryhackme.com/)
 
 <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=1251099" style='border:none;'></iframe>
-
 ---
-
-## 🎯 By Skill Category (The Matrix)
-*Quickly jump to writeups demonstrating specific attack vectors.*
+## 🎯 My Skills (The Matrix)
 
 ### 🕸️ Web Exploitation
 * **[Mr Robot]({{ site.baseurl }}/TryHackMe/MrRobot)** - Wordpress XML-RPC & RCE.

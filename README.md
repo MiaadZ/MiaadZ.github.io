@@ -1,14 +1,14 @@
-# Security Portfolio | MiaadZ (S3Z4R)
+# CTF Portfolio | MiaadZ (S3Z4R)
 
-This repository hosts the source code for my cybersecurity portfolio and CTF knowledge base. It is built using **Jekyll** and the **Just the Docs** theme.
+This repository hosts the source code for my Hacking portfolio and CTF knowledge base. It is built using **Jekyll** and the **Just the Docs** theme.
 
 ## 🚀 Live Access
 **View the Portfolio:** [https://miaadz.github.io/](https://miaadz.github.io/)
 
 ## 📂 Repository Contents
-* **TryHackMe:** Detailed walkthroughs of CTF challenges focusing on Web, Network, and Source Code Analysis.
-* **HackTheBox:** (Upcoming) Advanced infrastructure assessments.
-* **Resources:** (Upcoming) Custom scripts and cheat sheets used during operations.
+* **TryHackMe:** Detailed walkthroughs of CTF challenges on [TryHackMe](https://tryhackme.com/) Platform.
+* **HackTheBox:** (Upcoming) Lab Writeups on [HackTheBox](https://www.hackthebox.com/) Platform.
+* **Resources:** (Upcoming) Detailed Explanation of custom scripts, cheat sheets and tools used during operations.
 
 ## 🛠️ Tech Stack
 * **Engine:** Jekyll
@@ -16,7 +16,5 @@ This repository hosts the source code for my cybersecurity portfolio and CTF kno
 * **Hosting:** GitHub Pages
 
 ---
-*Maintained by S3Z4R.*
+*Maintained by MiaadZ (S3Z4R)*
 
----
-<p style="text-align: center; text-shadow: 0 0 5px #8B0000;"> ⸸ 𝕬𝖘 𝖞𝖔𝖚 𝖜𝖎𝖑𝖑 𝖎𝖙, 𝖘𝖔 𝖎𝖙 𝖘𝖍𝖆𝖑𝖑 𝖇𝖊 ⸸ 𝕾3𝖅4𝕽 ⸸ </p>

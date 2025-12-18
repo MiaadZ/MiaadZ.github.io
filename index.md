@@ -4,8 +4,8 @@ title: Home
 nav_order: 1
 ---
 # CTF Portfolio: MiaadZ ([S3Z4R](https://tryhackme.com/p/S3Z4R))
-> **Peneteration Tester** | 
-> **Top 10% @**[![TryHackMe](https://img.shields.io/badge/TryHackMe-S3Z4R-green?logo=tryhackme&logoColor=white)](https://tryhackme.com/p/S3Z4R)
+**Peneteration Tester** | 
+**Top 10% @** [![TryHackMe](https://img.shields.io/badge/TryHackMe-S3Z4R-green?logo=tryhackme&logoColor=white)](https://tryhackme.com/p/S3Z4R)
 
 ---
 ### 🛠️ Skills
@@ -20,7 +20,7 @@ nav_order: 1
 ![Burp Suite](https://img.shields.io/badge/Burp_Suite-FF6633?logo=burpsuite&logoColor=white)
 ![Wireshark](https://img.shields.io/badge/Wireshark-1679A7?logo=wireshark&logoColor=white)
 ![Splunk](https://img.shields.io/badge/Splunk-000000?logo=splunk&logoColor=white)
-![Nmap](https://img.shields.io/badge/Nmap-User-blue)
+![Nmap](https://img.shields.io/badge/Nmap-0D93DA?logo=nmap&logoColor=white)
 
 ### 🕸️ Web Exploitation
 * **[Mr Robot]({{ site.baseurl }}/TryHackMe/MrRobotCTF)** - Wordpress XML-RPC & RCE.

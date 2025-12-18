@@ -7,10 +7,22 @@ nav_order: 1
 > **Role:** Peneteration Tester | 
 > **Status:** Top 10% @ [TryHackMe](https://tryhackme.com/)
 
-[![TryHackMe](https://img.shields.io/badge/TryHackMe-User-CRIMSON?logo=tryhackme&style=flat)](https://tryhackme.com/p/S3Z4R)
-<iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=1251099" style="background: transparent; border:none;"></iframe>
+[![TryHackMe](https://img.shields.io/badge/TryHackMe-S3Z4R-green?logo=tryhackme&logoColor=white)](https://tryhackme.com/p/S3Z4R)
 ---
-## 🎯 My Skills (The Matrix)
+### 🛠️ Skills
+
+![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
+![Bash](https://img.shields.io/badge/Bash-4EAA25?logo=gnu-bash&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-4479A1?logo=mysql&logoColor=white)
+
+![Linux](https://img.shields.io/badge/Linux-FCC624?logo=linux&logoColor=black)
+![Kali](https://img.shields.io/badge/Kali_Linux-557C94?logo=kali-linux&logoColor=white)
+
+![Metasploit](https://img.shields.io/badge/Metasploit-333333?logo=metasploit&logoColor=white)
+![Burp Suite](https://img.shields.io/badge/Burp_Suite-FF6633?logo=burpsuite&logoColor=white)
+![Wireshark](https://img.shields.io/badge/Wireshark-1679A7?logo=wireshark&logoColor=white)
+![Splunk](https://img.shields.io/badge/Splunk-000000?logo=splunk&logoColor=white)
+![Nmap](https://img.shields.io/badge/Nmap-User-blue)
 
 ### 🕸️ Web Exploitation
 * **[Mr Robot]({{ site.baseurl }}/TryHackMe/MrRobotCTF)** - Wordpress XML-RPC & RCE.

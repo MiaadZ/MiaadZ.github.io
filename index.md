@@ -12,7 +12,7 @@ nav_order: 1
 ## 🎯 My Skills (The Matrix)
 
 ### 🕸️ Web Exploitation
-* **[Mr Robot]({{ site.baseurl }}/TryHackMe/MrRobot)** - Wordpress XML-RPC & RCE.
+* **[Mr Robot]({{ site.baseurl }}/TryHackMe/MrRobotCTF)** - Wordpress XML-RPC & RCE.
 * **[RootMe]({{ site.baseurl }}/TryHackMe/RootMe)** - File Upload Bypasses.
 * **[LazyAdmin]({{ site.baseurl }}/TryHackMe/LazyAdmin)** - MySQL Backup Extraction & Arbitrary File Upload.
 * **[Overpass]({{ site.baseurl }}/TryHackMe/Overpass)** - Broken Access Control (Cookie Manipulation).

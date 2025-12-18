@@ -5,8 +5,10 @@ nav_order: 1
 ---
 
 # Security Portfolio: MiaadZ (S3Z4R)
-**Role:** CTF Solver!
-**Status:** Top 10% @ TryHackMe
+> **Role:** Peneteration Tester | 
+> **Status:** Top 10% at [TryHackMe](https://tryhackme.com/p/S3Z4R)
+
+<iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=1251099" style='border:none;'></iframe>
 
 ---
 

@@ -4,6 +4,9 @@ title: LazyAdmin
 parent: TryHackMe
 ---
 # CTF Writeup: [LazyAdmin](https://tryhackme.com/room/lazyadmin)
+![Category](https://img.shields.io/badge/Category-Web%20Exploitation-blue)
+![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green)
+![Tags](https://img.shields.io/badge/Tags-MySQL%20Backup%20%7C%20PHP%20Shell-orange)
 
 > **Platform:** [**TryHackMe**](https://tryhackme.com/) |
 > **OS:** Linux |

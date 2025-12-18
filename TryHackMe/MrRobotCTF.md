@@ -4,6 +4,9 @@ title: Mr Robot CTF
 parent: TryHackMe
 ---
 # CTF Writeup: [Mr Robot CTF](https://tryhackme.com/room/mrrobot)
+![Category](https://img.shields.io/badge/Category-Web%20Exploitation-blue)
+![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
+![Tags](https://img.shields.io/badge/Tags-Wordpress%20%7C%20SUID%20Nmap%20%7C%20XML--RPC-orange)
 
 > **Platform:** [**TryHackMe**](https://tryhackme.com/) |
 > **OS:** Linux |

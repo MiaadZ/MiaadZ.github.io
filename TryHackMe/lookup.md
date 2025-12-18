@@ -4,6 +4,9 @@ title: lookup
 parent: TryHackMe
 ---
 # CTF Writeup: [lookup](https://tryhackme.com/room/lookup)
+![Category](https://img.shields.io/badge/Category-Web%20Exploitation-blue)
+![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green)
+![Tags](https://img.shields.io/badge/Tags-Command%20Injection%20%7C%20Elfinder-orange)
 
 > **Platform:** [**TryHackMe**](https://tryhackme.com/) |
 > **OS:** Linux |

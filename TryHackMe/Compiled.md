@@ -4,6 +4,9 @@ title: Compiled
 parent: TryHackMe
 ---
 # CTF Writeup: [Compiled](https://tryhackme.com/room/compiled)
+![Category](https://img.shields.io/badge/Category-Reverse%20Engineering-purple)
+![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green)
+![Tags](https://img.shields.io/badge/Tags-GDB%20%7C%20Buffer%20Overflow%20%7C%20Assembly-orange)
 
 > **Platform:** [**TryHackMe**](https://tryhackme.com/) |
 > **OS:** Linux |

@@ -4,6 +4,9 @@ title: Agent Sudo
 parent: TryHackMe
 ---
 # CTF Writeup: [Agent Sudo](https://tryhackme.com/room/agentsudoctf)
+![Category](https://img.shields.io/badge/Category-Network%20%2F%20PrivEsc-blue)
+![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green)
+![Tags](https://img.shields.io/badge/Tags-FTP%20%7C%20Stego%20%7C%20Sudo%20Exploit-orange)
 
 > **Platform:** [**TryHackMe**](https://tryhackme.com/) |
 > **OS:** Linux |

@@ -4,6 +4,9 @@ title: Cyborg
 parent: TryHackMe
 ---
 # CTF Writeup: [Cyborg](https://tryhackme.com/room/cyborgt8)
+![Category](https://img.shields.io/badge/Category-Source%20Code%20Analysis-blue)
+![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green)
+![Tags](https://img.shields.io/badge/Tags-Bash%20Code%20Review%20%7C%20Borg%20Backup-orange)
 
 > **Platform:** [**TryHackMe**](https://tryhackme.com/) |
 > **OS:** Linux |

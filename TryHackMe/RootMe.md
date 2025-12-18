@@ -4,6 +4,9 @@ title: RootMe
 parent: TryHackMe
 ---
 # CTF Writeup: [RootMe](https://tryhackme.com/room/rrootme)
+![Category](https://img.shields.io/badge/Category-Web%20Exploitation-blue)
+![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green)
+![Tags](https://img.shields.io/badge/Tags-File%20Upload%20%7C%20SUID%20Python-orange)
 
 > **Platform:** [**TryHackMe**](https://tryhackme.com/) |
 > **OS:** Linux |

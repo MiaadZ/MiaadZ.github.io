@@ -18,6 +18,8 @@ nav_order: 1
 
 ![Metasploit](https://img.shields.io/badge/Metasploit-333333?logo=metasploit&logoColor=white)
 ![Burp Suite](https://img.shields.io/badge/Burp_Suite-FF6633?logo=burpsuite&logoColor=white)
+![Hashcat](https://img.shields.io/badge/Hashcat-D32F2F?logo=hashcat&logoColor=white)
+![John the Ripper](https://img.shields.io/badge/John_the_Ripper-Crimson?logo=lock&logoColor=white)
 ![Wireshark](https://img.shields.io/badge/Wireshark-1679A7?logo=wireshark&logoColor=white)
 ![Splunk](https://img.shields.io/badge/SIEM-000000?logo=splunk&logoColor=white)
 ![Nmap](https://img.shields.io/badge/Nmap-0D93DA?logo=nmap&logoColor=white)

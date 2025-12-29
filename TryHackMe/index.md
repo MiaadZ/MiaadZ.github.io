@@ -9,7 +9,7 @@ nav_order: 2
 A collection of walkthroughs and CTF solutions from the TryHackMe platform.
 
 ## Statistics
-* **Current Rank:** Top 10%
+<iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=1251099" style='border:none;'></iframe>
 * **Focus Areas:** Web Exploitation, Network Services, Linux Privilege Escalation.
 
 ### Latest Writeups

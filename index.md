@@ -3,11 +3,13 @@ layout: home
 title: Home
 nav_order: 1
 ---
+
 # CTF Portfolio: MiaadZ ([S3Z4R](https://tryhackme.com/p/S3Z4R))
-**Peneteration Tester** | 
+**Offensive Security & Penetration Testing** | 
 **Top 9% @** [TryHackMe](https://tryhackme.com/)
 
 ---
+
 [![TryHackMe](https://img.shields.io/badge/TryHackMe-S3Z4R-green?logo=tryhackme&logoColor=white)](https://tryhackme.com/p/S3Z4R)
 
 ![Linux](https://img.shields.io/badge/Linux-FCC624?logo=linux&logoColor=black)
@@ -24,29 +26,36 @@ nav_order: 1
 ![Splunk](https://img.shields.io/badge/SIEM-000000?logo=splunk&logoColor=white)
 ![Nmap](https://img.shields.io/badge/Nmap-0D93DA?logo=nmap&logoColor=white)
 
-### 🕸️ Web Exploitation
-* **[Mr Robot]({{ site.baseurl }}/TryHackMe/MrRobotCTF)** - Wordpress XML-RPC & RCE.
-* **[RootMe]({{ site.baseurl }}/TryHackMe/RootMe)** - File Upload Bypasses.
-* **[LazyAdmin]({{ site.baseurl }}/TryHackMe/LazyAdmin)** - MySQL Backup Extraction & Arbitrary File Upload.
-* **[Overpass]({{ site.baseurl }}/TryHackMe/Overpass)** - Broken Access Control (Cookie Manipulation).
-* **[Skynet]({{ site.baseurl }}/TryHackMe/Skynet)** - Cuppa CMS Remote File Inclusion (RFI).
+---
 
-### 🖥️ Network & Infrastructure
-* **[Skynet]({{ site.baseurl }}/TryHackMe/Skynet)** - SMB Enumeration & Brute-force.
-* **[Agent Sudo]({{ site.baseurl }}/TryHackMe/AgentSudo)** - FTP Steganography.
-* **[Basic Pentesting]({{ site.baseurl }}/TryHackMe/BasicPentesting)** - SMB NULL Session & SSH Cracking.
-
-### 🛡️ Privilege Escalation (Linux)
-* **[Agent Sudo]({{ site.baseurl }}/TryHackMe/AgentSudo)** - Sudo CVE-2019-14287 (User ID -1).
-* **[Skynet]({{ site.baseurl }}/TryHackMe/Skynet)** - Tar Wildcard Injection.
-* **[Cyborg]({{ site.baseurl }}/TryHackMe/Cyborg)** - Bash Script Code Review (Argparse).
-* **[RootMe]({{ site.baseurl }}/TryHackMe/RootMe)** - SUID Python exploit.
-
-### 🧬 Reverse Engineering
-* **[Compiled]({{ site.baseurl }}/TryHackMe/Compiled)** - GDB Analysis, Buffer Overflow, & Assembly Review.
+### 📡 Status Transmission
+> **Current Objective:** Preparing for **Junior Penetration Tester (PT1)**.
+> <br>
+> **Latest Achievement:** Completed **Advent of Cyber 2025** (Top 9% Global Rank).
 
 ---
 
-## 📂 By Platform
-* [**TryHackMe Collection**]({{ site.baseurl }}/TryHackMe/)
-* [**HackTheBox Collection**]({{ site.baseurl }}/HackTheBox/)
+### 📝 Latest Writeups
+* **[Advent of Cyber 2025]({{ site.baseurl }}/TryHackMe/Advent-of-Cyber-2025)**
+  <br>
+  *Dec 2025* - Retrospective on Cloud Security, AI Prompt Injection, and Container Forensics.
+
+* **[Skynet]({{ site.baseurl }}/TryHackMe/Skynet)**
+  <br>
+  *Nov 2025* - SMB Enumeration, CMS Exploitation (RFI), and Tar Wildcard Injection.
+
+* **[Mr Robot]({{ site.baseurl }}/TryHackMe/MrRobotCTF)**
+  <br>
+  *Oct 2025* - Wordpress XML-RPC Attack and Reverse Shell execution.
+
+---
+
+### 📂 The Vault (Full Collections)
+
+<div align="center">
+
+| | |
+| :---: | :---: |
+| [![TryHackMe Collection](https://img.shields.io/badge/TryHackMe-Writeups-880000?style=for-the-badge&logo=tryhackme&logoColor=white)]({{ site.baseurl }}/TryHackMe/) | [![HackTheBox Collection](https://img.shields.io/badge/HackTheBox-Writeups-1f2537?style=for-the-badge&logo=hackthebox&logoColor=white)]({{ site.baseurl }}/HackTheBox/) |
+
+</div>

@@ -53,9 +53,11 @@ nav_order: 1
 ### 📂 The Vault (Full Collections)
 
 <div align="center">
-
-| | |
-| :---: | :---: |
-| [![TryHackMe Collection](https://img.shields.io/badge/TryHackMe-Writeups-880000?style=for-the-badge&logo=tryhackme&logoColor=white)]({{ site.baseurl }}/TryHackMe/) | [![HackTheBox Collection](https://img.shields.io/badge/HackTheBox-Writeups-1f2537?style=for-the-badge&logo=hackthebox&logoColor=white)]({{ site.baseurl }}/HackTheBox/) |
-
+  <a href="{{ site.baseurl }}/TryHackMe/">
+    <img src="https://img.shields.io/badge/TryHackMe-Writeups-880000?style=for-the-badge&logo=tryhackme&logoColor=white" alt="TryHackMe Collection">
+  </a>
+  &nbsp; &nbsp;
+  <a href="{{ site.baseurl }}/HackTheBox/">
+    <img src="https://img.shields.io/badge/HackTheBox-Writeups-1f2537?style=for-the-badge&logo=hackthebox&logoColor=white" alt="HackTheBox Collection">
+  </a>
 </div>

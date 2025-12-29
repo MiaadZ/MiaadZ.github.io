@@ -17,11 +17,11 @@ nav_order: 1
 [![TryHackMe](https://img.shields.io/badge/TryHackMe-S3Z4R-green?style=flat-square&logo=tryhackme&logoColor=white)](https://tryhackme.com/p/S3Z4R)
 ![Kali](https://img.shields.io/badge/Kali_Linux-557C94?style=flat-square&logo=kali-linux&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
-
+<br>
 ![Bash](https://img.shields.io/badge/Bash-4EAA25?style=flat-square&logo=gnu-bash&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
-
+<br>
 ![Metasploit](https://img.shields.io/badge/Metasploit-333333?style=flat-square&logo=metasploit&logoColor=white)
 ![Burp Suite](https://img.shields.io/badge/Burp_Suite-FF6633?style=flat-square&logo=burpsuite&logoColor=white)
 ![Nmap](https://img.shields.io/badge/Nmap-0D93DA?style=flat-square&logo=nmap&logoColor=white)
@@ -43,14 +43,18 @@ nav_order: 1
 ---
 
 ### 📝 Latest Writeups
-<ul>
-  {% for post in site.posts limit:5 %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
-      <span style="float:right; color:#666; font-size:0.9em;">{{ post.date | date: "%b %d, %Y" }}</span>
-    </li>
-  {% endfor %}
-</ul>
+
+* **[Advent of Cyber 2025]({{ site.baseurl }}/TryHackMe/Advent-of-Cyber-2025)**
+  <br>
+  *Dec 2025* - Retrospective on Cloud Security, AI Prompt Injection, and Container Forensics.
+
+* **[Skynet]({{ site.baseurl }}/TryHackMe/Skynet)**
+  <br>
+  *Nov 2025* - SMB Enumeration, CMS Exploitation (RFI), and Tar Wildcard Injection.
+
+* **[Mr Robot]({{ site.baseurl }}/TryHackMe/MrRobotCTF)**
+  <br>
+  *Oct 2025* - Wordpress XML-RPC Attack and Reverse Shell execution.
 
 ---
 

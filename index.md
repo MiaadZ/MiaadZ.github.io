@@ -52,7 +52,7 @@ nav_order: 1
 
 ### 📂 The Vault (Full Collections)
 
-<div align="center">
+<div align="left">
   <a href="{{ site.baseurl }}/TryHackMe/">
     <img src="https://img.shields.io/badge/TryHackMe-Writeups-880000?style=for-the-badge&logo=tryhackme&logoColor=white" alt="TryHackMe Collection">
   </a>

@@ -10,7 +10,7 @@ parent: TryHackMe
 
 > **Platform:** [**TryHackMe**](https://tryhackme.com/) |
 > **OS:** Linux |
-> **Difficulty:** Easy |
+> **Difficulty:** Medium |
 > **Date:** 07.12.2025 |
 > **Author:** [*S3Z4R*](https://tryhackme.com/p/SeZaR)
 

@@ -31,7 +31,7 @@ nav_order: 1
 ### 📡 Status Transmission
 > **Current Objective:** Preparing for **Junior Penetration Tester (PT1)**.
 > <br>
-> **Latest Achievement:** Completed **Advent of Cyber 2025** (Top 9% Global Rank).
+> **Latest Achievement:** Completed **Advent of Cyber 2025** (Top 8% Global Rank).
 
 ---
 

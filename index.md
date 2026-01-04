@@ -36,6 +36,9 @@ nav_order: 1
 ---
 
 ### 📝 Latest Writeups
+* **[TryHack3M Bricks Heist]({{ site.baseurl }}/TryHackMe/TryHack3MBricksHeist)**
+  <br>
+  *Jan 2026* - WordPress RCE (CVE-2024-25600), Systemd Persistence Analysis, and Blockchain Forensics attribution to LockBit.
 * **[Advent of Cyber 2025]({{ site.baseurl }}/TryHackMe/Advent-of-Cyber-2025)**
   <br>
   *Dec 2025* - Retrospective on Cloud Security, AI Prompt Injection, and Container Forensics.

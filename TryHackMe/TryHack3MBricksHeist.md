@@ -12,7 +12,7 @@ parent: TryHackMe
 > **OS:** Linux |
 > **Difficulty:** Easy |
 > **Date:** 04.01.2026 |
-> **Author:** [*S3Z4R*](https://tryhackme.com/p/SeZaR)
+> **Author:** [*S3Z4R*](https://tryhackme.com/p/S3Z4R)
 
 ---
 ## 1. Reconnaissance

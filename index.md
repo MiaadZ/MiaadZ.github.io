@@ -6,7 +6,7 @@ nav_order: 1
 
 # CTF Portfolio: MiaadZ (S3Z4R)
 **Offensive Security & Penetration Testing** | 
-**Top 8% @** [TryHackMe](https://tryhackme.com/p/S3Z4R)
+**Top 7% @** [TryHackMe](https://tryhackme.com/p/S3Z4R)
 
 ---
 

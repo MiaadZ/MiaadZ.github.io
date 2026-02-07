@@ -1,27 +1,26 @@
 ---
-layout: home
-title: "CTF Portfolio: MiaadZ (S3Z4R)"
-nav_order: 1
+layout: single
+title: Home
+permalink: /
+author_profile: true
 sidebar:
   nav: "main"
 ---
 
 <style>
-  .archive__item-title a { text-decoration: none; }
+  /* Remove the default page title since we have a custom header */
+  .page__title { display: none; }
+  
+  /* List View Styling */
   .list-item {
     border-bottom: 1px solid #333;
     padding-bottom: 10px;
     margin-bottom: 10px;
   }
-  .list-meta { font-size: 0.8em; color: #888; }
-  /* HIDE THE AUTOMATIC RECENT POSTS AT BOTTOM */
-  .entries-grid, .entries-list, .archive { display: none !important; }
-  /* But bring back our custom sections */
-  #my-custom-content .archive { display: block !important; }
+  .archive__item-title a { text-decoration: none; }
 </style>
 
-<div id="my-custom-content">
-
+# CTF Portfolio: MiaadZ (S3Z4R)
 **Offensive Security & Penetration Testing** | **Top 7% @** [TryHackMe](https://tryhackme.com/p/S3Z4R)
 
 ---
@@ -43,7 +42,7 @@ sidebar:
     <h3 class="archive__item-title" style="margin-top: 0; font-size: 1.1em;">
       <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
     </h3>
-    <div class="list-meta">
+    <div style="font-size: 0.8em; color: #888;">
       <i class="far fa-calendar-alt"></i> {{ post.date | date: "%Y-%m-%d" }} | 
       <span style="color: #3498db;">{{ post.os }}</span> | 
       <span style="color: {% if post.difficulty == 'Easy' %}#2ecc71{% elsif post.difficulty == 'Medium' %}#f1c40f{% else %}#e74c3c{% endif %};">
@@ -72,7 +71,7 @@ sidebar:
         <h3 class="archive__item-title">
           <a href="{{ post.url | relative_url }}">🏆 {{ post.title }}</a>
         </h3>
-        <p class="page__meta">
+        <p class="page__meta" style="font-size: 0.8em;">
            <b>{{ post.date | date: "%B %Y" }}</b><br>
            <span style="color: #3498db;">{{ post.os }}</span> | 
            <span style="color: {% if post.difficulty == 'Easy' %}#2ecc71{% elsif post.difficulty == 'Medium' %}#f1c40f{% else %}#e74c3c{% endif %};">
@@ -82,6 +81,4 @@ sidebar:
       </article>
     </div>
   {% endfor %}
-</div>
-
 </div>

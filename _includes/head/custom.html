@@ -1,42 +1,41 @@
 <style>
-  /* 1. KILL THE FOLLOW BUTTON (Mobile & Desktop) */
-  .page__footer-follow { display: none !important; }
-  .page__footer .fas.fa-rss { display: none !important; }
-
-  /* 2. OPTIONAL: Hide Mobile Toggle Menu (NOT RECOMMENDED) */
-  /* Uncomment the line below if you truly want no menu on phone */
-  /* .greedy-nav .nav-selector { display: none !important; } */
-
-  /* 3. FIX "STAR OF THE MONTH" GRID SQUISHING */
-  .grid__wrapper {
-    display: grid;
-    /* This allows cards to wrap if screen is too small, preventing text squish */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-    gap: 20px;
+  /* GOLDEN HALL OF FAME (Starred Items) */
+  .starred-item {
+    background: linear-gradient(90deg, rgba(241, 196, 15, 0.1) 0%, rgba(0,0,0,0) 100%);
+    border-left: 4px solid #f1c40f; /* Gold Bar */
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 0 4px 4px 0;
+    transition: transform 0.2s;
   }
-  
-  /* 4. TOOLS INDEX STYLING (Left Aligned, No Background) */
-  .tool-index-container {
-    background: transparent !important; /* No Black Box */
-    border: none !important;
-    padding: 0 !important;
-    margin-bottom: 30px;
-    text-align: left !important; /* Left Align */
+  .starred-item:hover { transform: translateX(5px); }
+  .starred-title { font-size: 1.1em; font-weight: bold; color: #f1c40f !important; text-decoration: none; }
+
+  /* CLEAN LIST VIEW (Recent Activity & Hubs) */
+  .list-item {
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
   }
+  .list-meta { font-size: 0.85em; color: #888; white-space: nowrap; }
+  .archive__item-title a { text-decoration: none; }
+
+  /* TOOLS PAGE STYLING */
   .tool-badge {
-    display: inline-block;
-    background: #151515; /* Dark Grey Button */
-    color: #ccc;
-    padding: 5px 10px;
-    margin: 0 5px 5px 0; /* Tight spacing */
-    border-radius: 4px;
-    font-size: 0.8em;
-    text-decoration: none;
-    border: 1px solid #333;
+    display: inline-block; background: #151515; color: #ccc;
+    padding: 4px 8px; margin: 3px; border-radius: 4px; font-size: 0.8em;
+    text-decoration: none; border: 1px solid #333;
   }
-  .tool-badge:hover {
-    background: #3498db;
-    color: white;
-    border-color: #3498db;
+  .tool-badge:hover { background: #3498db; color: white; border-color: #3498db; }
+  
+  .tool-item {
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid #222; padding: 8px 0;
   }
+  .tool-meta {
+    font-size: 0.8em; font-family: monospace; color: #666; white-space: nowrap; margin-left: 10px;
+  }
+
+  /* Hide default title on pages */
+  .page__title { display: none; }
 </style>

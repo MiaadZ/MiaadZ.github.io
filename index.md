@@ -33,7 +33,7 @@ sidebar:
   <img src="https://img.shields.io/badge/Burp_Suite-FF6633?logo=burpsuite&logoColor=white">
 </div>
 
-## 📡 Recent Activity
+## Recent Activity
 
 {% assign latest_posts = site.pages | sort: "date" | reverse %}
 {% for post in latest_posts limit: 5 %}
@@ -55,7 +55,7 @@ sidebar:
 
 ---
 
-## ⭐ Star of the Month
+## Star of the Month
 
 <style>
   .grid__wrapper { display: flex; flex-wrap: wrap; gap: 15px; }

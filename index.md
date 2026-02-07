@@ -1,122 +1,90 @@
 ---
 layout: home
-title: "CTF Portfolio: MiaadZ (S3Z4R)"
-author_profile: true
-classes: wide
+title: Home
 nav_order: 1
 sidebar:
   nav: "main"
 ---
 
-**Offensive Security & Penetration Testing** | 
-**Top 7% @** [TryHackMe](https://tryhackme.com/p/S3Z4R)
+# CTF Portfolio: MiaadZ (S3Z4R)
+**Offensive Security & Penetration Testing** | **Top 7% @** [TryHackMe](https://tryhackme.com/p/S3Z4R)
 
 ---
 
-[![TryHackMe](https://img.shields.io/badge/TryHackMe-S3Z4R-green?logo=tryhackme&logoColor=white)](https://tryhackme.com/p/S3Z4R)
+<div style="margin-bottom: 30px;">
+  <a href="https://tryhackme.com/p/S3Z4R"><img src="https://img.shields.io/badge/TryHackMe-S3Z4R-green?logo=tryhackme&logoColor=white"></a>
+  <img src="https://img.shields.io/badge/Linux-FCC624?logo=linux&logoColor=black">
+  <img src="https://img.shields.io/badge/Kali_Linux-557C94?logo=kali-linux&logoColor=white">
+  <img src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white">
+  <img src="https://img.shields.io/badge/Burp_Suite-FF6633?logo=burpsuite&logoColor=white">
+  <img src="https://img.shields.io/badge/Nmap-0D93DA?logo=nmap&logoColor=white">
+</div>
 
-![Linux](https://img.shields.io/badge/Linux-FCC624?logo=linux&logoColor=black)
-![Kali](https://img.shields.io/badge/Kali_Linux-557C94?logo=kali-linux&logoColor=white)
-![Bash](https://img.shields.io/badge/Bash-4EAA25?logo=gnu-bash&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-4479A1?logo=mysql&logoColor=white)
+## 📡 Recent Activity
 
-![Metasploit](https://img.shields.io/badge/Metasploit-333333?logo=metasploit&logoColor=white)
-![Burp Suite](https://img.shields.io/badge/Burp_Suite-FF6633?logo=burpsuite&logoColor=white)
-![Hashcat](https://img.shields.io/badge/Hashcat-D32F2F?logo=hashcat&logoColor=white)
-![John the Ripper](https://img.shields.io/badge/John_the_Ripper-Crimson?logo=lock&logoColor=white)
-![Wireshark](https://img.shields.io/badge/Wireshark-1679A7?logo=wireshark&logoColor=white)
-![Splunk](https://img.shields.io/badge/SIEM-000000?logo=splunk&logoColor=white)
-![Nmap](https://img.shields.io/badge/Nmap-0D93DA?logo=nmap&logoColor=white)
-
----
-
-### 📡 Status Transmission
-> **Current Objective:** Preparing for **Junior Penetration Tester (PT1)**.
-> <br>
-> **Latest Achievement:** Completed **Advent of Cyber 2025** (Top 7% Global Rank).
-
----
-
-### 📝 Latest Writeups
-* **[TryHack3M Bricks Heist]({{ site.baseurl }}/TryHackMe/TryHack3MBricksHeist)**
-  <br>
-  *Jan 2026* - WordPress RCE (CVE-2024-25600), Systemd Persistence Analysis, and Blockchain Forensics attribution to LockBit.
-* **[Advent of Cyber 2025]({{ site.baseurl }}/TryHackMe/Advent-of-Cyber-2025)**
-  <br>
-  *Dec 2025* - Retrospective on Cloud Security, AI Prompt Injection, and Container Forensics.
-
-* **[Skynet]({{ site.baseurl }}/TryHackMe/Skynet)**
-  <br>
-  *Nov 2025* - SMB Enumeration, CMS Exploitation (RFI), and Tar Wildcard Injection.
-
-* **[Mr Robot]({{ site.baseurl }}/TryHackMe/MrRobotCTF)**
-  <br>
-  *Oct 2025* - Wordpress XML-RPC Attack and Reverse Shell execution.
+<ul>
+  {% assign latest_posts = site.pages | sort: "date" | reverse %}
+  {% for post in latest_posts limit: 6 %}
+    {% if post.title != "Home" and post.title != "Armory & Tools" and post.title != "TryHackMe Operations" and post.title != "HackTheBox Operations" %}
+    <li style="margin-bottom: 10px;">
+      <a href="{{ post.url | relative_url }}" style="font-weight: bold; font-size: 1.1em;">{{ post.title }}</a> 
+      <small style="color: #aaa;">
+        — {{ post.date | date: "%Y-%m-%d" }} 
+        [{{ post.difficulty }} {{ post.os }}]
+      </small>
+    </li>
+    {% endif %}
+  {% endfor %}
+</ul>
 
 ---
 
-### ⭐ Featured Operations
+## ⭐ Star of the Month
 
 <style>
-  .grid__wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+  /* Grid Layout */
+  .grid__wrapper { display: flex; flex-wrap: wrap; gap: 15px; }
+  .grid__item { flex: 1 1 250px; max-width: 350px; }
+  
+  /* Remove Black Background & Borders */
+  .archive__item { 
+    background: transparent !important; 
+    border: none !important; 
+    padding: 0 !important;
   }
-  .grid__item {
-    flex: 1 1 300px;
-    max-width: 400px; /* Prevents giant cards */
-    margin-bottom: 0;
-  }
-  .archive__item {
-    height: 100%;
-    border: 1px solid #333;
-    border-radius: 6px;
-    padding: 15px;
-    background: #151515;
-  }
-  .archive__item-title {
-    font-size: 1.2em;
-    margin-bottom: 5px;
-  }
+  
+  /* Fix Title Styling in Grid */
+  .archive__item-title { margin-top: 0; font-size: 1.1em; }
+  .archive__item-title a { text-decoration: none; }
+  
+  /* Align Metadata */
+  .page__meta { font-size: 0.8em; margin-top: 5px; }
 </style>
 
 <div class="grid__wrapper">
   {% assign starred_posts = site.pages | where: "starred", true | sort: "date" | reverse %}
   
-  {% for post in starred_posts limit: 6 %}
+  {% for post in starred_posts limit: 3 %}
     <div class="grid__item">
       <article class="archive__item">
-        <h2 class="archive__item-title">
-          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        </h2>
-        <p class="page__meta" style="margin-bottom: 5px;">
+        <h3 class="archive__item-title">
+          <a href="{{ post.url | relative_url }}">🏆 {{ post.title }}</a>
+        </h3>
+        
+        <p class="page__meta">
+           <b>{{ post.date | date: "%B %Y" }}</b><br>
            <span style="color: #3498db;">{{ post.os }}</span> | 
            <span style="color: {% if post.difficulty == 'Easy' %}#2ecc71{% elsif post.difficulty == 'Medium' %}#f1c40f{% else %}#e74c3c{% endif %};">
              {{ post.difficulty }}
            </span>
         </p>
-        <p class="archive__item-excerpt" style="font-size: 0.85em;">
+        
+        <p style="font-size: 0.85em; opacity: 0.8;">
           {% if post.tags %}
-            Tools: <i>{{ post.tags | join: ", " }}</i>
+            <i>{{ post.tags | join: ", " }}</i>
           {% endif %}
         </p>
       </article>
     </div>
   {% endfor %}
-</div>
-
----
-
-### 📂 The Vault (Full Collections)
-
-<div align="left">
-  <a href="{{ site.baseurl }}/TryHackMe/">
-    <img src="https://img.shields.io/badge/TryHackMe-Writeups-880000?style=for-the-badge&logo=tryhackme&logoColor=white" alt="TryHackMe Collection">
-  </a>
-  &nbsp; &nbsp;
-  <a href="{{ site.baseurl }}/HackTheBox/">
-    <img src="https://img.shields.io/badge/HackTheBox-Writeups-1f2537?style=for-the-badge&logo=hackthebox&logoColor=white" alt="HackTheBox Collection">
-  </a>
 </div>

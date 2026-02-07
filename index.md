@@ -1,7 +1,8 @@
 ---
 layout: home
-title: Home
-nav_order: 1
+title: "S3Z4R's Cybersecurity Portfolio"
+author_profile: true
+classes: wide
 ---
 
 # CTF Portfolio: MiaadZ (S3Z4R)
@@ -53,17 +54,36 @@ nav_order: 1
 
 ---
 
-### ⭐ Featured Ops
-{% assign starred = site.pages | where: "starred", true %}
-{% for post in starred %}
-- [{{ post.title }}]({{ post.url }}) - {{ post.difficulty }} {{ post.os }}
-{% endfor %}
+## ⭐ Featured Operations
+<div class="grid__wrapper">
+  {% assign starred_posts = site.pages | where: "starred", true %}
+  {% for post in starred_posts %}
+    <div class="grid__item">
+      <article class="archive__item">
+        <h2 class="archive__item-title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h2>
+        <div class="archive__item-teaser">
+          <img src="https://img.shields.io/badge/{{ post.os }}-{{ post.difficulty }}-blue?style=flat-square" alt="Stats">
+        </div>
+        <p class="archive__item-excerpt">{{ post.mitre | join: ", " }}</p>
+      </article>
+    </div>
+  {% endfor %}
+</div>
 
-### 📡 Latest Activity
-{% assign latest = site.pages | sort: "date" | reverse %}
-{% for post in latest limit: 5 %}
-- [{{ post.title }}]({{ post.url }}) ({{ post.date | date: "%Y-%m-%d" }})
-{% endfor %}
+## 📡 Latest Transmissions
+<ul>
+  {% assign latest_posts = site.pages | sort: "date" | reverse %}
+  {% for post in latest_posts limit: 5 %}
+    <li>
+      <a href="{{ post.url | relative_url }}"><strong>{{ post.title }}</strong></a> 
+      <small>({{ post.date | date: "%Y-%m-%d" }})</small>
+      <br>
+      <span style="font-size: 0.8em;">Target: {{ post.os }} | Difficulty: {{ post.difficulty }}</span>
+    </li>
+  {% endfor %}
+</ul>
 
 ---
 

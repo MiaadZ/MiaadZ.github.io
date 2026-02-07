@@ -12,7 +12,6 @@ toc: true
 toc_sticky: true
 toc_label: "Mission Log"
 toc_icon: "crosshairs"
-search: true
 ---
 # CTF Writeup: [{{ page.title }}]({{ page.machine_url }})
 {% include ctf-badges.html %}

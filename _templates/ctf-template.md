@@ -1,6 +1,7 @@
 ---
 layout: single
 title: "Machine Name"
+machine_url: "Url"
 parent: TryHackMe
 os: Linux
 difficulty: Medium
@@ -12,7 +13,7 @@ toc: true
 toc_label: "Table of Contents"
 ---
 {% include ctf-badges.html %}
-# CTF Writeup: [{{ page.title }}](Link)
+# CTF Writeup: [{{ page.title }}]({{ page.machine_url }})
 
 > **Platform:** [**TryHackMe**](https://tryhackme.com/) |
 > **OS:** {{ page.os }} |

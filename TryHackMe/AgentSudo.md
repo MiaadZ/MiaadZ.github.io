@@ -1,17 +1,24 @@
 ---
-layout: default
+layout: single
 title: Agent Sudo
+machine_url: https://tryhackme.com/room/agentsudoctf
 parent: TryHackMe
+os: Linux
+difficulty: Easy
+mitre: [Initial Access, Discovery]
+tags: [FTP, Binwalk]
+starred: true
+date: 2025-11-08
+toc: true
+toc_label: "Table of Contents"
 ---
-# CTF Writeup: [Agent Sudo](https://tryhackme.com/room/agentsudoctf)
-![Category](https://img.shields.io/badge/Category-Network%20%2F%20PrivEsc-blue)
-![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green)
-![Tags](https://img.shields.io/badge/Tags-FTP%20%7C%20Stego%20%7C%20Sudo%20Exploit-orange)
+{% include ctf-badges.html %}
+# CTF Writeup: [{{ page.title }}]({{ page.machine_url }})
 
 > **Platform:** [**TryHackMe**](https://tryhackme.com/) |
-> **OS:** Linux |
-> **Difficulty:** Easy |
-> **Date:** 08.11.2025 |
+> **OS:** {{ page.os }} |
+> **Difficulty:** {{ page.difficulty }} |
+> **Date:** {{ page.date }} |
 > **Author:** [*S3Z4R*](https://tryhackme.com/p/S3Z4R)
 
 ---

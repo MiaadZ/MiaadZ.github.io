@@ -1,17 +1,24 @@
 ---
-layout: default
+layout: single
 title: Skynet
+machine_url: https://tryhackme.com/room/skynet
 parent: TryHackMe
+os: Linux
+difficulty: Easy
+mitre: [Initial Access, Persistence]
+tags: [Nmap, Feroxbuster]
+starred: true
+date: 2025-12-07
+toc: true
+toc_label: "Table of Contents"
 ---
-# CTF Writeup: [Skynet](https://tryhackme.com/room/skynet)
-![Category](https://img.shields.io/badge/Category-Network%20%2F%20Web-blue)
-![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green)
-![Tags](https://img.shields.io/badge/Tags-SMB%20%7C%20RFI%20%7C%20Tar%20Wildcard-orange)
+{% include ctf-badges.html %}
+# CTF Writeup: [{{ page.title }}]({{ page.machine_url }})
 
 > **Platform:** [**TryHackMe**](https://tryhackme.com/) |
-> **OS:** Linux |
-> **Difficulty:** Easy |
-> **Date:** 07.12.2025 |
+> **OS:** {{ page.os }} |
+> **Difficulty:** {{ page.difficulty }} |
+> **Date:** {{ page.date }} |
 > **Author:** [*S3Z4R*](https://tryhackme.com/p/S3Z4R)
 
 ---

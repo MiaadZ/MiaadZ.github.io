@@ -1,17 +1,24 @@
 ---
-layout: default
+layout: single
 title: Mr Robot CTF
+machine_url: https://tryhackme.com/room/mrrobot
 parent: TryHackMe
+os: Linux
+difficulty: Medium
+mitre: [Initial Access, Privilege Escalation]
+tags: [Nmap]
+starred: true
+date: 2025-11-15
+toc: true
+toc_label: "Table of Contents"
 ---
-# CTF Writeup: [Mr Robot CTF](https://tryhackme.com/room/mrrobot)
-![Category](https://img.shields.io/badge/Category-Web%20Exploitation-blue)
-![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
-![Tags](https://img.shields.io/badge/Tags-Wordpress%20%7C%20SUID%20Nmap%20%7C%20XML--RPC-orange)
+{% include ctf-badges.html %}
+# CTF Writeup: [{{ page.title }}]({{ page.machine_url }})
 
 > **Platform:** [**TryHackMe**](https://tryhackme.com/) |
-> **OS:** Linux |
-> **Difficulty:** Medium |
-> **Date:** 15.11.2025 |
+> **OS:** {{ page.os }} |
+> **Difficulty:** {{ page.difficulty }} |
+> **Date:** {{ page.date }} |
 > **Author:** [*S3Z4R*](https://tryhackme.com/p/S3Z4R)
 
 ---

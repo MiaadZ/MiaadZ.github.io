@@ -1,17 +1,24 @@
 ---
-layout: default
+layout: single
 title: Compiled
+machine_url: https://tryhackme.com/room/compiled
 parent: TryHackMe
+os: Linux
+difficulty: Easy
+mitre: [Initial Access]
+tags: [GDB]
+starred: true
+date: 2025-11-11
+toc: true
+toc_label: "Table of Contents"
 ---
-# CTF Writeup: [Compiled](https://tryhackme.com/room/compiled)
-![Category](https://img.shields.io/badge/Category-Reverse%20Engineering-purple)
-![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green)
-![Tags](https://img.shields.io/badge/Tags-GDB%20%7C%20Buffer%20Overflow%20%7C%20Assembly-orange)
+{% include ctf-badges.html %}
+# CTF Writeup: [{{ page.title }}]({{ page.machine_url }})
 
 > **Platform:** [**TryHackMe**](https://tryhackme.com/) |
-> **OS:** Linux |
-> **Difficulty:** Easy |
-> **Date:** 11.11.2025 |
+> **OS:** {{ page.os }} |
+> **Difficulty:** {{ page.difficulty }} |
+> **Date:** {{ page.date }} |
 > **Author:** [*S3Z4R*](https://tryhackme.com/p/S3Z4R)
 
 ---

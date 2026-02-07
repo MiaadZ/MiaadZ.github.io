@@ -61,7 +61,7 @@ sidebar:
   /* HALL OF FAME GRID FIX */
   .grid__wrapper {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Force 3 columns */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
   }
   

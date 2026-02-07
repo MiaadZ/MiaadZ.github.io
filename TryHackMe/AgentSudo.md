@@ -136,3 +136,8 @@ cat /root/root.txt
 
 ---
 <p style="text-align: center; text-shadow: 0 0 5px #8B0000;"> ⸸ 𝕬𝖘 𝖞𝖔𝖚 𝖜𝖎𝖑𝖑 𝖎𝖙, 𝖘𝖔 𝖎𝖙 𝖘𝖍𝖆𝖑𝖑 𝖇𝖊 ⸸ 𝕾3𝖅4𝕽 ⸸ </p>
+
+<!--- Other Configs --->
+<style>
+  .page__title { display: none; }
+</style>

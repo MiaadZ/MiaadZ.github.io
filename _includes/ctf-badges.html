@@ -1,0 +1,16 @@
+---
+layout: compress
+---
+<!DOCTYPE html>
+<html>
+  <body>
+    ![OS](https://img.shields.io/badge/OS-{{ page.os }}-blue)
+    ![Difficulty](https://img.shields.io/badge/Difficulty-{{ page.difficulty }}-{% if page.difficulty == 'Easy' %}green{% elsif page.difficulty == 'Medium' %}yellow{% else %}red{% endif %})
+    
+    {% for technique in page.mitre %}
+    ![MITRE](https://img.shields.io/badge/MITRE-{{ technique | replace: ' ', '_' }}-orange)
+    {% endfor %}
+
+    {{ content }}
+  </body>
+</html>

@@ -1,13 +1,14 @@
-# CTF Portfolio | MiaadZ (S3Z4R)
+# Cybersecurity Portfolio | S3Z4R
 
-## Live Access
-**View the Portfolio:** [https://miaadz.github.io/](https://miaadz.github.io/)
+This repository hosts the source code and content for my personal cybersecurity portfolio. It serves as a centralized knowledge base for CTF writeups, penetration testing methodologies, and offensive security tools.
 
-## Repository Contents
-* **TryHackMe:** Detailed walkthroughs of CTF challenges on [TryHackMe](https://tryhackme.com/) Platform.
-* **HackTheBox:** (Upcoming) Lab Writeups on [HackTheBox](https://www.hackthebox.com/) Platform.
-* **Resources:** (Upcoming) Detailed Explanation of custom scripts, cheat sheets and tools used during operations.
-* 
+**Live Access:** [https://miaadz.github.io/](https://miaadz.github.io/)
+
+## Repository Overview
+
+* **TryHackMe:** Walkthroughs focusing on initial access vectors, privilege escalation, and network enumeration.
+* **HackTheBox:** Documentation of machine compromises and lab reports.
+* **Armory & Tools:** A searchable library of tools used during operations.
+
 ---
 *Maintained by MiaadZ (S3Z4R)*
-

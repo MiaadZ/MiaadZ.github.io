@@ -1,7 +1,7 @@
 ---
 title: "TryHackMe Operations"
 layout: archive
-permalink: /TryHackMe/
+permalink: /tryhackme/
 author_profile: true
 sidebar:
   nav: "main"

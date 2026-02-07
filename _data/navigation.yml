@@ -1,10 +1,9 @@
 main:
   - title: "Home"
     url: /
-  
-  - title: "Operations"
-    children:
-      - title: "TryHackMe"
-        url: /tryhackme/
-      - title: "HackTheBox"
-        url: /hackthebox/
+  - title: "TryHackMe"
+    url: /tryhackme/
+  - title: "HackTheBox"
+    url: /hackthebox/
+  - title: "Tools"
+    url: /tools/

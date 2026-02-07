@@ -5,7 +5,7 @@ link: "https://tryhackme.com/room/tryhack3mbricksheist"
 parent: TryHackMe
 os: Linux
 difficulty: Easy
-tags: [WPScan, Metasploit]
+tags: [WPScan, OSINT, RCE]
 starred: true
 date: 2026-01-04
 toc: true
@@ -16,7 +16,7 @@ toc_icon: "crosshairs"
 # CTF Writeup: [{{ page.title }}]({{ page.machine_url }})
 {% include ctf-badges.html %}
 
-> **Machine:** [**{{ page.parent }}**]({{ page.link }}) |
+> **Link:** [**{{ page.parent }}**]({{ page.link }}) |
 > **OS:** {{ page.os }} |
 > **Difficulty:** {{ page.difficulty }} |
 > **Date:** {{ page.date }} |
@@ -624,9 +624,18 @@ So we can say that the answer to this part is: `LockBit`.
 In conclusion, this CTF demonstrated how a critical RCE in a WordPress theme (Bricks Builder) can lead to full system compromise, allowing attackers to deploy crypto miners and persistence mechanisms like fake systemd services.
 
 ---
-<p style="text-align: center; text-shadow: 0 0 5px #8B0000;"> ⸸ 𝕬𝖘 𝖞𝖔𝖚 𝖜𝖎𝖑𝖑 𝖎𝖙, 𝖘𝖔 𝖎𝖙 𝖘𝖍𝖆𝖑𝖑 𝖇𝖊 ⸸ 𝕾3𝖅4𝕽 ⸸ </p>
+{% comment %}
 
-<!--- Other Configs --->
-<style>
-  .page__title { display: none; }
-</style>
+[Technique]: Service Audit
+[Command]: systemctl list-units --type=service --state=running
+[Why]: Checks for suspicious active services (like crypto miners masked as system services).
+
+[Technique]: Log Analysis
+[Command]: grep -r "bricks" /var/log/
+[Why]: Recursively searches logs to find traces of specific themes or payloads.
+
+[Technique]: Journal Logs
+[Command]: journalctl -u ubuntu.service
+[Why]: Inspects logs for a specific service to see its output or errors.
+
+{% endcomment %}

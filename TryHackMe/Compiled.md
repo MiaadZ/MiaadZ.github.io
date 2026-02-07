@@ -5,8 +5,8 @@ link: "https://tryhackme.com/room/compiled"
 parent: TryHackMe
 os: Linux
 difficulty: Easy
-tags: [GDB]
-starred: true
+tags: [GDB, Gef, GCC]
+starred: false
 date: 2025-11-11
 toc: true
 toc_sticky: true
@@ -16,7 +16,7 @@ toc_icon: "crosshairs"
 # CTF Writeup: [{{ page.title }}]({{ page.machine_url }})
 {% include ctf-badges.html %}
 
-> **Machine:** [**{{ page.parent }}**]({{ page.link }}) |
+> **Link:** [**{{ page.parent }}**]({{ page.link }}) |
 > **OS:** {{ page.os }} |
 > **Difficulty:** {{ page.difficulty }} |
 > **Date:** {{ page.date }} |
@@ -485,9 +485,18 @@ But i tried to explain it with the help of `Gef` which is a plugin installed on 
 <p style="color: green;"> Hope you learned something new! GL! </p>
 
 ---
-<p style="text-align: center; text-shadow: 0 0 5px #8B0000;"> ⸸ 𝕬𝖘 𝖞𝖔𝖚 𝖜𝖎𝖑𝖑 𝖎𝖙, 𝖘𝖔 𝖎𝖙 𝖘𝖍𝖆𝖑𝖑 𝖇𝖊 ⸸ 𝕾3𝖅4𝕽 ⸸ </p>
+{% comment %}
 
-<!--- Other Configs --->
-<style>
-  .page__title { display: none; }
-</style>
+[Technique]: Binary Security Check (Gef)
+[Command]: checksec
+[Why]: Checks binary protections like NX, Canary, PIE inside GDB.
+
+[Technique]: Memory Inspection
+[Command]: x/s $rbp-0x20
+[Why]: Inspects string stored at specific register offset (base pointer minus offset).
+
+[Technique]: Run with Input
+[Command]: run <<< $(python3 -c 'print("DoYouEven_init")')
+[Why]: Pipes a payload directly into the binary while running in GDB.
+
+{% endcomment %}

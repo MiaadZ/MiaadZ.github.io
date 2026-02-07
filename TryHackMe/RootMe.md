@@ -1,17 +1,25 @@
 ---
-layout: default
-title: RootMe
+layout: single
+title: "RootMe"
+link: "https://tryhackme.com/room/rrootme"
 parent: TryHackMe
+os: Linux
+difficulty: Easy
+tags: [Gobuster, Netcat, Python, Find]
+starred: false
+date: 2025-11-08
+toc: true
+toc_sticky: true
+toc_label: "Mission Log"
+toc_icon: "crosshairs"
 ---
-# CTF Writeup: [RootMe](https://tryhackme.com/room/rrootme)
-![Category](https://img.shields.io/badge/Category-Web%20Exploitation-blue)
-![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green)
-![Tags](https://img.shields.io/badge/Tags-File%20Upload%20%7C%20SUID%20Python-orange)
+# CTF Writeup: [{{ page.title }}]({{ page.machine_url }})
+{% include ctf-badges.html %}
 
-> **Platform:** [**TryHackMe**](https://tryhackme.com/) |
-> **OS:** Linux |
-> **Difficulty:** Easy |
-> **Date:** 08.11.2025 |
+> **Link:** [**{{ page.parent }}**]({{ page.link }}) |
+> **OS:** {{ page.os }} |
+> **Difficulty:** {{ page.difficulty }} |
+> **Date:** {{ page.date }} |
 > **Author:** [*S3Z4R*](https://tryhackme.com/p/S3Z4R)
 
 ---
@@ -71,4 +79,19 @@ python -c 'import os; os.system("/bin/sh")'
 `THM{pr1v1l3g3_3sc4l4t10n}`
 
 ---
-<p style="text-align: center; text-shadow: 0 0 5px #8B0000;"> ⸸ 𝕬𝖘 𝖞𝖔𝖚 𝖜𝖎𝖑𝖑 𝖎𝖙, 𝖘𝖔 𝖎𝖙 𝖘𝖍𝖆𝖑𝖑 𝖇𝖊 ⸸ 𝕾3𝖅4𝕽 ⸸ </p>
+
+{% comment %}
+
+[Technique]: Web Directory Scan
+[Command]: gobuster dir -u http://<IP> -w /usr/share/wordlists/dirb/common.txt
+[Why]: Found the /panel/ upload endpoint which was hidden.
+
+[Technique]: File Upload Bypass
+[Command]: mv shell.php shell.php5
+[Why]: Bypassed upload filters by using an alternative PHP extension (.php5).
+
+[Technique]: SUID Python PrivEsc
+[Command]: python -c 'import os; os.execl("/bin/sh", "sh", "-p")'
+[Why]: Spawns a root shell because the python binary had the SUID bit set.
+
+{% endcomment %}

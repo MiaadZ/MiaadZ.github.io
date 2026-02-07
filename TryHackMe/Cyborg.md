@@ -1,17 +1,25 @@
 ---
-layout: default
-title: Cyborg
+layout: single
+title: "Cyborg"
+link: "https://tryhackme.com/room/cyborgt8"
 parent: TryHackMe
+os: Linux
+difficulty: Easy
+tags: [Nmap, Borg, Bash]
+starred: false
+date: 2025-11-22
+toc: true
+toc_sticky: true
+toc_label: "Mission Log"
+toc_icon: "crosshairs"
 ---
-# CTF Writeup: [Cyborg](https://tryhackme.com/room/cyborgt8)
-![Category](https://img.shields.io/badge/Category-Source%20Code%20Analysis-blue)
-![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green)
-![Tags](https://img.shields.io/badge/Tags-Bash%20Code%20Review%20%7C%20Borg%20Backup-orange)
+# CTF Writeup: [{{ page.title }}]({{ page.machine_url }})
+{% include ctf-badges.html %}
 
-> **Platform:** [**TryHackMe**](https://tryhackme.com/) |
-> **OS:** Linux |
-> **Difficulty:** Easy |
-> **Date:** 22.11.2025 |
+> **Link:** [**{{ page.parent }}**]({{ page.link }}) |
+> **OS:** {{ page.os }} |
+> **Difficulty:** {{ page.difficulty }} |
+> **Date:** {{ page.date }} |
 > **Author:** [*S3Z4R*](https://tryhackme.com/p/S3Z4R)
 
 ---
@@ -345,4 +353,19 @@ flag{Than5s_f0r_play1ng_H0p£_y0u_enJ053d}
 There it is, `flag{Than5s_f0r_play1ng_H0p£_y0u_enJ053d}`. We were able to successfully exploit the program and run the loop we wanted with the right permission.
 
 ---
-<p style="text-align: center; text-shadow: 0 0 5px #8B0000;"> ⸸ 𝕬𝖘 𝖞𝖔𝖚 𝖜𝖎𝖑𝖑 𝖎𝖙, 𝖘𝖔 𝖎𝖙 𝖘𝖍𝖆𝖑𝖑 𝖇𝖊 ⸸ 𝕾3𝖅4𝕽 ⸸ </p>
+
+{% comment %}
+
+[Technique]: Backup Extraction (Borg)
+[Command]: borg extract ::archive
+[Why]: Restores files from a Borg backup repository to find credentials or flags.
+
+[Technique]: Source Code Analysis
+[Command]: cat /etc/mp3backups/backup.sh
+[Why]: Analyzed a backup script to understand how arguments are passed (cmd injection vulnerability).
+
+[Technique]: Bash Sudo Exploit
+[Command]: sudo /etc/mp3backups/backup.sh -c /bin/bash
+[Why]: Exploited a script that runs 'bash -c' on user input with root privileges.
+
+{% endcomment %}

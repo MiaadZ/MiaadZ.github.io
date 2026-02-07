@@ -1,17 +1,25 @@
 ---
-layout: default
-title: Tomghost
+layout: single
+title: "Tomghost"
+link: "https://tryhackme.com/room/tomghost"
 parent: TryHackMe
+os: Linux
+difficulty: Easy
+tags: [Nmap, GPG, Zip, SSH]
+starred: false
+date: 2026-02-02
+toc: true
+toc_sticky: true
+toc_label: "Mission Log"
+toc_icon: "crosshairs"
 ---
-# CTF Writeup: [Tomghost](https://tryhackme.com/room/tomghost)
-![Category](https://img.shields.io/badge/Category-Network%20%2F%20Web-blue)
-![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green)
-![Tags](https://img.shields.io/badge/Tags-Tomcat%20%7C%20Ghostcat%20%7C%20AJP-orange)
+# CTF Writeup: [{{ page.title }}]({{ page.machine_url }})
+{% include ctf-badges.html %}
 
-> **Platform:** [**TryHackMe**](https://tryhackme.com/) |
-> **OS:** Linux |
-> **Difficulty:** Easy |
-> **Date:** 02.02.2026 |
+> **Link:** [**{{ page.parent }}**]({{ page.link }}) |
+> **OS:** {{ page.os }} |
+> **Difficulty:** {{ page.difficulty }} |
+> **Date:** {{ page.date }} |
 > **Author:** [*S3Z4R*](https://tryhackme.com/p/S3Z4R)
 
 ---
@@ -237,4 +245,19 @@ So we could use the commands and copy it to tmp and then read it, do not forget 
 
 
 ---
-<p style="text-align: center; text-shadow: 0 0 5px #8B0000;"> ⸸ 𝕬𝖘 𝖞𝖔𝖚 𝖜𝖎𝖑𝖑 𝖎𝖙, 𝖘𝖔 𝖎𝖙 𝖘𝖍𝖆𝖑𝖑 𝖇𝖊 ⸸ 𝕾3𝖅4𝕽 ⸸ </p>
+
+{% comment %}
+
+[Technique]: Ghostcat Exploit (AJP)
+[Command]: python3 ajpShooter.py http://<IP>:8080 8009 /WEB-INF/web.xml read
+[Why]: Exploits CVE-2020-1938 to read configuration files containing credentials.
+
+[Technique]: GPG Decryption
+[Command]: gpg --import tryhackme.asc && gpg --decrypt credential.pgp
+[Why]: Decrypts the PGP file extracted from the server to retrieve SSH credentials.
+
+[Technique]: Sudo Zip PrivEsc
+[Command]: sudo zip /tmp/root.txt /root/root.txt
+[Why]: Uses the 'zip' binary running as root to read/archive restricted files (GTFOBins).
+
+{% endcomment %}

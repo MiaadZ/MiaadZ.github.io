@@ -1,14 +1,27 @@
 ---
-layout: default
-title: Advent of Cyber 2025
+layout: single
+title: "Advent of Cyber 2025"
+link: "https://tryhackme.com/adventofcyber25"
 parent: TryHackMe
+os: Linux
+difficulty: Easy
+tags: [Docker, AWS Cli, Burp Suite]
+starred: true
+date: 2025-12-24
+toc: true
+toc_sticky: true
+toc_label: "Mission Log"
+toc_icon: "crosshairs"
 ---
 
-# 🎄 Advent of Cyber 2025: Retrospective
+# Event Log: [{{ page.title }}]({{ page.link }})
+{% include ctf-badges.html %}
 
-**Event:** TryHackMe Advent of Cyber 2025
-**Duration:** Dec 1 - Dec 24
-**Status:** ✅ Completed (24/24 Challenges)
+> **Event:** TryHackMe Advent of Cyber 2025 |
+> **Focus:** Blue/Red Team |
+> **Duration:** 24 Days |
+> **Date:** Dec 2025 |
+> **Status:** Completed (24/24)
 
 ---
 
@@ -55,3 +68,21 @@ The Advent of Cyber is a 24-day capture-the-flag event covering the full spectru
 
 ### 🚀 Conclusion
 This event reinforced the importance of **hybrid skills**. Being able to pivot from Web (Burp Suite) to Infrastructure (Docker) and Cloud (AWS) is essential for a modern Penetration Tester.
+
+---
+
+{% comment %}
+
+[Technique]: Docker Capabilities Check
+[Command]: capsh --print
+[Why]: Checks container capabilities to identify if privilege escalation to host is possible.
+
+[Technique]: AWS S3 Bucket List
+[Command]: aws s3 ls s3://<bucket-name> --no-sign-request
+[Why]: Lists contents of a public bucket without authentication headers.
+
+[Technique]: Powershell Encoded Command
+[Command]: powershell -EncodedCommand <Base64String>
+[Why]: Common method to execute obfuscated Powershell scripts in Windows environments.
+
+{% endcomment %}

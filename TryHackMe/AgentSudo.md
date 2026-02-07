@@ -5,8 +5,8 @@ link: "https://tryhackme.com/room/agentsudoctf"
 parent: TryHackMe
 os: Linux
 difficulty: Easy
-tags: [FTP, Binwalk]
-starred: true
+tags: [FTP, Binwalk, Hydra, SSH]
+starred: false
 date: 2025-11-08
 toc: true
 toc_sticky: true
@@ -16,7 +16,7 @@ toc_icon: "crosshairs"
 # CTF Writeup: [{{ page.title }}]({{ page.machine_url }})
 {% include ctf-badges.html %}
 
-> **Machine:** [**{{ page.parent }}**]({{ page.link }}) |
+> **Link:** [**{{ page.parent }}**]({{ page.link }}) |
 > **OS:** {{ page.os }} |
 > **Difficulty:** {{ page.difficulty }} |
 > **Date:** {{ page.date }} |
@@ -135,9 +135,18 @@ cat /root/root.txt
 > The flag file also noted that the box was designed for TryHackMe and that Agent R name is **DesKel**.
 
 ---
-<p style="text-align: center; text-shadow: 0 0 5px #8B0000;"> ⸸ 𝕬𝖘 𝖞𝖔𝖚 𝖜𝖎𝖑𝖑 𝖎𝖙, 𝖘𝖔 𝖎𝖙 𝖘𝖍𝖆𝖑𝖑 𝖇𝖊 ⸸ 𝕾3𝖅4𝕽 ⸸ </p>
+{% comment %}
 
-<!--- Other Configs --->
-<style>
-  .page__title { display: none; }
-</style>
+[Technique]: FTP Brute Force
+[Command]: hydra -l chris -P /usr/share/wordlists/rockyou.txt ftp://<IP>
+[Why]: Cracks FTP password when username is known.
+
+[Technique]: Steganography Extraction
+[Command]: binwalk -e cutie.png
+[Why]: Extracts hidden file systems or files (like ZIPs) from images.
+
+[Technique]: Sudo Exploit (CVE-2019-14287)
+[Command]: sudo -u#-1 /bin/bash
+[Why]: Bypasses "ALL, !root" configuration in sudoers to spawn root shell.
+
+{% endcomment %}

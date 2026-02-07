@@ -5,7 +5,7 @@ link: "https://tryhackme.com/room/mrrobot"
 parent: TryHackMe
 os: Linux
 difficulty: Medium
-tags: [Nmap]
+tags: [Nmap, WPScan, Find]
 starred: true
 date: 2025-11-15
 toc: true
@@ -16,7 +16,7 @@ toc_icon: "crosshairs"
 # CTF Writeup: [{{ page.title }}]({{ page.machine_url }})
 {% include ctf-badges.html %}
 
-> **Machine:** [**{{ page.parent }}**]({{ page.link }}) |
+> **Link:** [**{{ page.parent }}**]({{ page.link }}) |
 > **OS:** {{ page.os }} |
 > **Difficulty:** {{ page.difficulty }} |
 > **Date:** {{ page.date }} |
@@ -269,9 +269,18 @@ root@<Machine-IP>:~# cat /root/key-3-of-3.txt
 ```
 
 ---
-<p style="text-align: center; text-shadow: 0 0 5px #8B0000;"> ⸸ 𝕬𝖘 𝖞𝖔𝖚 𝖜𝖎𝖑𝖑 𝖎𝖙, 𝖘𝖔 𝖎𝖙 𝖘𝖍𝖆𝖑𝖑 𝖇𝖊 ⸸ 𝕾3𝖅4𝕽 ⸸ </p>
+{% comment %}
 
-<!--- Other Configs --->
-<style>
-  .page__title { display: none; }
-</style>
+[Technique]: WordPress Enumeration
+[Command]: wpscan --url http://<IP> --enumerate u
+[Why]: Enumerates WordPress usernames to target for brute forcing.
+
+[Technique]: SUID Binary Hunt
+[Command]: find / -type f -perm -4000 2>/dev/null
+[Why]: Locates files with the SUID bit set for privilege escalation.
+
+[Technique]: Nmap Interactive PrivEsc
+[Command]: sudo nmap --interactive -> !sh
+[Why]: Older nmap versions allow spawning a shell (!sh) which inherits root if SUID is set.
+
+{% endcomment %}

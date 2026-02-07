@@ -1,17 +1,25 @@
 ---
-layout: default
-title: Brooklyn Nine Nine
+layout: single
+title: "Brooklyn Nine Nine"
+link: "https://tryhackme.com/room/brooklynninenine"
 parent: TryHackMe
+os: Linux
+difficulty: Easy
+tags: [Nmap, Hydra]
+starred: false
+date: 2025-12-31
+toc: true
+toc_sticky: true
+toc_label: "Mission Log"
+toc_icon: "crosshairs"
 ---
-# CTF Writeup: [Brooklyn Nine Nine](https://tryhackme.com/room/brooklynninenine)
-![Category](https://img.shields.io/badge/Category-Network%20%2F%20PrivEsc-blue)
-![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green)
-![Tags](https://img.shields.io/badge/Tags-FTP%20%7C%20SSH%20%7C%20Brute--Force%20%7C%20Sudo%20Exploit-orange)
+# CTF Writeup: [{{ page.title }}]({{ page.machine_url }})
+{% include ctf-badges.html %}
 
-> **Platform:** [**TryHackMe**](https://tryhackme.com/) |
-> **OS:** Linux |
-> **Difficulty:** Easy |
-> **Date:** 31.12.2025 |
+> **Link:** [**{{ page.parent }}**]({{ page.link }}) |
+> **OS:** {{ page.os }} |
+> **Difficulty:** {{ page.difficulty }} |
+> **Date:** {{ page.date }} |
 > **Author:** [*S3Z4R*](https://tryhackme.com/p/S3Z4R)
 
 ---
@@ -136,4 +144,19 @@ There we have the root flag!
 Good Luck!
 
 ---
-<p style="text-align: center; text-shadow: 0 0 5px #8B0000;"> ⸸ 𝕬𝖘 𝖞𝖔𝖚 𝖜𝖎𝖑𝖑 𝖎𝖙, 𝖘𝖔 𝖎𝖙 𝖘𝖍𝖆𝖑𝖑 𝖇𝖊 ⸸ 𝕾3𝖅4𝕽 ⸸ </p>
+
+{% comment %}
+
+[Technique]: FTP Brute Force
+[Command]: hydra -l jake -P /usr/share/wordlists/rockyou.txt ftp://<IP>
+[Why]: Used to gain initial access when anonymous login is disabled but the username is known.
+
+[Technique]: Sudo Privilege Check
+[Command]: sudo -l
+[Why]: Lists allowed commands the user can run as root (NOPASSWD check).
+
+[Technique]: GTFOBins (Less)
+[Command]: sudo less /root/root.txt
+[Why]: Exploits the 'less' binary running as root to read sensitive files (or spawn shell with !sh).
+
+{% endcomment %}

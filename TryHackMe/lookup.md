@@ -1,17 +1,25 @@
 ---
-layout: default
-title: lookup
+layout: single
+title: "lookup"
+link: "https://tryhackme.com/room/lookup"
 parent: TryHackMe
+os: Linux
+difficulty: Easy
+tags: [Hydra, Find, Metasploit]
+starred: false
+date: 2025-11-08
+toc: true
+toc_sticky: true
+toc_label: "Mission Log"
+toc_icon: "crosshairs"
 ---
-# CTF Writeup: [lookup](https://tryhackme.com/room/lookup)
-![Category](https://img.shields.io/badge/Category-Web%20Exploitation-blue)
-![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green)
-![Tags](https://img.shields.io/badge/Tags-Command%20Injection%20%7C%20Elfinder-orange)
+# CTF Writeup: [{{ page.title }}]({{ page.machine_url }})
+{% include ctf-badges.html %}
 
-> **Platform:** [**TryHackMe**](https://tryhackme.com/) |
-> **OS:** Linux |
-> **Difficulty:** Easy |
-> **Date:** 08.11.2025 |
+> **Link:** [**{{ page.parent }}**]({{ page.link }}) |
+> **OS:** {{ page.os }} |
+> **Difficulty:** {{ page.difficulty }} |
+> **Date:** {{ page.date }} |
 > **Author:** [*S3Z4R*](https://tryhackme.com/p/S3Z4R)
 
 ---
@@ -201,4 +209,19 @@ sudo look '' /root/root.txt
 ```
 
 ---
-<p style="text-align: center; text-shadow: 0 0 5px #8B0000;"> ⸸ 𝕬𝖘 𝖞𝖔𝖚 𝖜𝖎𝖑𝖑 𝖎𝖙, 𝖘𝖔 𝖎𝖙 𝖘𝖍𝖆𝖑𝖑 𝖇𝖊 ⸸ 𝕾3𝖅4𝕽 ⸸ </p>
+
+{% comment %}
+
+[Technique]: Host File Manipulation
+[Command]: echo "<IP> lookup.thm" >> /etc/hosts
+[Why]: Required to access vhosts-based CTF challenges.
+
+[Technique]: Command Injection Output
+[Command]: /usr/sbin/pwm
+[Why]: Custom binary that leaked a list of valid usernames/passwords for cracking.
+
+[Technique]: SSH Brute Force (List)
+[Command]: hydra -L valid_users.txt -P valid_passwords.txt ssh://<IP>
+[Why]: Used the extracted list from the 'pwm' binary to find the working login.
+
+{% endcomment %}

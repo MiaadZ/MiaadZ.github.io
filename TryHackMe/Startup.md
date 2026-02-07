@@ -1,17 +1,25 @@
 ---
-layout: default
-title: Startup
+layout: single
+title: "Startup"
+link: "https://tryhackme.com/room/startup"
 parent: TryHackMe
+os: Linux
+difficulty: Easy
+tags: [Nmap, FTP, Wireshark, Netcat]
+starred: false
+date: 2025-12-31
+toc: true
+toc_sticky: true
+toc_label: "Mission Log"
+toc_icon: "crosshairs"
 ---
-# CTF Writeup: [Startup](https://tryhackme.com/room/startup)
-![Category](https://img.shields.io/badge/Category-Web%20%2F%20PrivEsc-blue)
-![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green)
-![Tags](https://img.shields.io/badge/Tags-FTP%20%7C%20Web%20Shell%20%7C%20Wireshark%20%7C%20Cron%20Job-orange)
+# CTF Writeup: [{{ page.title }}]({{ page.machine_url }})
+{% include ctf-badges.html %}
 
-> **Platform:** [**TryHackMe**](https://tryhackme.com/) |
-> **OS:** Linux |
-> **Difficulty:** Easy |
-> **Date:** 31.12.2025 |
+> **Link:** [**{{ page.parent }}**]({{ page.link }}) |
+> **OS:** {{ page.os }} |
+> **Difficulty:** {{ page.difficulty }} |
+> **Date:** {{ page.date }} |
 > **Author:** [*S3Z4R*](https://tryhackme.com/p/S3Z4R)
 
 ---
@@ -225,4 +233,19 @@ THM{f963...d76d}
 Great! we found the final flag!
 
 ---
-<p style="text-align: center; text-shadow: 0 0 5px #8B0000;"> ⸸ 𝕬𝖘 𝖞𝖔𝖚 𝖜𝖎𝖑𝖑 𝖎𝖙, 𝖘𝖔 𝖎𝖙 𝖘𝖍𝖆𝖑𝖑 𝖇𝖊 ⸸ 𝕾3𝖅4𝕽 ⸸ </p>
+
+{% comment %}
+
+[Technique]: FTP File Upload
+[Command]: put shell.php
+[Why]: Uploaded a web shell to the /ftp/ directory which was accessible via the web server.
+
+[Technique]: PCAP Analysis (Wireshark)
+[Command]: follow tcp stream
+[Why]: Analyzed 'suspicious.pcapng' found on the server to recover a password from captured traffic.
+
+[Technique]: Cron Job Injection
+[Command]: echo "cat /root/root.txt >> /tmp/flag.txt" > /etc/print.sh
+[Why]: The 'planner.sh' cron job ran 'print.sh' as root. I injected my command into it.
+
+{% endcomment %}

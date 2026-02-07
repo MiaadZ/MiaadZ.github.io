@@ -32,7 +32,9 @@ sidebar:
 
 <br>
 
-<h2>📡 Recent Activity</h2>
+<h2 style="color: #3498db; border-bottom: 1px solid #333; padding-bottom: 10px;">
+  <i class="fas fa-satellite-dish"></i> Recent Activity
+</h2>
 
 {% assign latest_posts = site.pages | sort: "date" | reverse %}
 {% for post in latest_posts limit: 6 %}

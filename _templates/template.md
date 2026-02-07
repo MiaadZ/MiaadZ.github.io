@@ -1,11 +1,14 @@
 ---
 layout: default
-title: "Machine Name"
+title: "Room Name"
 parent: TryHackMe
-os: Linux
-difficulty: Easy
-mitre: ["Initial Access", "Persistence"]
-starred: false
+nav_order: 1
+os: Windows
+difficulty: Medium
+category: Web Exploitation
+tags: [SMB, RFI, SUID]
+mitre: [Initial Access, Privilege Escalation]
+starred: true
 date: 2026-02-07
 ---
 # CTF Writeup: [Machine Name](Link)

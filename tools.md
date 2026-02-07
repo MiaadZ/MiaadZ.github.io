@@ -24,8 +24,9 @@ toc_label: "Tool Index"
 ## {{ tag }}
 {% for mypage in site.pages %}
   {% if mypage.tags contains tag %}
-  * [**{{ mypage.title }}**]({{ mypage.url | relative_url }}) <small class="text-muted">({{ mypage.difficulty }} {{ mypage.os }})</small>
+  * [**{{ mypage.title }}**]({{ mypage.url | relative_url }}) <small class="text-muted">({{ mypage.difficulty }})</small>
   {% endif %}
 {% endfor %}
 
+---
 {% endfor %}

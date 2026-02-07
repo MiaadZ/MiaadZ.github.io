@@ -1,13 +1,12 @@
 ---
 layout: home
-title: Home
+title: "MiaadZ (S3Z4R)"
 nav_order: 1
 sidebar:
   nav: "main"
 ---
 
-# CTF Portfolio: MiaadZ (S3Z4R)
-**Offensive Security & Penetration Testing** | **Top 7% @** [TryHackMe](https://tryhackme.com/p/S3Z4R)
+**Offensive Security & Penetration Testing** | **Top 7% @**[TryHackMe](https://tryhackme.com/p/S3Z4R)
 
 ---
 

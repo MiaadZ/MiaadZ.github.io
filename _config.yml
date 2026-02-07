@@ -2,7 +2,6 @@ title: "S3Z4R | Cybersecurity Portfolio"
 description: "Offensive Security & Penetration Testing Writeups"
 url: "https://MiaadZ.github.io"
 baseurl: ""
-author_profile: false
 
 # Theme Settings
 remote_theme: "mmistakes/minimal-mistakes@4.27.3"
@@ -12,18 +11,15 @@ minimal_mistakes_skin: "dark"
 plugins:
   - jekyll-include-cache
 
-# Navigation
-search: true
-search_full_content: true
-search_provider: lunr
+# Navigation & Search (Disabled)
+search: false
 
-# rofile Settings
+# Author / Sidebar Profile
 author:
   name: "MiaadZ (S3Z4R)"
   avatar: "/assets/images/profile.png"
   bio: "Offensive Security & Penetration Testing<br>Top 7% @ TryHackMe"
   location: "127.0.0.1"
-  email: 
   links:
     - label: "TryHackMe"
       icon: "fas fa-flag"
@@ -32,7 +28,7 @@ author:
       icon: "fab fa-github"
       url: "https://github.com/MiaadZ"
 
-# Sidebar Settings
+# Global Page Defaults
 defaults:
   - scope:
       path: ""
@@ -41,6 +37,8 @@ defaults:
       author_profile: true
       sidebar:
         nav: "main"
-      search: true
+      # No Comments!
+      comments: false 
 
+# Collections to Include
 include: ["TryHackMe", "HackTheBox"]

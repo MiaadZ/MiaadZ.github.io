@@ -16,10 +16,39 @@ sidebar:
 {% endfor %}
 {% assign rawtags = rawtags | split: '|' | uniq | sort %}
 
-<div style="background: #1a1a1a; padding: 15px; border-radius: 5px; margin-bottom: 30px;">
-  <strong>Quick Index:</strong><br>
+<style>
+  .tool-index-container {
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  .tool-badge {
+    display: inline-block;
+    background: #1e1e1e;
+    color: #ccc;
+    padding: 5px 12px;
+    margin: 4px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    text-decoration: none;
+    border: 1px solid #333;
+    transition: all 0.2s ease;
+  }
+  .tool-badge:hover {
+    background: #3498db; /* Blue hover */
+    color: white;
+    border-color: #3498db;
+    text-decoration: none;
+  }
+</style>
+
+<div class="tool-index-container">
+  <p style="margin-top: 0; color: #666; font-size: 0.8em; text-transform: uppercase; letter-spacing: 1px;">// Tool Index // Access Vector</p>
   {% for tag in rawtags %}
-    <a href="#{{ tag }}" style="margin-right: 10px; text-decoration: none; color: #3498db;">{{ tag }}</a>
+    <a href="#{{ tag }}" class="tool-badge">{{ tag }}</a>
   {% endfor %}
 </div>
 

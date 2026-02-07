@@ -2,6 +2,7 @@ title: "S3Z4R | Cybersecurity Portfolio"
 description: "Offensive Security & Penetration Testing Writeups"
 url: "https://MiaadZ.github.io"
 baseurl: ""
+author_profile: false
 
 # Theme Settings
 remote_theme: "mmistakes/minimal-mistakes@4.27.3"

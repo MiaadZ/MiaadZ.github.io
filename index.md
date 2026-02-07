@@ -58,9 +58,32 @@ sidebar:
 ## Star of the Month
 
 <style>
-  .grid__wrapper { display: flex; flex-wrap: wrap; gap: 15px; }
-  .grid__item { flex: 1 1 250px; max-width: 350px; }
-  .archive__item { background: transparent !important; border: none !important; padding: 0 !important; }
+  /* HALL OF FAME GRID FIX */
+  .grid__wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Force 3 columns */
+    gap: 20px;
+  }
+  
+  /* On mobile, stack them nicely */
+  @media (max-width: 768px) {
+    .grid__wrapper { grid-template-columns: 1fr; }
+  }
+
+  /* Remove Black Background & Borders */
+  .archive__item { 
+    background: transparent !important; 
+    border: none !important; 
+    padding: 0 !important;
+  }
+  
+  /* Fix Title Styling */
+  .archive__item-title { margin-top: 0; font-size: 1.1em; }
+  .archive__item-title a { text-decoration: none; }
+  
+  /* HIDE FEED IN FOOTER */
+  .page__footer-follow { display: none !important; } 
+  .page__footer .fas.fa-rss { display: none !important; }
 </style>
 
 <div class="grid__wrapper">

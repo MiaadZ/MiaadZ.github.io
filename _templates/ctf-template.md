@@ -1,21 +1,22 @@
 ---
 layout: single
-title: "Machine Name"
-machine_url: "Url"
+title: "Title"
+link: "Url"
 parent: TryHackMe
 os: Linux
-difficulty: Medium
-mitre: [Initial Access, Privilege Escalation]
-tags: [SMB, SUID]
+difficulty: Easy
+tags: [WPScan, Metasploit, SMB]
 starred: false
 date: 2026-02-07
 toc: true
-toc_label: "Table of Contents"
+toc_sticky: true
+toc_label: "Mission Log"
+toc_icon: "crosshairs"
 ---
-{% include ctf-badges.html %}
 # CTF Writeup: [{{ page.title }}]({{ page.machine_url }})
+{% include ctf-badges.html %}
 
-> **Platform:** [**TryHackMe**](https://tryhackme.com/) |
+> **Machine:** [**{{ page.parent }}**]({{ page.link }}) |
 > **OS:** {{ page.os }} |
 > **Difficulty:** {{ page.difficulty }} |
 > **Date:** {{ page.date }} |

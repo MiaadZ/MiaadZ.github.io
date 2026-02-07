@@ -17,6 +17,21 @@ search: true
 search_full_content: true
 search_provider: lunr
 
+# rofile Settings
+author:
+  name: "MiaadZ (S3Z4R)"
+  avatar: "/assets/images/profile.jpg"
+  bio: "Offensive Security & Penetration Testing<br>Top 7% @ TryHackMe"
+  location: "127.0.0.1"
+  email: 
+  links:
+    - label: "TryHackMe"
+      icon: "fas fa-flag"
+      url: "https://tryhackme.com/p/S3Z4R"
+    - label: "GitHub"
+      icon: "fab fa-github"
+      url: "https://github.com/MiaadZ"
+
 # Sidebar Settings
 defaults:
   - scope:

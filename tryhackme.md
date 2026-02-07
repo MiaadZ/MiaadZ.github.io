@@ -7,18 +7,6 @@ sidebar:
   nav: "main"
 ---
 
-Accessing archived mission logs from the TryHackMe sector.
-
-<style>
-  .archive__item-title a { text-decoration: none; } /* No Underline */
-  .list-item {
-    border-bottom: 1px solid #333;
-    padding-bottom: 15px;
-    margin-bottom: 15px;
-  }
-  .list-meta { font-size: 0.8em; color: #888; }
-</style>
-
 {% assign machines = site.pages | where: "parent", "TryHackMe" | sort: "date" | reverse %}
 
 {% for post in machines %}

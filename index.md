@@ -7,29 +7,6 @@ sidebar:
   nav: "main"
 ---
 
-<style>
-  .page__title { display: none; }
-  
-  /* STANDARD LIST STYLE */
-  .list-item {
-    display: flex; justify-content: space-between; align-items: center;
-    border-bottom: 1px solid #333; padding: 10px 0;
-  }
-  .list-meta { font-size: 0.85em; color: #888; white-space: nowrap; margin-left: 15px; }
-
-  /* FANCIER STARRED STYLE */
-  .starred-item {
-    background: linear-gradient(90deg, rgba(241, 196, 15, 0.1) 0%, rgba(0,0,0,0) 100%);
-    border-left: 4px solid #f1c40f; /* Gold Bar */
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 0 4px 4px 0;
-    transition: transform 0.2s;
-  }
-  .starred-item:hover { transform: translateX(5px); }
-  .starred-title { font-size: 1.1em; font-weight: bold; color: #f1c40f !important; }
-</style>
-
 <h2 style="color: #f1c40f; border-bottom: 1px solid #333; padding-bottom: 10px;">
   <i class="fas fa-crown"></i> Hall of Fame
 </h2>

@@ -14,7 +14,11 @@ minimal_mistakes_skin: "dark"
 plugins:
   - jekyll-include-cache
 
-
+# Populate Pages
+collections:
+  pages:
+    output: true
+    sort_by: date
 
 # Sidebar Settings
 defaults:

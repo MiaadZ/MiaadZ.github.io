@@ -1,13 +1,42 @@
 <style>
-  /* 1. HIDE FOLLOW BUTTON EVERYWHERE (Mobile & Desktop) */
+  /* 1. KILL THE FOLLOW BUTTON (Mobile & Desktop) */
   .page__footer-follow { display: none !important; }
   .page__footer .fas.fa-rss { display: none !important; }
 
-  /* 2. Fix Mobile Menu Button Color */
-  .greedy-nav .nav-selector { color: #3498db; }
+  /* 2. OPTIONAL: Hide Mobile Toggle Menu (NOT RECOMMENDED) */
+  /* Uncomment the line below if you truly want no menu on phone */
+  /* .greedy-nav .nav-selector { display: none !important; } */
+
+  /* 3. FIX "STAR OF THE MONTH" GRID SQUISHING */
+  .grid__wrapper {
+    display: grid;
+    /* This allows cards to wrap if screen is too small, preventing text squish */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 20px;
+  }
   
-  /* 3. Ensure Tools Index looks good on mobile */
-  @media (max-width: 768px) {
-    .tool-badge { padding: 4px 8px; font-size: 0.75em; }
+  /* 4. TOOLS INDEX STYLING (Left Aligned, No Background) */
+  .tool-index-container {
+    background: transparent !important; /* No Black Box */
+    border: none !important;
+    padding: 0 !important;
+    margin-bottom: 30px;
+    text-align: left !important; /* Left Align */
+  }
+  .tool-badge {
+    display: inline-block;
+    background: #151515; /* Dark Grey Button */
+    color: #ccc;
+    padding: 5px 10px;
+    margin: 0 5px 5px 0; /* Tight spacing */
+    border-radius: 4px;
+    font-size: 0.8em;
+    text-decoration: none;
+    border: 1px solid #333;
+  }
+  .tool-badge:hover {
+    background: #3498db;
+    color: white;
+    border-color: #3498db;
   }
 </style>

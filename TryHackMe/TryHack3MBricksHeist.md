@@ -2,6 +2,11 @@
 layout: default
 title: TryHack3M Bricks Heist
 parent: TryHackMe
+os: Linux
+difficulty: Easy
+mitre: ["Initial Access", "Persistence"]
+starred: true
+date: 2026-01-04
 ---
 # CTF Writeup: [TryHack3M Bricks Heist](https://tryhackme.com/room/tryhack3mbricksheist)
 ![Category](https://img.shields.io/badge/Category-Web%20%2F%20Forensics-blue)
@@ -11,7 +16,7 @@ parent: TryHackMe
 > **Platform:** [**TryHackMe**](https://tryhackme.com/) |
 > **OS:** Linux |
 > **Difficulty:** Easy |
-> **Date:** 04.01.2026 |
+> **Date:** 2026-01-04 |
 > **Author:** [*S3Z4R*](https://tryhackme.com/p/S3Z4R)
 
 ---

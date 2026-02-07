@@ -1,6 +1,10 @@
 title: "S3Z4R | Cybersecurity Portfolio"
 description: "Offensive Security & Penetration Testing Writeups"
-url: "https://MiaadZ.github.io" 
+
+# Navigation
+search: true
+search_provider: lunr
+url: "https://MiaadZ.github.io"
 
 # Theme Settings
 remote_theme: "mmistakes/minimal-mistakes@4.27.3"
@@ -10,8 +14,7 @@ minimal_mistakes_skin: "dark"
 plugins:
   - jekyll-include-cache
 
-# Navigation
-search: true
+
 
 # Sidebar Settings
 defaults:

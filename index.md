@@ -38,7 +38,7 @@ sidebar:
 
 {% assign latest_posts = site.pages | sort: "date" | reverse %}
 {% for post in latest_posts limit: 6 %}
-  {% if post.title != "Home" and post.title != "Armory & Tools" and post.title != "TryHackMe Operations" and post.title != "HackTheBox Operations" %}
+  {% if post.title != "Home" and post.title != "Armory & Tools" and post.title != "TryHackMe Writeups" and post.title != "HackTheBox Writeups" %}
   <div class="list-item">
     <a href="{{ post.url | relative_url }}" style="font-weight: bold; text-decoration: none;">{{ post.title }}</a>
     <div class="list-meta">

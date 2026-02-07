@@ -53,6 +53,20 @@ nav_order: 1
 
 ---
 
+### ⭐ Featured Ops
+{% assign starred = site.pages | where: "starred", true %}
+{% for post in starred %}
+- [{{ post.title }}]({{ post.url }}) - {{ post.difficulty }} {{ post.os }}
+{% endfor %}
+
+### 📡 Latest Activity
+{% assign latest = site.pages | sort: "date" | reverse %}
+{% for post in latest limit: 5 %}
+- [{{ post.title }}]({{ post.url }}) ({{ post.date | date: "%Y-%m-%d" }})
+{% endfor %}
+
+---
+
 ### 📂 The Vault (Full Collections)
 
 <div align="left">

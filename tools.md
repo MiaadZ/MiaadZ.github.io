@@ -7,19 +7,29 @@ sidebar:
   nav: "main"
 ---
 
-{% assign tags = site.tags | sort %}
+{% assign rawtags = "" %}
+{% for page in site.pages %}
+  {% if page.tags %}
+    {% assign ttags = page.tags | join: '|' | append: '|' %}
+    {% assign rawtags = rawtags | append: ttags %}
+  {% endif %}
+{% endfor %}
+{% assign rawtags = rawtags | split: '|' | uniq | sort %}
 
-{% for tag in tags %}
-  <div id="{{ tag[0] | slugify }}" class="tool-section">
-    <h3 class="archive__item-title">{{ tag[0] }}</h3>
+{% for tag in rawtags %}
+  <div class="tool-section">
+    <h2 id="{{ tag | slugify }}" style="border-bottom: 2px solid #333; padding-bottom: 5px;">
+      <i class="fas fa-terminal"></i> {{ tag }}
+    </h2>
     <ul>
-      {% for post in tag[1] %}
-        <li>
-          <a href="{{ post.url | relative_url }}">{{ post.title }}</a> 
-          <small>({{ post.difficulty }})</small>
-        </li>
+      {% for mypage in site.pages %}
+        {% if mypage.tags contains tag %}
+          <li>
+            <a href="{{ mypage.url | relative_url }}"><strong>{{ mypage.title }}</strong></a>
+            <small>({{ mypage.difficulty }} {{ mypage.os }})</small>
+          </li>
+        {% endif %}
       {% endfor %}
     </ul>
-    <hr>
   </div>
 {% endfor %}

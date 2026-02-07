@@ -1,11 +1,10 @@
 ---
 layout: single
-title: Skynet
-link: https://tryhackme.com/room/skynet
+title: "Skynet"
+link: "https://tryhackme.com/room/skynet"
 parent: TryHackMe
 os: Linux
 difficulty: Easy
-mitre: [Initial Access, Persistence]
 tags: [Nmap, Feroxbuster]
 starred: true
 date: 2025-12-07

@@ -1,11 +1,10 @@
 ---
 layout: single
-title: TryHack3M Bricks Heist
-link: https://tryhackme.com/room/tryhack3mbricksheist
+title: "TryHack3M Bricks Heist"
+link: "https://tryhackme.com/room/tryhack3mbricksheist"
 parent: TryHackMe
 os: Linux
 difficulty: Easy
-mitre: [Initial Access, Persistence]
 tags: [WPScan, Metasploit]
 starred: true
 date: 2026-01-04

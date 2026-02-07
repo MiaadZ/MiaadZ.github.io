@@ -1,11 +1,10 @@
 ---
 layout: single
-title: Agent Sudo
-link: https://tryhackme.com/room/agentsudoctf
+title: "Agent Sudo"
+link: "https://tryhackme.com/room/agentsudoctf"
 parent: TryHackMe
 os: Linux
 difficulty: Easy
-mitre: [Initial Access, Discovery]
 tags: [FTP, Binwalk]
 starred: true
 date: 2025-11-08

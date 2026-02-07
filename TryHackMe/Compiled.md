@@ -1,11 +1,10 @@
 ---
 layout: single
-title: Compiled
-link: https://tryhackme.com/room/compiled
+title: "Compiled"
+link: "https://tryhackme.com/room/compiled"
 parent: TryHackMe
 os: Linux
 difficulty: Easy
-mitre: [Initial Access]
 tags: [GDB]
 starred: true
 date: 2025-11-11

@@ -1,11 +1,10 @@
 ---
 layout: single
-title: Mr Robot CTF
-link: https://tryhackme.com/room/mrrobot
+title: "Mr Robot CTF"
+link: "https://tryhackme.com/room/mrrobot"
 parent: TryHackMe
 os: Linux
 difficulty: Medium
-mitre: [Initial Access, Privilege Escalation]
 tags: [Nmap]
 starred: true
 date: 2025-11-15

@@ -1,7 +1,7 @@
 ---
 layout: single
-machine_title: TryHack3M Bricks Heist
-machine_url: https://tryhackme.com/room/tryhack3mbricksheist
+title: TryHack3M Bricks Heist
+link: https://tryhackme.com/room/tryhack3mbricksheist
 parent: TryHackMe
 os: Linux
 difficulty: Easy
@@ -14,7 +14,6 @@ toc_sticky: true
 toc_label: "Mission Log"
 toc_icon: "crosshairs"
 ---
-# CTF Writeup: [{{ page.machine_title }}]({{ page.machine_url }})
 
 > **Platform:** [**TryHackMe**](https://tryhackme.com/) |
 > **OS:** {{ page.os }} |

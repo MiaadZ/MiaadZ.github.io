@@ -1,7 +1,7 @@
 ---
 layout: single
 title: Compiled
-machine_url: https://tryhackme.com/room/compiled
+link: https://tryhackme.com/room/compiled
 parent: TryHackMe
 os: Linux
 difficulty: Easy
@@ -14,8 +14,6 @@ toc_sticky: true
 toc_label: "Mission Log"
 toc_icon: "crosshairs"
 ---
-{% include ctf-badges.html %}
-# CTF Writeup: [{{ page.title }}]({{ page.machine_url }})
 
 > **Platform:** [**TryHackMe**](https://tryhackme.com/) |
 > **OS:** {{ page.os }} |
@@ -23,6 +21,7 @@ toc_icon: "crosshairs"
 > **Date:** {{ page.date }} |
 > **Author:** [*S3Z4R*](https://tryhackme.com/p/S3Z4R)
 
+{% include ctf-badges.html %}
 ---
 ## 1. Explanation
 After downloading the Compiled file we need to use `gdb` to see the functions and registers inside and find the flag.

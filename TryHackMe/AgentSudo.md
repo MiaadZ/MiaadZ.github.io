@@ -1,7 +1,7 @@
 ---
 layout: single
 title: Agent Sudo
-machine_url: https://tryhackme.com/room/agentsudoctf
+link: https://tryhackme.com/room/agentsudoctf
 parent: TryHackMe
 os: Linux
 difficulty: Easy
@@ -14,8 +14,6 @@ toc_sticky: true
 toc_label: "Mission Log"
 toc_icon: "crosshairs"
 ---
-{% include ctf-badges.html %}
-# CTF Writeup: [{{ page.title }}]({{ page.machine_url }})
 
 > **Platform:** [**TryHackMe**](https://tryhackme.com/) |
 > **OS:** {{ page.os }} |
@@ -23,6 +21,7 @@ toc_icon: "crosshairs"
 > **Date:** {{ page.date }} |
 > **Author:** [*S3Z4R*](https://tryhackme.com/p/S3Z4R)
 
+{% include ctf-badges.html %}
 ---
 ## 1. Reconnaissance
 

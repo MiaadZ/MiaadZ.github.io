@@ -12,3 +12,16 @@ plugins:
 
 # Navigation
 search: true
+
+# Sidebar Settings
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: single
+      author_profile: true
+      sidebar:
+        nav: "main"
+      classes: wide
+
+include: ["TryHackMe", "HackTheBox"]

@@ -16,7 +16,7 @@
   {% if page.tags %}
     {% for tag in page.tags %}
       {% unless tag == page.os or tag == page.difficulty %}
-        <a href="{{ site.baseurl }}/tags/#{{ tag | slugify }}" style="text-decoration: none; border-bottom: none;">
+        <a href="{{ site.baseurl }}/tools/#{{ tag | slugify }}" style="text-decoration: none; border-bottom: none;">
           <img src="https://img.shields.io/badge/{{ tag | replace: ' ', '_' }}-orange?style=flat-square" style="margin-right: 5px;" alt="{{ tag }}">
         </a>
       {% endunless %}

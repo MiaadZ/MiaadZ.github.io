@@ -11,16 +11,6 @@ minimal_mistakes_skin: "dark"
 plugins:
   - jekyll-include-cache
 
-# Kill the Follow Button Globally
-head_scripts:
-  - |
-    <style>
-      .page__footer-follow { display: none !important; }
-      .page__footer .fas.fa-rss { display: none !important; }
-      /* Optional: Make the mobile menu button pop more */
-      .greedy-nav .nav-selector { color: #3498db; }
-    </style>
-
 # Navigation
 search: true
 search_full_content: true

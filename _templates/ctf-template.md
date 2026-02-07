@@ -14,14 +14,13 @@ toc_label: "Mission Log"
 toc_icon: "crosshairs"
 ---
 # CTF Writeup: [{{ page.title }}]({{ page.machine_url }})
+{% include ctf-badges.html %}
 
 > **Link:** [**{{ page.parent }}**]({{ page.link }}) |
 > **OS:** {{ page.os }} |
 > **Difficulty:** {{ page.difficulty }} |
 > **Date:** {{ page.date }} |
 > **Author:** [*S3Z4R*](https://tryhackme.com/p/S3Z4R)
-
-{% include ctf-badges.html %}
 
 ---
 

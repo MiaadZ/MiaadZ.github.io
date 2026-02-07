@@ -20,9 +20,9 @@ search_provider: lunr
 # Sidebar Settings
 defaults:
   - scope:
-      path: "assets/js/lunr"
+      path: ""
     values:
-      layout: none
+      layout: single
       author_profile: true
       sidebar:
         nav: "main"

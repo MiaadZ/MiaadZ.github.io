@@ -10,7 +10,9 @@ tags: [GDB]
 starred: true
 date: 2025-11-11
 toc: true
-toc_label: "Table of Contents"
+toc_sticky: true
+toc_label: "Mission Log"
+toc_icon: "crosshairs"
 ---
 {% include ctf-badges.html %}
 # CTF Writeup: [{{ page.title }}]({{ page.machine_url }})

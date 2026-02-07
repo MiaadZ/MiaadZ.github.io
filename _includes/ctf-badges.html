@@ -1,20 +1,28 @@
 <div class="ctf-badges" style="margin-bottom: 20px;">
+  
   {% if page.os %}
-    <img src="https://img.shields.io/badge/OS-{{ page.os }}-blue" alt="OS: {{ page.os }}">
+    <img src="https://img.shields.io/badge/OS-{{ page.os }}-blue?style=flat-square" height="20" alt="OS">
   {% endif %}
 
   {% if page.difficulty %}
     {% assign diff_color = "green" %}
-    {% if page.difficulty == "Medium" %}{% assign diff_color = "yellow" %}
-    {% elsif page.difficulty == "Hard" %}{% assign diff_color = "red" %}
-    {% elsif page.difficulty == "Insane" %}{% assign diff_color = "black" %}
-    {% endif %}
-    <img src="https://img.shields.io/badge/Difficulty-{{ page.difficulty }}-{{ diff_color }}" alt="Difficulty: {{ page.difficulty }}">
+    {% if page.difficulty == "Medium" %}
+      {% assign diff_color = "yellow" %}
+    {% elsif page.difficulty == "Hard" %}
+      {% assign diff_color = "red" %}
+    {% elsif page.difficulty == "Insane" %}
+      {% assign diff_color = "8B0000" %} {% endif %}
+    <img src="https://img.shields.io/badge/Difficulty-{{ page.difficulty }}-{{ diff_color }}?style=flat-square" height="20" alt="Difficulty">
   {% endif %}
 
-  {% if page.mitre %}
-    {% for technique in page.mitre %}
-      <img src="https://img.shields.io/badge/MITRE-{{ technique | replace: ' ', '_' }}-orange" alt="Technique: {{ technique }}">
+  {% if page.tags %}
+    {% for tag in page.tags %}
+      {% unless tag == page.os or tag == page.difficulty %}
+        <a href="{{ site.baseurl }}/tags/#{{ tag | slugify }}">
+          <img src="https://img.shields.io/badge/{{ tag | replace: ' ', '_' }}-orange?style=flat-square" height="20" alt="{{ tag }}">
+        </a>
+      {% endunless %}
     {% endfor %}
   {% endif %}
+  
 </div>

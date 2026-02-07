@@ -1,6 +1,7 @@
 title: "S3Z4R | Cybersecurity Portfolio"
 description: "Offensive Security & Penetration Testing Writeups"
 url: "https://MiaadZ.github.io"
+baseurl: ""
 
 # Theme Settings
 remote_theme: "mmistakes/minimal-mistakes@4.27.3"
@@ -9,6 +10,16 @@ minimal_mistakes_skin: "dark"
 # Plugins
 plugins:
   - jekyll-include-cache
+
+# Kill the Follow Button Globally
+head_scripts:
+  - |
+    <style>
+      .page__footer-follow { display: none !important; }
+      .page__footer .fas.fa-rss { display: none !important; }
+      /* Optional: Make the mobile menu button pop more */
+      .greedy-nav .nav-selector { color: #3498db; }
+    </style>
 
 # Navigation
 search: true
@@ -24,5 +35,6 @@ defaults:
       author_profile: true
       sidebar:
         nav: "main"
+      search: true
 
 include: ["TryHackMe", "HackTheBox"]

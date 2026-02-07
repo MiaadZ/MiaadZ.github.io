@@ -18,12 +18,12 @@ sidebar:
 
 <style>
   .tool-index-container {
-    background: #111;
+    background: transparent;
     border: 1px solid #333;
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 40px;
-    text-align: center;
+    text-align: left;
   }
   .tool-badge {
     display: inline-block;
@@ -38,7 +38,7 @@ sidebar:
     transition: all 0.2s ease;
   }
   .tool-badge:hover {
-    background: #3498db; /* Blue hover */
+    background: #3498db;
     color: white;
     border-color: #3498db;
     text-decoration: none;
@@ -46,7 +46,6 @@ sidebar:
 </style>
 
 <div class="tool-index-container">
-  <p style="margin-top: 0; color: #666; font-size: 0.8em; text-transform: uppercase; letter-spacing: 1px;">// Tool Index // Access Vector</p>
   {% for tag in rawtags %}
     <a href="#{{ tag }}" class="tool-badge">{{ tag }}</a>
   {% endfor %}

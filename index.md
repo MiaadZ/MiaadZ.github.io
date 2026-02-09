@@ -24,7 +24,7 @@ sidebar:
     <span style="color: #ccc; font-weight: bold;">Offensive Security</span> and 
     <span style="color: #ccc; font-weight: bold;">Penetration Testing</span>. 
     This portfolio serves as my personal knowledge base and documentation 
-    archive for machine compromises, custom tools, and tradecraft.
+    archive for CTF writeups, penetration testing methodologies, and offensive security tools.
   </p>
 </div>
 

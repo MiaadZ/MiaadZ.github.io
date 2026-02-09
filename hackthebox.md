@@ -18,7 +18,7 @@ Accessing archived mission logs from the HackTheBox sector.
 <span class="year-count">{{ year.items.size }} Writeups</span>
 </h2>
 
-{% assign months = year.items | group_by_exp: "item", "item.date | date: '%m'" | reverse %}
+{% assign months = year.items | group_by_exp: "item", "item.date | date: '%m'" %}
 
 {% for month in months %}
 <h3 class="timeline-month">{{ month.items[0].date | date: "%B" }}</h3>

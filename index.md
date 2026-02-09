@@ -14,18 +14,18 @@ sidebar:
 {% assign starred_posts = site.pages | where: "starred", true | sort: "date" | reverse %}
 {% for post in starred_posts limit: 3 %}
   <div class="starred-item">
-    <div>
-      <a href="{{ post.url | relative_url }}" class="starred-title" style="text-decoration: none;">
+    <div style="margin-bottom: 5px;">
+      <a href="{{ post.url | relative_url }}" class="starred-title">
         {{ post.title }}
       </a>
-      <div style="font-size: 0.9em; opacity: 0.8; margin-top: 4px;">
-        {{ post.tags | join: ", " }}
-      </div>
     </div>
     
-    <div class="list-meta">
-      <b style="color: #ccc;">{{ post.date | date: "%b %Y" }}</b><br>
-      {{ post.difficulty }}
+    <div style="font-size: 0.9em; color: #aaa; margin-bottom: 5px;">
+      {{ post.tags | join: ", " }}
+    </div>
+    
+    <div style="font-size: 0.85em; color: #f1c40f; font-weight: bold;">
+      {{ post.date | date: "%b %Y" }}
     </div>
   </div>
 {% endfor %}
@@ -39,14 +39,25 @@ sidebar:
 {% assign latest_posts = site.pages | sort: "date" | reverse %}
 {% for post in latest_posts limit: 6 %}
   {% if post.title != "Home" and post.title != "Armory & Tools" and post.title != "TryHackMe Writeups" and post.title != "HackTheBox Writeups" %}
+  
   <div class="list-item">
-    <a href="{{ post.url | relative_url }}" style="font-weight: bold; text-decoration: none;">{{ post.title }}</a>
-    <div class="list-meta">
-      {{ post.date | date: "%Y-%m-%d" }} | 
-      <span style="color: {% if post.difficulty == 'Easy' %}#2ecc71{% elsif post.difficulty == 'Medium' %}#f1c40f{% else %}#e74c3c{% endif %};">
-        {{ post.difficulty }}
-      </span>
+    <div style="margin-bottom: 5px;">
+      <a href="{{ post.url | relative_url }}" style="font-size: 1.1em; font-weight: bold; text-decoration: none; color: #eee;">
+        {{ post.title }}
+      </a>
+    </div>
+
+    <div style="font-size: 0.9em; margin-bottom: 5px; color: #888;">
+      <span style="color: #3498db; font-weight: bold;">{{ post.os }}</span>
+      {% if post.tags %}
+        | {{ post.tags | join: ", " }}
+      {% endif %}
+    </div>
+
+    <div style="font-size: 0.8em; color: #666;">
+      {{ post.date | date: "%d %B %Y" }}
     </div>
   </div>
+
   {% endif %}
 {% endfor %}

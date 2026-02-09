@@ -10,6 +10,7 @@ minimal_mistakes_skin: "dark"
 # Plugins
 plugins:
   - jekyll-include-cache
+  - jekyll-sitemap
 
 # Navigation & Search (Disabled)
 search: false

@@ -7,22 +7,14 @@ sidebar:
   nav: "main"
 ---
 
-<div style="
-    background: #111; 
-    border-left: 4px solid #3498db; 
-    padding: 15px; 
-    margin-bottom: 30px; 
-    font-family: monospace; 
-    color: #bbb;
-    font-size: 0.9em;
-">
+<div class="terminal-card">
   <p style="margin: 0; margin-bottom: 5px;">
-    <strong style="color: #3498db;">root@S3Z4R:~$</strong> whoami
+    <span class="cmd-prompt">root@S3Z4R:</span><span class="cmd-path">~</span>$ whoami
   </p>
   <p style="margin: 0; line-height: 1.5;">
     I am a cybersecurity enthusiast and CTF player focusing on 
-    <span style="color: #ccc; font-weight: bold;">Offensive Security</span> and 
-    <span style="color: #ccc; font-weight: bold;">Penetration Testing</span>. 
+    <span style="color: #fff;">Offensive Security</span> and 
+    <span style="color: #fff;">Penetration Testing</span>. 
     This portfolio serves as my personal knowledge base and documentation 
     archive for CTF writeups, penetration testing methodologies, and offensive security tools.
   </p>

@@ -7,7 +7,15 @@ sidebar:
   nav: "main"
 ---
 
-Accessing archived mission logs from the TryHackMe sector.
+<div class="terminal-card">
+  <p style="margin: 0; margin-bottom: 5px;">
+    <span class="cmd-prompt">root@S3Z4R:</span><span class="cmd-path">~</span>$ cd tryhackme
+  </p>
+  <p style="margin: 0; line-height: 1.5;">
+    Accessing mission logs...<br>
+    Listing detailed walkthroughs and flag captures from the <span style="color: #fff;">TryHackMe</span> sector.
+  </p>
+</div>
 
 {% assign entries = site.pages | where: "parent", "TryHackMe" | sort: "date" | reverse %}
 {% assign by_year = entries | group_by_exp: "item", "item.date | date: '%Y'" %}

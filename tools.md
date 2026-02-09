@@ -7,6 +7,16 @@ sidebar:
   nav: "main"
 ---
 
+<div class="terminal-card">
+  <p style="margin: 0; margin-bottom: 5px;">
+    <span class="cmd-prompt">root@S3Z4R:</span><span class="cmd-path">~</span>$ cd tools
+  </p>
+  <p style="margin: 0; line-height: 1.5;">
+    Loading armory...<br>
+    A collection of custom scripts, cheat sheets, and command syntax used during field operations.
+  </p>
+</div>
+
 {% assign rawtags = "" %}
 {% for page in site.pages %}
   {% if page.tags %}

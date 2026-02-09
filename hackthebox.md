@@ -7,7 +7,15 @@ sidebar:
   nav: "main"
 ---
 
-Accessing archived mission logs from the HackTheBox sector.
+<div class="terminal-card">
+  <p style="margin: 0; margin-bottom: 5px;">
+    <span class="cmd-prompt">root@S3Z4R:</span><span class="cmd-path">~</span>$ cd hackthebox
+  </p>
+  <p style="margin: 0; line-height: 1.5;">
+    Initializing connection...<br>
+    Decrypting advanced penetration testing reports and system compromises from <span style="color: #fff;">HackTheBox</span> labs.
+  </p>
+</div>
 
 {% assign entries = site.pages | where: "parent", "HackTheBox" | sort: "date" | reverse %}
 {% assign by_year = entries | group_by_exp: "item", "item.date | date: '%Y'" %}

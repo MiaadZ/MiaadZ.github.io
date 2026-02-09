@@ -12,8 +12,7 @@ sidebar:
     <span class="cmd-prompt">root@S3Z4R:</span><span class="cmd-path">~</span>$ cd tools
   </p>
   <p style="margin: 0; line-height: 1.5;">
-    Loading armory...<br>
-    A collection of custom scripts, cheat sheets, and command syntax used during field operations.
+    Index of tools and techniques used in operations.
   </p>
 </div>
 

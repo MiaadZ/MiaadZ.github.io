@@ -7,6 +7,29 @@ sidebar:
   nav: "main"
 ---
 
+<div style="
+    background: #111; 
+    border-left: 4px solid #3498db; 
+    padding: 15px; 
+    margin-bottom: 30px; 
+    font-family: monospace; 
+    color: #bbb;
+    font-size: 0.9em;
+">
+  <p style="margin: 0; margin-bottom: 5px;">
+    <strong style="color: #3498db;">root@S3Z4R:~$</strong> whoami
+  </p>
+  <p style="margin: 0; line-height: 1.5;">
+    I am a cybersecurity enthusiast and CTF player focusing on 
+    <span style="color: #ccc; font-weight: bold;">Offensive Security</span> and 
+    <span style="color: #ccc; font-weight: bold;">Penetration Testing</span>. 
+    This portfolio serves as my personal knowledge base and documentation 
+    archive for machine compromises, custom tools, and tradecraft.
+  </p>
+</div>
+
+<br>
+
 <h2 style="color: #f1c40f; border-bottom: 1px solid #333; padding-bottom: 10px;">
   <i class="fas fa-crown"></i> Hall of Fame
 </h2>

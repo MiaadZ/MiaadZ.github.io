@@ -23,7 +23,7 @@ sidebar:
 <br>
 
 <h2 style="color: #f1c40f; border-bottom: 1px solid #333; padding-bottom: 10px;">
-  <i class="fas fa-crown"></i> Hall of Fame
+  <i class="fas fa-crown"></i> Starred CTFs
 </h2>
 
 {% assign starred_posts = site.pages | where: "starred", true | sort: "date" | reverse %}

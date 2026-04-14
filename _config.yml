@@ -19,7 +19,7 @@ search: false
 author:
   name: "MiaadZ (S3Z4R)"
   avatar: "/assets/images/profile.png"
-  bio: "Offensive Security<br>Penetration Testing<br>Top 7% @ TryHackMe"
+  bio: "Offensive Security<br>Penetration Testing"
   location: "Germany"
   links:
     - label: "TryHackMe"

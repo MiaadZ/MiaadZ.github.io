@@ -27,7 +27,7 @@ toc_icon: "crosshairs"
 ## 1. Reconnaissance
 ## 2. Initial Access
 ## 3. User Flag
-## 4. Priviledge Escalation
+## 4. Privilege Escalation
 ## 5. Root Flag
 
 ---

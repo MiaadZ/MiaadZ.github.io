@@ -8,7 +8,7 @@ difficulty: Easy
 tags: [Nmap, Hydra, John]
 starred: false
 date: 2026-02-06
-toc: true
+toc: true 
 toc_sticky: true
 toc_label: "Mission Log"
 toc_icon: "crosshairs"

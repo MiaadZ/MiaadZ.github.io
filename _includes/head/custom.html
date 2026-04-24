@@ -89,15 +89,16 @@
   .cmd-prompt { color: #2ecc71; font-weight: bold; }
   .cmd-path   { color: #3498db; font-weight: bold; }
 
-  /* WRITEUP IMAGE STYLING (Global) */
+  /* 7. WRITEUP IMAGE HOVER ZOOM (Global) */
   .page__content p > img:only-child {
-    display: block !important;
-    width: 100% !important;        
-    max-width: 850px !important;   
-    height: auto !important;       
-    margin: 30px auto !important; 
-    border-radius: 6px !important; 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important; 
+    transition: transform 0.3s ease !important; 
+    cursor: zoom-in !important; 
+  }
+
+  .page__content p > img:only-child:hover {
+    transform: scale(1.5) !important; 
+    z-index: 999 !important; 
+    position: relative !important;
   }
 
   /* Hide default title on pages */

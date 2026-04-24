@@ -31,7 +31,7 @@ toc_icon: "crosshairs"
 
 ---
 ## 1. Incident Discovery
-### Wireshark Log Analysis
+### `Wireshark` Log Analysis
 The provided `.pcapng` file was the network traffic capture of an incident. Initial analysis was conducted using **Wireshark** to identify the *primary attack vector*. Analyzing it, the protocol column indicates which services the attacker used during the intrusion.
 * **FTP** on port `21`
 * **TCP**
@@ -44,6 +44,7 @@ Looking at the protocols, the attacker was trying to log into the `FTP` service:
 Given the attacker's series of attempts within a short timespan, it is reasonable to assume that an automated tool, such as `Hydra` by *Van Hauser*, is being used to target the `FTP` service on port `21`.
 
 Continuing the packet analysis, the attacker's requests were using username `jenny`, which was trying to find the password on `FTP`.
+
 ![The attacker using USER jenny to login](/assets/images/h4cked/jenny.png)
 
 The dictionary attack succeeded. The packet capture showed the server responding with 230 Login successful to the following credentials:
@@ -140,7 +141,7 @@ The GitHub project name is `Reptile`.
 * **`Reptile`** is a **`rootkit`** that hooks into the *Linux kernel* to intercept system calls, allowing it to manipulate system behavior while remaining undetected. It provides multiple *backdoor* mechanisms, *privilege escalation* capabilities, and *advanced hiding features*.
 
 ---
-## 2. Initial Access (USER jenny)
+## 2. Initial Access (USER `jenny`)
 ### Hydra Brute-force
 Noting down how the attacker got into the system, replicating the attack is possible.
 However, the attacker *changed* the password for user `jenny`!
@@ -205,8 +206,8 @@ jenny
 *Result: Gained access as `jenny`.*
 
 ---
-## 3. Privilege Escalation (root)
-### Exploitation (Reptile)
+## 3. Privilege Escalation (`root`)
+### Exploitation (`Reptile`)
 After gaining access as `jenny`, a new interactive *tty* shell using `python3` is spawned:
 ```bash
 python3 -c 'import pty; pty.spawn("/bin/bash")'

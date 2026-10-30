@@ -10,16 +10,14 @@ tags: [FTP, Wireshark, Hydra]
 starred: true
 date: 2026-04-22
 toc: true
-toc_sticky: true
 toc_label: "Contents"
-toc_icon: "crosshairs"
 permalink: /TryHackMe/h4cked.html
 legacy_body_header: true
 ---
 # Writeup: [{{ page.title }}]({{ page.source_url }})
 {% include ctf-badges.html %}
 
-> **Platform:** [**{{ page.parent }}**]({{ page.link }}) |
+> **Platform:** [**{{ page.platform }}**]({{ page.source_url }}) |
 > **OS:** {{ page.os }} |
 > **Difficulty:** {{ page.difficulty }} |
 > **Operator:** [*S3Z4R*](https://tryhackme.com/p/S3Z4R)

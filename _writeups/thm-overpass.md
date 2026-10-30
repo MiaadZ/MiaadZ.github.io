@@ -1,22 +1,23 @@
 ---
-layout: single
+layout: article
+type: writeup
 title: "Overpass"
-link: "https://tryhackme.com/room/overpass"
-parent: TryHackMe
+source_url: "https://tryhackme.com/room/overpass"
+platform: TryHackMe
 os: Linux
 difficulty: Easy
 tags: [Nmap, Gobuster, John, Python, Cron, Feroxbuster]
 starred: false
 date: 2025-11-12
 toc: true
-toc_sticky: true
 toc_label: "Mission Log"
-toc_icon: "crosshairs"
+permalink: /TryHackMe/Overpass.html
+legacy_body_header: true
 ---
-# CTF Writeup: [{{ page.title }}]({{ page.machine_url }})
+# CTF Writeup: [{{ page.title }}]({{ page.source_url }})
 {% include ctf-badges.html %}
 
-> **Link:** [**{{ page.parent }}**]({{ page.link }}) |
+> **Link:** [**{{ page.platform }}**]({{ page.source_url }}) |
 > **OS:** {{ page.os }} |
 > **Difficulty:** {{ page.difficulty }} |
 > **Date:** {{ page.date }} |

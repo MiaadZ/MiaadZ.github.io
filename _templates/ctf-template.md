@@ -1,72 +1,64 @@
 ---
-layout: article
+title: ""
 type: writeup
-title: "Title"
-source_url: "Url"
-platform: TryHackMe
-os: Linux
-difficulty: Easy
-tags: [Nmap, Technique1, Technique2]
+platform: ""
+source_url: ""
+os: ""
+difficulty: ""
+date:
+tags: []
 starred: false
-date: YYYY-MM-DD
 toc: true
-toc_sticky: true
-toc_label: "Contents"
-toc_icon: "crosshairs"
+# permalink: /writeups/<prefix>-<slug>/
 ---
-## 🔗 Attack Chain
-*A high-level overview of the attack path or incident.*
-* 🔍 **Reconnaissance:** (e.g., Port 80, 445, SMB Enumeration)
-* 🚪 **Initial Access:** (e.g., CVE-2024-25600 -> Bricks Builder RCE)
-* 🔓 **Privilege Escalation:** (e.g., Misconfigured SUID `/bin/cat` -> Shadow Hash Cracking)
-* 🛡️ **Remediation:** (e.g., Patch WordPress Theme, Remove SUID bit)
-
----
-## 1. Reconnaissance & Enumeration (or "Incident Discovery")
-### Network Scanning / Log Analysis
-*Open ports, Services, or Initial malicious indicators.*
-```bash
-# Nmap output here
-# Only relevant ports.
-```
-### Service Enumeration
-*Analyze the discovered services or network traffic. What is the entry point?*
-
----
-## 2. Initial Access (or "Attack Vector Identification")
-### Vulnerability Analysis
-*Briefly explain the flaw.*
-### Exploitation / Execution
-*Execution of the attack or exact log entry showing the breach.*
-```bash
-# Exploit command or payload
-```
-*Result: Gained a reverse shell as `username` (or "Attacker gained access via compromised credentials").*
-
----
-## 3. Privilege Escalation (or "Persistence & Lateral Movement")
-### Internal Enumeration
-*(Misconfigurationon the system? (e.g., SUID binary, weak cronjob, kernel exploit).)*
-### Exploitation
-*How you leveraged the misconfiguration to get root/SYSTEM.*
-```bash
-# Insert PrivEsc commands here
-```
-*Result: System compromised.*
-
----
-## 4. Remediation & Threat Intelligence
-*How would a blue team detect or prevent this attack path? List 2-3 actionable fixes.*
-* **Patching**: Update [Software] to version X to close CVE-XXXX-XXXX.
-* **Configuration**: Disable [Feature], restrict permissions on [File], or enforce MFA.
-* **Detection**: Monitor SIEM for anomalous child processes spawning from the web server or unauthorized modifications to `authorized_keys`.
-
----
-
 {% comment %}
+AUTHOR GUIDE — remove or adapt any section that does not fit the exercise.
+Fill the factual front matter before previewing. Use an ISO date (YYYY-MM-DD)
+and an explicit stable permalink. Remove unknown optional fields rather than
+inventing values. The article layout supplies the title and metadata: do not
+add a second H1 or repeat a platform/profile block.
 
-[Technique]: Log Analysis (Ripgrep)
-[Command]: rg --glob '*.md' --fixed-strings 'Command: Example'
-[Why]: Used to quickly grep through my own writeups to find where I used a specific command before.
+The outline below suits many machine-style exercises, but it is not mandatory:
+- Web labs/challenges: setup, hypothesis, testing, solution and limitations.
+- DFIR: evidence, timeline, analysis, findings and defensive observations.
+- CVE reproductions: affected versions, isolated setup, reproduction,
+  observed behavior, impact, limitations and mitigation.
+- Custom environments: objectives, assumptions, method and results.
 
+Keep only relevant sections. Distinguish observations from assumptions.
+Record commands and output accurately; do not fabricate flags or findings.
+Optional summary/topics/techniques/tools/updated require reviewed facts.
+See docs/writeup-workflow.md for naming, URLs, validation and local preview.
 {% endcomment %}
+
+{% include ctf-badges.html %}
+
+## Overview / Attack Narrative
+
+{% comment %}Briefly describe the exercise, objective, scope and observed path.
+State prerequisites or environment details only where useful and known.{% endcomment %}
+
+## Reconnaissance
+
+{% comment %}Relevant evidence, services, artifacts or initial hypotheses.
+Include only meaningful commands/output and explain what they established.{% endcomment %}
+
+## Initial Access
+
+{% comment %}If applicable: the tested weakness, execution and observed result.
+For a web lab or reproduction, rename this section to match the actual task.{% endcomment %}
+
+## Privilege Escalation
+
+{% comment %}Optional. Omit when there is no escalation component.
+Document the actual boundary crossed and evidence for the result.{% endcomment %}
+
+## Findings / Lessons
+
+{% comment %}Explain what the evidence supports, important limitations and lessons.
+Do not imply a system was compromised or a hypothesis confirmed without evidence.{% endcomment %}
+
+## Remediation / Defensive Notes
+
+{% comment %}Optional evidence-supported prevention, mitigation or detection notes.
+Use exercise-specific conclusions rather than generic claims.{% endcomment %}

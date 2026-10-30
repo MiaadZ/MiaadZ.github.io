@@ -8,16 +8,16 @@ layout: default
     <ul class="metadata" aria-label="Article metadata">
       {% if page.type %}<li class="content-type">{{ page.type | escape }}</li>{% endif %}
       {% if page.type == 'writeup' %}
-        {% if page.platform %}<li>{% assign source = page.source_url | notebook_source_url %}{% if source %}<a href="{{ source | escape }}">{{ page.platform | escape }}</a>{% else %}{{ page.platform | escape }}{% endif %}</li>{% endif %}
-        {% if page.os %}<li>{{ page.os | escape }}</li>{% endif %}
-        {% if page.difficulty %}<li>Difficulty: {{ page.difficulty | escape }}</li>{% endif %}
+        {% if page.platform and page.platform != empty %}<li>{% assign source = page.source_url | notebook_source_url %}{% if source %}<a href="{{ source | escape }}">{{ page.platform | escape }}</a>{% else %}{{ page.platform | escape }}{% endif %}</li>{% endif %}
+        {% if page.os and page.os != empty %}<li>{{ page.os | escape }}</li>{% endif %}
+        {% if page.difficulty and page.difficulty != empty %}<li>Difficulty: {{ page.difficulty | escape }}</li>{% endif %}
       {% endif %}
       {% if page.date %}<li><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%d %b %Y' }}</time></li>{% endif %}
       {% if page.starred %}<li class="featured-label">Featured</li>{% endif %}
     </ul>
-    {% if page.summary %}<p class="article-summary">{{ page.summary | escape }}</p>{% endif %}
+    {% if page.summary and page.summary != empty %}<p class="article-summary">{{ page.summary | escape }}</p>{% endif %}
   </header>
-  {% if page.toc %}{{ content | notebook_toc }}{% endif %}
+  {% if page.toc %}{{ content | notebook_toc: page.toc_label }}{% endif %}
   <div class="article-body">{{ content | notebook_article_body | notebook_overflow }}</div>
   {% if page.topics.size > 0 %}
   <footer class="article-topics"><h2>Related topics</h2><ul>

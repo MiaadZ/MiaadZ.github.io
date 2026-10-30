@@ -1,22 +1,23 @@
 ---
-layout: single
+layout: article
+type: writeup
 title: "Wonderland"
-link: "https://tryhackme.com/room/wonderland"
-parent: TryHackMe
+source_url: "https://tryhackme.com/room/wonderland"
+platform: TryHackMe
 os: Linux
 difficulty: Medium
 tags: [Steghide, GDB, Python, Perl, Capabilities]
 starred: false
 date: 2026-02-05
 toc: true
-toc_sticky: true
 toc_label: "Mission Log"
-toc_icon: "crosshairs"
+permalink: /TryHackMe/wonderland.html
+legacy_body_header: true
 ---
-# CTF Writeup: [{{ page.title }}]({{ page.machine_url }})
+# CTF Writeup: [{{ page.title }}]({{ page.source_url }})
 {% include ctf-badges.html %}
 
-> **Link:** [**{{ page.parent }}**]({{ page.link }}) |
+> **Link:** [**{{ page.platform }}**]({{ page.source_url }}) |
 > **OS:** {{ page.os }} |
 > **Difficulty:** {{ page.difficulty }} |
 > **Date:** {{ page.date }} |

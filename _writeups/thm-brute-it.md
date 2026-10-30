@@ -1,22 +1,23 @@
 ---
-layout: single
+layout: article
+type: writeup
 title: "Brute It"
-link: "https://tryhackme.com/room/bruteit"
-parent: TryHackMe
+source_url: "https://tryhackme.com/room/bruteit"
+platform: TryHackMe
 os: Linux
 difficulty: Easy
 tags: [Nmap, Hydra, John]
 starred: false
 date: 2026-02-06
 toc: true 
-toc_sticky: true
 toc_label: "Mission Log"
-toc_icon: "crosshairs"
+permalink: /TryHackMe/Bruteit.html
+legacy_body_header: true
 ---
-# CTF Writeup: [{{ page.title }}]({{ page.machine_url }})
+# CTF Writeup: [{{ page.title }}]({{ page.source_url }})
 {% include ctf-badges.html %}
 
-> **Link:** [**{{ page.parent }}**]({{ page.link }}) |
+> **Link:** [**{{ page.platform }}**]({{ page.source_url }}) |
 > **OS:** {{ page.os }} |
 > **Difficulty:** {{ page.difficulty }} |
 > **Date:** {{ page.date }} |

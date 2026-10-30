@@ -1,22 +1,23 @@
 ---
-layout: single
+layout: article
+type: writeup
 title: "Skynet"
-link: "https://tryhackme.com/room/skynet"
-parent: TryHackMe
+source_url: "https://tryhackme.com/room/skynet"
+platform: TryHackMe
 os: Linux
 difficulty: Easy
 tags: [Smbclient, Enum4Linux, Tar]
 starred: false
 date: 2025-12-07
 toc: true
-toc_sticky: true
 toc_label: "Mission Log"
-toc_icon: "crosshairs"
+permalink: /TryHackMe/Skynet.html
+legacy_body_header: true
 ---
-# CTF Writeup: [{{ page.title }}]({{ page.machine_url }})
+# CTF Writeup: [{{ page.title }}]({{ page.source_url }})
 {% include ctf-badges.html %}
 
-> **Link:** [**{{ page.parent }}**]({{ page.link }}) |
+> **Link:** [**{{ page.platform }}**]({{ page.source_url }}) |
 > **OS:** {{ page.os }} |
 > **Difficulty:** {{ page.difficulty }} |
 > **Date:** {{ page.date }} |

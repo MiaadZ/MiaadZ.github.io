@@ -1,20 +1,21 @@
 ---
-layout: single
+layout: article
+type: writeup
 title: "Advent of Cyber 2025"
-link: "https://tryhackme.com/adventofcyber25"
-parent: TryHackMe
+source_url: "https://tryhackme.com/adventofcyber25"
+platform: TryHackMe
 os: Linux
 difficulty: Easy
 tags: [Docker, AWS Cli, Burp Suite]
 starred: true
 date: 2025-12-24
 toc: true
-toc_sticky: true
 toc_label: "Mission Log"
-toc_icon: "crosshairs"
+permalink: /TryHackMe/Advent-of-Cyber-2025.html
+legacy_body_header: true
 ---
 
-# Event Log: [{{ page.title }}]({{ page.link }})
+# Event Log: [{{ page.title }}]({{ page.source_url }})
 {% include ctf-badges.html %}
 
 > **Event:** TryHackMe Advent of Cyber 2025 |

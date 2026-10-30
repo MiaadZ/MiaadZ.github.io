@@ -1,9 +1,5 @@
-<ul class="badges" aria-label="Writeup details">
-  {% unless page.type %}
-  {% assign badge_platform = page.platform | default: page.parent %}
-  {% if badge_platform %}<li>Platform: {{ badge_platform | escape }}</li>{% endif %}
-  {% if page.os %}<li>OS: {{ page.os | escape }}</li>{% endif %}
-  {% if page.difficulty %}<li>Difficulty: {{ page.difficulty | escape }}</li>{% endif %}
-  {% endunless %}
+{% if page.tags.size > 0 %}
+<ul class="badges" aria-label="Writeup tags">
   {% for tag in page.tags %}<li><a href="{{ '/tools/' | relative_url }}#{{ tag | slugify }}">{{ tag | escape }}</a></li>{% endfor %}
 </ul>
+{% endif %}

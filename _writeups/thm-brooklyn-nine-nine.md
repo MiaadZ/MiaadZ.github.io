@@ -1,22 +1,23 @@
 ---
-layout: single
+layout: article
+type: writeup
 title: "Brooklyn Nine Nine"
-link: "https://tryhackme.com/room/brooklynninenine"
-parent: TryHackMe
+source_url: "https://tryhackme.com/room/brooklynninenine"
+platform: TryHackMe
 os: Linux
 difficulty: Easy
 tags: [Nmap, Hydra]
 starred: false
 date: 2025-12-31
 toc: true
-toc_sticky: true
 toc_label: "Mission Log"
-toc_icon: "crosshairs"
+permalink: /TryHackMe/BrooklynNineNine.html
+legacy_body_header: true
 ---
-# CTF Writeup: [{{ page.title }}]({{ page.machine_url }})
+# CTF Writeup: [{{ page.title }}]({{ page.source_url }})
 {% include ctf-badges.html %}
 
-> **Link:** [**{{ page.parent }}**]({{ page.link }}) |
+> **Link:** [**{{ page.platform }}**]({{ page.source_url }}) |
 > **OS:** {{ page.os }} |
 > **Difficulty:** {{ page.difficulty }} |
 > **Date:** {{ page.date }} |

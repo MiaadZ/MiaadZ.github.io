@@ -1,28 +1,33 @@
 # S3Z4R Security Notebook
 
-A Markdown-first Jekyll security notebook. The local presentation foundation and one representative writeup migration are implemented; the remaining 19 writeups retain their original sources.
+A Markdown-first Jekyll security notebook. All 20 existing writeups now live in the flat _writeups collection with normalized metadata and preserved public URLs.
 
 ## Local build
-Use Ruby 3.4.10 and the root Gemfile/Gemfile.lock. Jekyll 4.4.1 is the only direct target dependency. Dependency installation requires explicit approval under AGENTS.md.
+Use Ruby 3.4.10 and the root Gemfile/Gemfile.lock. Jekyll 4.4.1 is the only direct target dependency. Follow AGENTS.md for approved local dependency actions; new dependencies need approval.
 
-With the already approved baseline installation:
+With the existing approved bundle:
 ```sh
-BUNDLE_PATH="$PWD/docs/vendor/bundle" bundle exec jekyll build
-python3 docs/verify-phase2.py _site
+BUNDLE_FROZEN=true BUNDLE_PATH="$PWD/docs/vendor/bundle" bundle exec jekyll build --trace
+python3 docs/verify-writeups.py _site
 git diff --check
 ```
 
-A fresh approved environment may install the root bundle into vendor/bundle. Do not use docs/baseline.Gemfile for the redesigned site's regular build; it preserves the historical theme build only.
+Use vendor/bundle instead if the root bundle was installed there. docs/baseline.Gemfile is for reproducing the historical theme baseline only.
 
-## Source and publishing
-- _writeups/ is flat; the pilot is thm-h4cked.md.
-- Its explicit permalink preserves /TryHackMe/h4cked.html.
-- TryHackMe/ contains 19 protected legacy sources.
-- _notes/, _research/, _projects/ and _topics/ collections are configured; add real content only.
-- _plugins/notebook.rb provides build-only compatibility, mixed indexes, contents and overflow helpers.
-- docs/, AGENTS.md, editor files, dependencies and build definitions are excluded from generated output.
-- No browser JavaScript, trackers, remote fonts or external badge assets.
+## Content and source
+- _writeups/ is flat: thm-<slug>.md and, when authored, htb-<slug>.md.
+- Platform is metadata, never a source directory.
+- Explicit permalinks preserve all 20 original /TryHackMe/*.html routes.
+- /writeups/ and /tryhackme/ list normalized content; /hackthebox/ has an honest empty state.
+- _notes/, _research/, _projects/ and _topics/ are configured for real future material.
+- The platform-neutral template is _templates/ctf-template.md.
+- The [authoring workflow](docs/writeup-workflow.md) explains naming, metadata, assets and local checks.
+- The immutable preservation baseline is docs/legacy-manifest.yml; do not replace original hashes with migrated hashes.
 
-Review actual hosting support for repository plugins before publishing. No GitHub settings or deployment workflow have been changed.
+## Build and publication
+_plugins/notebook.rb provides collection indexes, validation, title/TOC and keyboard-overflow helpers; legacy aliases are no longer needed.
+The [Phase 3 report](docs/phase3-report.md) documents why retaining this small build-only plugin is recommended and what that means for a later hosting decision.
+docs/, AGENTS.md, editor files, dependencies and build definitions are excluded from generated output.
+No frontend JavaScript, trackers, remote fonts or external badge assets.
 
-See [Phase 2 report](docs/phase2-report.md) for exact file accounting, verification and remaining review items. No bulk migration, commit, push or deployment has been performed.
+No deployment configuration, GitHub settings, commit or push was performed. [Phase 2 report](docs/phase2-report.md) remains historical evidence; its verification command delegates to the current complete-migration checks.

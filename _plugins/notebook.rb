@@ -1,6 +1,5 @@
-# Build-only compatibility for the one-document migration pilot.
-# This adapter is necessary because explicit legacy layout: single cannot be
-# overridden with front-matter defaults. No legacy source file is rewritten.
+# Build-only notebook indexes, validation and semantic HTML presentation.
+# All editorial content now comes from normalized collections; no legacy aliases.
 require "cgi"
 require "date"
 require "uri"
@@ -11,30 +10,13 @@ module Notebook
     priority :normal
 
     def generate(site)
-      legacy = site.pages.select { |page| page.data["parent"] && page.data["layout"] == "single" }
-      legacy.each do |page|
-        page.data["layout"] = "article"
-        page.data["type"] = "writeup"
-        page.data["platform"] = page.data["parent"]
-        page.data["source_url"] = page.data["link"]
-        page.data["legacy_body_header"] = true
-        page.data["nav_section"] = "writeups"
-        # Temporary in-memory alias for the 18 unmigrated broken heading links.
-        page.data["machine_url"] = page.data["source_url"]
-      end
-
-      editorial = %w[writeups notes research projects].flat_map { |name| site.collections.fetch(name).docs }
-      # h4cked retains its original body metadata tokens except the approved
-      # machine_url correction. Supply parent/link in memory, not front matter.
-      editorial.each do |document|
-        next unless document.data["type"] == "writeup" && document.data["legacy_body_header"]
-        document.data["parent"] = document.data["platform"]
-        document.data["link"] = document.data["source_url"]
-      end
-      entries = legacy + editorial
+      entries = %w[writeups notes research projects].flat_map { |name| site.collections.fetch(name).docs }
       entries.each do |entry|
         unless %w[writeup note research project].include?(entry.data["type"])
           raise Jekyll::Errors::FatalException, "Invalid content type: #{entry.path}"
+        end
+        if entry.data["title"].to_s.strip.empty?
+          raise Jekyll::Errors::FatalException, "Missing title: #{entry.path}"
         end
         if entry.data["date"].nil?
           raise Jekyll::Errors::FatalException, "Missing date: #{entry.path}"
@@ -83,14 +65,15 @@ module Notebook
 
     # Operates on generated HTML, never on Markdown source or fenced code.
     # Kramdown-generated headings use these exact heading/id attributes.
-    def notebook_toc(html)
+    def notebook_toc(html, label = "Contents")
       headings = html.scan(/<h([2-4]) id="([^"]+)">(.*?)<\/h\1>/m)
       return "" if headings.empty?
       links = headings.map do |level, id, title|
         text = CGI.escapeHTML(CGI.unescapeHTML(title.gsub(/<[^>]*>/, "")))
         %(<li class="level-#{level}"><a href="##{CGI.escapeHTML(CGI.unescapeHTML(id))}">#{text}</a></li>)
       end.join
-      %(<details class="toc"><summary>Contents</summary><nav aria-label="On this page"><ul>#{links}</ul></nav></details>)
+      label = "Contents" if label.to_s.strip.empty?
+      %(<details class="toc"><summary>#{CGI.escapeHTML(label.to_s)}</summary><nav aria-label="On this page"><ul>#{links}</ul></nav></details>)
     end
 
     def notebook_overflow(html)

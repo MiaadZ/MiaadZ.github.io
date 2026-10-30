@@ -1,0 +1,21 @@
+* { box-sizing: border-box; }
+html { background: var(--background); color: var(--text); font: 100%/1.7 system-ui, sans-serif; }
+body { margin: 0; }
+a { color: var(--link); text-underline-offset: .2em; text-decoration-thickness: .08em; }
+a:visited { color: var(--visited); }
+a:hover { text-decoration-thickness: .15em; }
+:focus-visible { outline: 3px solid var(--link); outline-offset: 4px; }
+h1, h2, h3, h4, h5, h6 { line-height: 1.25; text-wrap: balance; overflow-wrap: anywhere; }
+h1 { font-size: clamp(2rem, 5vw, 3rem); }
+h2 { margin-top: var(--space-12); font-size: 1.65rem; }
+h3 { font-size: 1.25rem; }
+p, ul, ol, pre, blockquote, table { margin-block: var(--space-4); }
+hr { border: 0; border-top: 1px solid var(--border); margin-block: var(--space-8); }
+img { max-width: 100%; height: auto; }
+.skip-link { position: fixed; top: .5rem; left: .5rem; z-index: 10; padding: .5rem 1rem; background: var(--text); color: var(--background); transform: translateY(-200%); }
+.skip-link:focus { transform: none; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+@media (forced-colors: active) { :focus-visible { outline-color: Highlight; } }

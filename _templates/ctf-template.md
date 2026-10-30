@@ -1,8 +1,9 @@
 ---
-layout: single
+layout: article
+type: writeup
 title: "Title"
-link: "Url"
-parent: TryHackMe
+source_url: "Url"
+platform: TryHackMe
 os: Linux
 difficulty: Easy
 tags: [Nmap, Technique1, Technique2]
@@ -12,15 +13,6 @@ toc: true
 toc_sticky: true
 toc_label: "Contents"
 toc_icon: "crosshairs"
----
-# Writeup: [{{ page.title }}]({{ page.machine_url }})
-{% include ctf-badges.html %}
-
-> **Platform:** [**{{ page.parent }}**]({{ page.link }}) |
-> **OS:** {{ page.os }} |
-> **Difficulty:** {{ page.difficulty }} |
-> **Operator:** [*S3Z4R*](https://tryhackme.com/p/S3Z4R)
-
 ---
 ## 🔗 Attack Chain
 *A high-level overview of the attack path or incident.*

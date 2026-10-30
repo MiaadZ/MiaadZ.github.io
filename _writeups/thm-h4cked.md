@@ -1,8 +1,9 @@
 ---
-layout: single
+layout: article
 title: "h4cked"
-link: "https://tryhackme.com/room/h4cked"
-parent: TryHackMe
+source_url: "https://tryhackme.com/room/h4cked"
+type: writeup
+platform: TryHackMe
 os: Linux
 difficulty: Easy
 tags: [FTP, Wireshark, Hydra]
@@ -12,8 +13,10 @@ toc: true
 toc_sticky: true
 toc_label: "Contents"
 toc_icon: "crosshairs"
+permalink: /TryHackMe/h4cked.html
+legacy_body_header: true
 ---
-# Writeup: [{{ page.title }}]({{ page.machine_url }})
+# Writeup: [{{ page.title }}]({{ page.source_url }})
 {% include ctf-badges.html %}
 
 > **Platform:** [**{{ page.parent }}**]({{ page.link }}) |

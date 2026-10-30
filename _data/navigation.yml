@@ -1,9 +1,16 @@
 main:
-  - title: "Home"
-    url: /
-  - title: "TryHackMe"
-    url: /tryhackme/
-  - title: "HackTheBox"
-    url: /hackthebox/
-  - title: "Tools"
-    url: /tools/
+  - title: Writeups
+    url: /writeups/
+    key: writeups
+  - title: Notes
+    url: /notes/
+    key: notes
+  - title: Research
+    url: /research/
+    key: research
+  - title: Projects
+    url: /projects/
+    key: projects
+  - title: Topics
+    url: /topics/
+    key: topics

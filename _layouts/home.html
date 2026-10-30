@@ -1,0 +1,14 @@
+---
+layout: default
+---
+<div class="home">
+  <header class="hero">
+    <p class="eyebrow"><span class="terminal-accent" aria-hidden="true">~/notebook</span> · Security in practice</p>
+    <h1>S3Z4R<br><span>Security Notebook</span></h1>
+    <p class="binary" aria-hidden="true">01010011 00110011 01011010 00110100 01010010</p>
+    {{ content }}
+  </header>
+  {% assign featured = site.notebook_entries | where: 'starred', true | slice: 0, 3 %}
+  {% if featured.size > 0 %}<section aria-labelledby="featured-title"><h2 id="featured-title">Featured</h2>{% include content-list.html entries=featured %}</section>{% endif %}
+  <section aria-labelledby="recent-title"><h2 id="recent-title">Recent activity</h2>{% assign recent = site.notebook_entries | slice: 0, 6 %}{% include content-list.html entries=recent %}</section>
+</div>

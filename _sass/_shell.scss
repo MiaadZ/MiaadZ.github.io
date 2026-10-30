@@ -1,0 +1,20 @@
+.site-header { border-bottom: 1px solid var(--border); }
+.header-inner, .site-main, .site-footer { max-width: var(--shell); margin-inline: auto; padding: var(--space-6) clamp(1rem, 4vw, 3rem); min-width: 0; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; gap: var(--space-6); flex-wrap: wrap; }
+.site-brand { display: flex; align-items: baseline; flex-wrap: wrap; gap: .75rem; text-decoration: none; }
+.site-brand strong { color: var(--text); font: 700 1.5rem var(--mono); letter-spacing: .06em; }
+.site-brand span { color: var(--muted); font-size: .9rem; }
+.nav-list { display: flex; flex-wrap: wrap; gap: .25rem 1rem; list-style: none; padding: 0; margin: 0; }
+.nav-list a { display: inline-block; padding-block: .5rem; text-decoration: none; color: var(--muted); }
+.nav-list a[aria-current], .nav-list a:hover { color: var(--link); text-decoration: underline; }
+.site-main { padding-block: var(--space-12) var(--space-16); }
+.site-main:focus { outline: none; }
+.site-footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-4); color: var(--muted); border-top: 1px solid var(--border); font-size: .9rem; }
+.site-footer p { margin: 0; }
+.page-header { max-width: var(--measure); margin-bottom: var(--space-8); }
+.eyebrow, .content-type { font-family: var(--mono); text-transform: uppercase; letter-spacing: .06em; font-size: .8rem; color: var(--muted); }
+.home { max-width: 60rem; }
+.hero { max-width: var(--measure); padding-block: var(--space-4) var(--space-8); }
+.hero h1 span { color: var(--muted); font-size: .7em; }
+.terminal-accent { color: var(--terminal); }
+.binary { color: var(--muted); font: .75rem/1.8 var(--mono); overflow-wrap: anywhere; }

@@ -1,60 +1,22 @@
 ---
-title: "Armory & Tools"
-layout: archive
+layout: default
+title: Tools and tags
 permalink: /tools/
-author_profile: true
-sidebar:
-  nav: "main"
+nav_section: topics
 ---
-
-<div class="terminal-card">
-  <p style="margin: 0; margin-bottom: 5px;">
-    <span class="cmd-prompt">root@S3Z4R:</span><span class="cmd-path">~</span>$ cd tools
-  </p>
-  <p style="margin: 0; line-height: 1.5;">
-    Index of tools and techniques used in operations.
-  </p>
-</div>
-
-{% assign rawtags = "" %}
-{% for page in site.pages %}
-  {% if page.tags %}
-    {% assign ttags = page.tags | join: '|' | append: '|' %}
-    {% assign rawtags = rawtags | append: ttags %}
-  {% endif %}
+<section class="archive">
+<h1>Tools and tags</h1>
+<p>This legacy tag index links to existing writeups. Reviewed knowledge routes will live under <a href="{{ '/topics/' | relative_url }}">Topics</a>.</p>
+<ul class="tag-index">
+{% for tag in site.notebook_tags %}<li><a href="#{{ tag | slugify }}">{{ tag | escape }}</a></li>{% endfor %}
+</ul>
+{% for tag in site.notebook_tags %}
+<section>
+{% assign slug = tag | slugify %}
+{% if tag != slug %}{% unless tag contains ' ' %}<span class="legacy-anchor" id="{{ tag | escape }}"></span>{% endunless %}{% endif %}
+<h2 id="{{ slug }}">{{ tag | escape }}</h2>
+{% assign tagged = site.notebook_entries | where_exp: 'entry', 'entry.tags contains tag' %}
+{% include content-list.html entries=tagged %}
+</section>
 {% endfor %}
-{% assign rawtags = rawtags | split: '|' | uniq | sort %}
-
-<div style="margin-bottom: 30px;">
-  {% for tag in rawtags %}
-    <a href="#{{ tag }}" class="tool-badge">{{ tag }}</a>
-  {% endfor %}
-</div>
-
-{% for tag in rawtags %}
-
-<h3 id="{{ tag }}" style="margin-top: 30px; border-bottom: 2px solid #3498db; display: inline-block;">
-  {{ tag }}
-</h3>
-
-<div style="margin-bottom: 20px;">
-{% for mypage in site.pages %}
-  {% if mypage.tags contains tag %}
-  <div class="tool-item">
-    <a href="{{ mypage.url | relative_url }}" style="font-weight: bold; text-decoration: none;">
-      {{ mypage.title }}
-    </a>
-    
-    <div class="tool-meta">
-      {{ mypage.date | date: "%Y-%m-%d" }} | 
-      <span style="color: #3498db;">{{ mypage.os }}</span> | 
-      <span style="color: {% if mypage.difficulty == 'Easy' %}#2ecc71{% elsif mypage.difficulty == 'Medium' %}#f1c40f{% else %}#e74c3c{% endif %};">
-        {{ mypage.difficulty }}
-      </span>
-    </div>
-  </div>
-  {% endif %}
-{% endfor %}
-</div>
-
-{% endfor %}
+</section>

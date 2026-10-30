@@ -1,0 +1,13 @@
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-brand" href="{{ '/' | relative_url }}" {% if page.url == '/' %}aria-current="page"{% endif %}><strong>S3Z4R</strong><span>Security Notebook</span></a>
+    <nav aria-label="Primary">
+      <ul class="nav-list">
+        {% assign current_section = page.nav_section | default: page.archive_collection %}
+        {% for item in site.data.navigation.main %}
+        <li><a href="{{ item.url | relative_url }}" {% if page.url == item.url %}aria-current="page"{% elsif current_section == item.key %}aria-current="location"{% endif %}>{{ item.title | escape }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>

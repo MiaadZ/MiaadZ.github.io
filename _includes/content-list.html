@@ -1,0 +1,20 @@
+{% if include.entries.size > 0 %}
+<ul class="content-list">
+  {% for entry in include.entries %}
+  <li class="content-entry{% if entry.starred %} is-featured{% endif %}">
+    <h3><a href="{{ entry.url | relative_url }}">{{ entry.title | escape }}</a></h3>
+    <ul class="metadata" aria-label="Entry metadata">
+      {% if entry.type %}<li class="content-type">{{ entry.type | escape }}</li>{% endif %}
+      {% if entry.platform %}<li>{{ entry.platform | escape }}</li>{% endif %}
+      {% if entry.os %}<li>{{ entry.os | escape }}</li>{% endif %}
+      {% if entry.difficulty %}<li>Difficulty: {{ entry.difficulty | escape }}</li>{% endif %}
+      {% if entry.date %}<li><time datetime="{{ entry.date | date: '%Y-%m-%d' }}">{{ entry.date | date: '%d %b %Y' }}</time></li>{% endif %}
+      {% if entry.starred %}<li class="featured-label">Featured</li>{% endif %}
+    </ul>
+    {% if entry.summary %}<p>{{ entry.summary | escape }}</p>{% endif %}
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p class="empty-state">No entries published yet.</p>
+{% endif %}

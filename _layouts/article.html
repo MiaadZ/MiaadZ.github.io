@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<article class="article">
+  <header class="article-header">
+    {% if page.nav_section %}<a href="{{ page.nav_section | prepend: '/' | append: '/' | relative_url }}">Browse {{ page.nav_section | escape }}</a>{% else %}<a href="{{ '/' | relative_url }}">Notebook</a>{% endif %}
+    {% if page.legacy_body_header %}{{ content | notebook_heading }}{% else %}<h1>{{ page.title | escape }}</h1>{% endif %}
+    <ul class="metadata" aria-label="Article metadata">
+      {% if page.type %}<li class="content-type">{{ page.type | escape }}</li>{% endif %}
+      {% if page.type == 'writeup' %}
+        {% if page.platform %}<li>{% assign source = page.source_url | notebook_source_url %}{% if source %}<a href="{{ source | escape }}">{{ page.platform | escape }}</a>{% else %}{{ page.platform | escape }}{% endif %}</li>{% endif %}
+        {% if page.os %}<li>{{ page.os | escape }}</li>{% endif %}
+        {% if page.difficulty %}<li>Difficulty: {{ page.difficulty | escape }}</li>{% endif %}
+      {% endif %}
+      {% if page.date %}<li><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%d %b %Y' }}</time></li>{% endif %}
+      {% if page.starred %}<li class="featured-label">Featured</li>{% endif %}
+    </ul>
+    {% if page.summary %}<p class="article-summary">{{ page.summary | escape }}</p>{% endif %}
+  </header>
+  {% if page.toc %}{{ content | notebook_toc }}{% endif %}
+  <div class="article-body">{{ content | notebook_article_body | notebook_overflow }}</div>
+  {% if page.topics.size > 0 %}
+  <footer class="article-topics"><h2>Related topics</h2><ul>
+    {% for slug in page.topics %}{% assign topic = site.topics | where: 'slug', slug | first %}{% if topic %}<li><a href="{{ topic.url | relative_url }}">{{ topic.title | escape }}</a></li>{% endif %}{% endfor %}
+  </ul></footer>
+  {% endif %}
+</article>

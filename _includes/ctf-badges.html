@@ -1,26 +1,9 @@
-<div class="ctf-badges" style="margin-bottom: 20px;">
-  
-  {% if page.os %}
-    <img src="https://img.shields.io/badge/OS-{{ page.os }}-blue?style=flat-square" style="margin-right: 5px;" alt="OS">
-  {% endif %}
-
-  {% if page.difficulty %}
-    {% assign diff_color = "green" %}
-    {% if page.difficulty == "Medium" %}{% assign diff_color = "yellow" %}
-    {% elsif page.difficulty == "Hard" %}{% assign diff_color = "red" %}
-    {% elsif page.difficulty == "Insane" %}{% assign diff_color = "8B0000" %}
-    {% endif %}
-    <img src="https://img.shields.io/badge/Difficulty-{{ page.difficulty }}-{{ diff_color }}?style=flat-square" style="margin-right: 5px;" alt="Difficulty">
-  {% endif %}
-
-  {% if page.tags %}
-    {% for tag in page.tags %}
-      {% unless tag == page.os or tag == page.difficulty %}
-        <a href="{{ site.baseurl }}/tools/#{{ tag | slugify }}" style="text-decoration: none; border-bottom: none;">
-          <img src="https://img.shields.io/badge/{{ tag | replace: ' ', '_' }}-orange?style=flat-square" style="margin-right: 5px;" alt="{{ tag }}">
-        </a>
-      {% endunless %}
-    {% endfor %}
-  {% endif %}
-  
-</div>
+<ul class="badges" aria-label="Writeup details">
+  {% unless page.type %}
+  {% assign badge_platform = page.platform | default: page.parent %}
+  {% if badge_platform %}<li>Platform: {{ badge_platform | escape }}</li>{% endif %}
+  {% if page.os %}<li>OS: {{ page.os | escape }}</li>{% endif %}
+  {% if page.difficulty %}<li>Difficulty: {{ page.difficulty | escape }}</li>{% endif %}
+  {% endunless %}
+  {% for tag in page.tags %}<li><a href="{{ '/tools/' | relative_url }}#{{ tag | slugify }}">{{ tag | escape }}</a></li>{% endfor %}
+</ul>

@@ -2,5 +2,6 @@
 layout: home
 title: Home
 permalink: /
+hero_statement: "Breaking, building and understanding systems."
 ---
-I am a cybersecurity enthusiast and CTF player focusing on offensive security and penetration testing. This notebook is my documentation archive for security writeups, methodologies and technical knowledge.
+I started in software development, moved deeper into Linux and infrastructure, and eventually into security. This notebook is where I document the parts worth keeping: writeups, notes, research, experiments and tools.

@@ -68,3 +68,30 @@ For browser checks, serve _site on localhost and use an isolated Chromium profil
 Check the article, /writeups/, its platform view and /tools/ on desktop/mobile. Check keyboard focus, code/table scrolling, image legibility, headings and source links.
 No analytics, comments, profile marketing or remote runtime assets.
 The notebook plugin is build-only and currently required for complete output; see the Phase 3 report for the retention recommendation. Hosting/build-mode selection and deployment are separate decisions. This phase creates no workflow or hosting changes.
+
+## Phase 4: curated topics and automatic discovery
+The homepage, Latest, platform archives and Tools index update from published collection content; no manual article list is maintained in these templates.
+Primary navigation always shows Writeups and Topics. Notes, Research and Projects appear automatically when they contain published material.
+
+When a real article supports an existing knowledge route, add its reviewed slug to topics: []:
+- web-security
+- linux-privilege-escalation
+- credential-attacks
+- enumeration
+- network-forensics
+- reverse-engineering
+
+Tags name lightweight descriptors/tools; topics express a curated relationship supported by the article. A tag is not sufficient evidence by itself.
+Topic descriptions, selected starting points and featured-topic flags are intentionally editorial. Related lists and counts are automatic across all four content types.
+docs/topic-evidence.json records the initial review of the protected 20 originals. Update that review record deliberately when reclassifying those originals. A new authored article with an existing topic slug requires no homepage/archive/platform-index edit.
+Do not invent a topic to fill a gap. A new topic needs supported content, a real _topics page and a reviewed description.
+
+Use these additional checks after building:
+```sh
+python3 docs/verify-phase4.py _site
+```
+This includes in-memory future-content fixtures only; no sample content is written.
+docs/verify-browser.py now covers home/topics/identity, reduced motion and native Chrome 400% zoom when available, using an isolated local test profile. Its ignored output lives under .jekyll-cache/phase4/.
+The existing writeup template remains unchanged.
+
+Published discovery omits entries with published: false, future dates under normal Jekyll publishing rules, or status: draft. Direct draft-preview behavior is not a confidentiality mechanism.

@@ -13,6 +13,7 @@ toc: true
 toc_label: "Contents"
 permalink: /TryHackMe/h4cked.html
 legacy_body_header: true
+topics: ["credential-attacks", "network-forensics"]
 ---
 # Writeup: [{{ page.title }}]({{ page.source_url }})
 {% include ctf-badges.html %}

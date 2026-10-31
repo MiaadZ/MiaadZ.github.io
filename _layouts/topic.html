@@ -2,11 +2,20 @@
 layout: default
 ---
 <section class="topic">
-  <header class="page-header"><p class="eyebrow">Topic route</p><h1>{{ page.title | escape }}</h1></header>
-  <div class="article-body">{{ content | notebook_overflow }}</div>
+  <header class="page-header">
+    <a href="{{ '/topics/' | relative_url }}">All topics</a>
+    <p class="eyebrow">Topic route</p><h1>{{ page.title | escape }}</h1>
+    <p class="topic-description">{{ page.description | escape }}</p>
+    <p class="topic-count">{{ page.entry_count }} {% if page.entry_count == 1 %}entry{% else %}entries{% endif %} in the notebook</p>
+  </header>
+  <div class="article-body topic-introduction">{{ content | notebook_overflow }}</div>
   {% assign types = 'note,writeup,research,project' | split: ',' %}
   {% for type in types %}
     {% assign related = site.notebook_entries | where: 'type', type | where_exp: 'entry', 'entry.topics contains page.slug' %}
-    {% if related.size > 0 %}<section><h2>{{ type | capitalize }}{% unless type == 'research' %}s{% endunless %}</h2>{% include content-list.html entries=related %}</section>{% endif %}
+    {% if related.size > 0 %}
+    <section class="topic-group"><h2>{{ type | capitalize }}{% unless type == 'research' %}s{% endunless %}</h2>
+      {% include content-list.html entries=related %}
+    </section>
+    {% endif %}
   {% endfor %}
 </section>

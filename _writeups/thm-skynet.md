@@ -13,6 +13,7 @@ toc: true
 toc_label: "Mission Log"
 permalink: /TryHackMe/Skynet.html
 legacy_body_header: true
+topics: ["linux-privilege-escalation", "enumeration"]
 ---
 # CTF Writeup: [{{ page.title }}]({{ page.source_url }})
 {% include ctf-badges.html %}

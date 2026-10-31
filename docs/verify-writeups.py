@@ -55,6 +55,8 @@ require "yaml"
 require "date"
 require "json"
 require "uri"
+review = JSON.parse(File.read("docs/topic-evidence.json"))
+topic_slugs = review["topics"].map { |topic| topic["slug"] }
 m = YAML.safe_load_file("docs/legacy-manifest.yml")
 records = {}
 Dir["_writeups/*.md"].sort.each do |path|
@@ -72,6 +74,8 @@ Dir["_writeups/*.md"].sort.each do |path|
     uri = URI.parse(source)
     abort "Invalid source URL: #{path}" unless %w[http https].include?(uri.scheme) && uri.host && !uri.userinfo
   end
+  assigned = data.fetch("topics", [])
+  abort "Invalid topic references: #{path}" unless assigned.is_a?(Array) && assigned.uniq == assigned && (assigned - topic_slugs).empty?
   records[path] = data
 end
 m["writeups"].each do |entry|
@@ -84,6 +88,9 @@ m["writeups"].each do |entry|
   abort "Unexpected presentation" unless data["layout"] == "article" && data["legacy_body_header"] == true
   %w[toc toc_label].each { |key| abort "Changed TOC" unless data[key] == entry["original_front_matter"][key] }
   expected_keys = %w[layout title type platform source_url os difficulty date tags starred toc toc_label permalink legacy_body_header]
+  expected_topics = review["topics"].select { |topic| topic["members"].any? { |member| member[0] == File.basename(entry["target_source_path"]) } }.map { |topic| topic["slug"] }
+  abort "Unreviewed topic association: #{entry["target_source_path"]}" unless data["topics"] == expected_topics
+  expected_keys << "topics"
   abort "Unexpected enrichment: #{entry["target_source_path"]}" unless data.keys.sort == expected_keys.sort
 end
 puts JSON.generate(records.transform_values { |data| data.merge("date" => data["date"].to_s) })

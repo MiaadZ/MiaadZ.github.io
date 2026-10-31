@@ -25,3 +25,6 @@ blockquote { border-inline-start: 3px solid var(--link); padding-inline: var(--s
   pre { padding: var(--space-3); font-size: .85rem; }
   th, td { padding: .5rem; }
 }
+
+/* Retain the authored green cue while meeting contrast on the dark surface. */
+.article-body p[style="color: green;"] { color: var(--terminal) !important; }

@@ -2,6 +2,11 @@ main:
   - title: Writeups
     url: /writeups/
     key: writeups
+    always: true
+  - title: Topics
+    url: /topics/
+    key: topics
+    always: true
   - title: Notes
     url: /notes/
     key: notes
@@ -11,6 +16,3 @@ main:
   - title: Projects
     url: /projects/
     key: projects
-  - title: Topics
-    url: /topics/
-    key: topics

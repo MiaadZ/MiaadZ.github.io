@@ -13,6 +13,7 @@ toc: true
 toc_label: "Mission Log"
 permalink: /TryHackMe/Relevant.html
 legacy_body_header: true
+topics: ["web-security", "credential-attacks", "enumeration"]
 ---
 # CTF Writeup: [{{ page.title }}]({{ page.source_url }})
 {% include ctf-badges.html %}

@@ -13,6 +13,7 @@ toc: true
 toc_label: "Mission Log"
 permalink: /TryHackMe/Advent-of-Cyber-2025.html
 legacy_body_header: true
+topics: ["web-security"]
 ---
 
 # Event Log: [{{ page.title }}]({{ page.source_url }})

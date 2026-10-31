@@ -1,11 +1,14 @@
 <header class="site-header">
   <div class="header-inner">
-    <a class="site-brand" href="{{ '/' | relative_url }}" {% if page.url == '/' %}aria-current="page"{% endif %}><strong>S3Z4R</strong><span>Security Notebook</span></a>
+    <a class="site-brand identity-trigger" href="{{ '/' | relative_url }}" {% if page.url == '/' %}aria-current="page"{% endif %}><strong class="identity-word">S3Z4R<span class="glitch-layer" aria-hidden="true">S3Z4R</span></strong><span>Security Notebook</span></a>
     <nav aria-label="Primary">
       <ul class="nav-list">
         {% assign current_section = page.nav_section | default: page.archive_collection %}
         {% for item in site.data.navigation.main %}
+        {% assign published_count = site.notebook_collection_counts[item.key] | default: 0 %}
+        {% if item.always or published_count > 0 %}
         <li><a href="{{ item.url | relative_url }}" {% if page.url == item.url %}aria-current="page"{% elsif current_section == item.key %}aria-current="location"{% endif %}>{{ item.title | escape }}</a></li>
+        {% endif %}
         {% endfor %}
       </ul>
     </nav>

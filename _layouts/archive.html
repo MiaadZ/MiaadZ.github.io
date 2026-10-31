@@ -5,9 +5,13 @@ layout: default
   <header class="page-header"><p class="eyebrow">Notebook index</p><h1>{{ page.title | escape }}</h1>{{ content }}</header>
   <section aria-label="Published entries">
     <h2 class="visually-hidden">Published entries</h2>
-    {% assign entries = site.notebook_entries | where: 'type', page.archive_type %}
-    {% if page.archive_collection == 'topics' %}{% assign entries = site.topics | sort_natural: 'title' %}{% endif %}
-    {% if page.archive_platform %}{% assign entries = entries | where: 'platform', page.archive_platform %}{% endif %}
-    {% include content-list.html entries=entries %}
+    {% if page.archive_collection == 'topics' %}
+      {% assign entries = site.notebook_topics | sort_natural: 'title' %}
+      {% include content-list.html entries=entries topics=true %}
+    {% else %}
+      {% assign entries = site.notebook_entries | where: 'type', page.archive_type %}
+      {% if page.archive_platform %}{% assign entries = entries | where: 'platform', page.archive_platform %}{% endif %}
+      {% include content-list.html entries=entries %}
+    {% endif %}
   </section>
 </section>

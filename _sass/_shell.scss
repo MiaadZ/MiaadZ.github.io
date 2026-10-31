@@ -3,8 +3,8 @@
 .header-inner { display: flex; align-items: center; justify-content: space-between; gap: var(--space-6); flex-wrap: wrap; }
 .site-brand { display: flex; align-items: baseline; flex-wrap: wrap; gap: .75rem; text-decoration: none; }
 .site-brand strong { color: var(--text); font: 700 1.5rem var(--mono); letter-spacing: .06em; }
-.site-brand span { color: var(--muted); font-size: .9rem; }
-.nav-list { display: flex; flex-wrap: wrap; gap: .25rem 1rem; list-style: none; padding: 0; margin: 0; }
+.site-brand > span { color: var(--muted); font-size: .9rem; }
+.nav-list { display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; list-style: none; padding: 0; margin: 0; }
 .nav-list a { display: inline-block; padding-block: .5rem; text-decoration: none; color: var(--muted); }
 .nav-list a[aria-current], .nav-list a:hover { color: var(--link); text-decoration: underline; }
 .site-main { padding-block: var(--space-12) var(--space-16); }
@@ -13,8 +13,51 @@
 .site-footer p { margin: 0; }
 .page-header { max-width: var(--measure); margin-bottom: var(--space-8); }
 .eyebrow, .content-type { font-family: var(--mono); text-transform: uppercase; letter-spacing: .06em; font-size: .8rem; color: var(--muted); }
-.home { max-width: 60rem; }
-.hero { max-width: var(--measure); padding-block: var(--space-4) var(--space-8); }
-.hero h1 span { color: var(--muted); font-size: .7em; }
-.terminal-accent { color: var(--terminal); }
-.binary { color: var(--muted); font: .75rem/1.8 var(--mono); overflow-wrap: anywhere; }
+
+.home { max-width: 68rem; }
+.hero { max-width: 58rem; padding-block: var(--space-4) var(--space-8); }
+.hero .eyebrow { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; align-items: center; }
+.hero-prompt { color: var(--terminal); display: inline-flex; gap: .5em; align-items: center; text-transform: none; }
+.hero h1 { margin-block: 1.75rem 1.5rem; }
+.hero-name { font-size: clamp(3.5rem, 13vw, 6.5rem); font-weight: 750; line-height: 1.05; letter-spacing: -.055em; }
+.hero-subtitle { display: block; margin-top: .5rem; font-size: clamp(1.25rem, 3vw, 1.9rem); font-weight: 500; letter-spacing: -.025em; color: var(--muted); }
+.hero-statement { font-size: clamp(1.1rem, 2vw, 1.3rem); font-weight: 550; }
+.hero-narrative { max-width: 65ch; color: var(--muted); font-size: 1.0625rem; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: .5rem 1.75rem; margin-top: 1.5rem; }
+.hero-actions a { display: inline-block; padding-block: .5rem; }
+.binary { margin-top: 1.75rem; color: var(--muted); opacity: .55; font: .72rem/1.8 var(--mono); word-spacing: .35em; overflow-wrap: anywhere; }
+.home-section { margin-block: clamp(2.5rem, 5vw, 4rem); }
+.section-heading { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: .5rem 1rem; margin-bottom: .5rem; }
+.section-heading h2 { margin: 0; }
+.section-heading p { margin: 0; color: var(--muted); font-size: .9rem; }
+
+/* Only decorative copies move. The actual identity text stays static. */
+.identity-word { display: inline-block; position: relative; }
+.identity-word .glitch-layer { position: absolute; inset: 0; font: inherit; letter-spacing: inherit; color: var(--link); opacity: 0; clip-path: inset(35% 0 45% 0); pointer-events: none; user-select: none; }
+.identity-trigger:hover .glitch-layer,
+.identity-trigger:focus-visible .glitch-layer,
+.hero-name:hover .glitch-layer,
+.hero:focus-within .glitch-layer { animation: identity-glitch 180ms linear 1; }
+@keyframes identity-glitch {
+  0% { opacity: .3; transform: translateX(-1px); clip-path: inset(35% 0 45% 0); }
+  45% { opacity: .3; transform: translateX(1px); clip-path: inset(60% 0 25% 0); }
+  85% { opacity: .3; transform: translateX(-1px); clip-path: inset(20% 0 65% 0); }
+  100% { opacity: 0; transform: none; }
+}
+.terminal-cursor { display: inline-block; width: .45em; height: .85em; background: currentColor; opacity: .65; animation: cursor-settle 900ms steps(1, end) 3; }
+@keyframes cursor-settle {
+  0%, 45%, 100% { opacity: .65; }
+  46%, 95% { opacity: 0; }
+}
+@media (max-width: 40rem) {
+  .header-inner { gap: .5rem; }
+  .hero { padding-top: 0; }
+  .hero-narrative { font-size: 1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .identity-word .glitch-layer { display: none; }
+  .terminal-cursor { animation: none; opacity: .65; }
+}
+@media (forced-colors: active) {
+  .glitch-layer, .binary, .terminal-cursor { display: none; }
+}

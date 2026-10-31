@@ -1,33 +1,36 @@
 # S3Z4R Security Notebook
 
-A Markdown-first Jekyll security notebook. All 20 existing writeups now live in the flat _writeups collection with normalized metadata and preserved public URLs.
+A Markdown-first Jekyll notebook: technical writeups, curated topic routes and an understated systems/security identity.
 
 ## Local build
-Use Ruby 3.4.10 and the root Gemfile/Gemfile.lock. Jekyll 4.4.1 is the only direct target dependency. Follow AGENTS.md for approved local dependency actions; new dependencies need approval.
+Use Ruby 3.4.10 and the root Gemfile/Gemfile.lock. Jekyll 4.4.1 is the only direct dependency. Follow AGENTS.md for local dependency actions; new dependencies need approval.
 
 With the existing approved bundle:
 ```sh
 BUNDLE_FROZEN=true BUNDLE_PATH="$PWD/docs/vendor/bundle" bundle exec jekyll build --trace
 python3 docs/verify-writeups.py _site
+python3 docs/verify-phase2.py _site
+python3 docs/verify-phase4.py _site
 git diff --check
 ```
+Use vendor/bundle instead if the root bundle was installed there. docs/baseline.Gemfile is for historical theme reproduction only.
+Preservation checks require the original Git objects named in docs/legacy-manifest.yml.
 
-Use vendor/bundle instead if the root bundle was installed there. docs/baseline.Gemfile is for reproducing the historical theme baseline only.
+## Content
+- All 20 original writeups live in flat _writeups/ with preserved /TryHackMe/*.html URLs.
+- Six curated _topics/ routes connect actual content. Tags remain an independent lightweight index at /tools/.
+- Latest automatically combines published writeups, notes, research and projects.
+- Writeups and Topics are always in primary navigation; other types appear when published content exists.
+- Empty collection archives remain available; no sample Notes/Research/Projects were added.
+- The approved platform-neutral template is _templates/ctf-template.md.
+- See [authoring workflow](docs/writeup-workflow.md) for names, metadata, topics and local checks.
+- Keep docs/legacy-manifest.yml immutable.
 
-## Content and source
-- _writeups/ is flat: thm-<slug>.md and, when authored, htb-<slug>.md.
-- Platform is metadata, never a source directory.
-- Explicit permalinks preserve all 20 original /TryHackMe/*.html routes.
-- /writeups/ and /tryhackme/ list normalized content; /hackthebox/ has an honest empty state.
-- _notes/, _research/, _projects/ and _topics/ are configured for real future material.
-- The platform-neutral template is _templates/ctf-template.md.
-- The [authoring workflow](docs/writeup-workflow.md) explains naming, metadata, assets and local checks.
-- The immutable preservation baseline is docs/legacy-manifest.yml; do not replace original hashes with migrated hashes.
+## Presentation and build
+The site uses five owned layouts, local Sass, system fonts and no frontend JavaScript, trackers, remote fonts or external badge assets.
+Brief CSS identity effects respect reduced motion. Articles remain calm, with accessible code/table overflow.
+_plugins/notebook.rb handles published indexes/counts, validation and semantic title/TOC/overflow helpers.
+docs/, AGENTS.md, dependencies and editor/build artifacts are excluded from generated output.
 
-## Build and publication
-_plugins/notebook.rb provides collection indexes, validation, title/TOC and keyboard-overflow helpers; legacy aliases are no longer needed.
-The [Phase 3 report](docs/phase3-report.md) documents why retaining this small build-only plugin is recommended and what that means for a later hosting decision.
-docs/, AGENTS.md, editor files, dependencies and build definitions are excluded from generated output.
-No frontend JavaScript, trackers, remote fonts or external badge assets.
-
-No deployment configuration, GitHub settings, commit or push was performed. [Phase 2 report](docs/phase2-report.md) remains historical evidence; its verification command delegates to the current complete-migration checks.
+The [Phase 4 report](docs/phase4-report.md) records the exact narrative, topic evidence, browser/native-400%-zoom results, file accounting and the recommendation for a future custom Actions build. No workflow or deployment was configured.
+[Phase 2](docs/phase2-report.md) and [Phase 3](docs/phase3-report.md) reports remain historical evidence. No commit, push or deployment was performed.

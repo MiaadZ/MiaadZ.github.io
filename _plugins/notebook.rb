@@ -10,9 +10,11 @@ module Notebook
     priority :normal
 
     def generate(site)
-      entries = %w[writeups notes research projects].flat_map { |name| site.collections.fetch(name).docs }
+      collection_types = {"writeups" => "writeup", "notes" => "note", "research" => "research", "projects" => "project"}
+      entries = collection_types.keys.flat_map { |name| site.collections.fetch(name).docs }
+      entries = entries.select { |entry| site.publisher.publish?(entry) && entry.data["status"] != "draft" }
       entries.each do |entry|
-        unless %w[writeup note research project].include?(entry.data["type"])
+        unless entry.data["type"] == collection_types.fetch(entry.collection.label)
           raise Jekyll::Errors::FatalException, "Invalid content type: #{entry.path}"
         end
         if entry.data["title"].to_s.strip.empty?
@@ -25,6 +27,29 @@ module Notebook
       site.config["notebook_entries"] = entries.sort_by do |entry|
         [-Date.parse(entry.data["date"].to_s).jd, entry.data["title"].to_s.downcase, entry.url]
       end
+      topics = site.collections.fetch("topics").docs.select { |topic| site.publisher.publish?(topic) }
+      site.config["notebook_topics"] = topics.sort_by { |topic| [topic.data["title"].to_s.downcase, topic.data["slug"].to_s] }
+      topic_slugs = topics.map { |topic| topic.data["slug"] }
+      if topic_slugs.uniq.length != topic_slugs.length || topic_slugs.any? { |slug| !slug.is_a?(String) || !slug.match?(/\A[a-z0-9]+(?:-[a-z0-9]+)*\z/) }
+        raise Jekyll::Errors::FatalException, "Missing, duplicate or invalid topic slug"
+      end
+      entries.each do |entry|
+        assigned = entry.data.fetch("topics", [])
+        unless assigned.is_a?(Array) && assigned.uniq == assigned && (assigned - topic_slugs).empty?
+          raise Jekyll::Errors::FatalException, "Invalid topic references: #{entry.path}"
+        end
+      end
+      topics.each do |topic|
+        if topic.data["description"].to_s.strip.empty?
+          raise Jekyll::Errors::FatalException, "Missing topic scope: #{topic.path}"
+        end
+        topic.data["entry_count"] = entries.count { |entry| Array(entry.data["topics"]).include?(topic.data["slug"]) }
+        if topic.data["entry_count"].zero?
+          raise Jekyll::Errors::FatalException, "Topic has no published supporting content: #{topic.path}"
+        end
+      end
+      counts = collection_types.transform_values { |type| entries.count { |entry| entry.data["type"] == type } }
+      site.config["notebook_collection_counts"] = counts.merge("topics" => topics.length)
       site.config["notebook_tags"] = entries.flat_map { |entry| Array(entry.data["tags"]) }.uniq.sort_by(&:downcase)
       slugs = {}
       site.config["notebook_tags"].each do |tag|

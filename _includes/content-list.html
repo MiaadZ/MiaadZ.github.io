@@ -1,8 +1,12 @@
 {% if include.entries.size > 0 %}
-<ul class="content-list">
+<ul class="content-list{% if include.topics %} topic-list{% endif %}">
   {% for entry in include.entries %}
-  <li class="content-entry{% if entry.starred %} is-featured{% endif %}">
+  <li class="{% if include.topics %}topic-entry{% else %}content-entry{% if entry.starred %} is-featured{% endif %}{% endif %}">
     <h3><a href="{{ entry.url | relative_url }}">{{ entry.title | escape }}</a></h3>
+    {% if include.topics %}
+      <p>{{ entry.description | escape }}</p>
+      <p class="topic-count">{{ entry.entry_count }} {% if entry.entry_count == 1 %}entry{% else %}entries{% endif %}</p>
+    {% else %}
     <ul class="metadata" aria-label="Entry metadata">
       {% if entry.type %}<li class="content-type">{{ entry.type | escape }}</li>{% endif %}
       {% if entry.platform and entry.platform != empty %}<li>{{ entry.platform | escape }}</li>{% endif %}
@@ -12,6 +16,7 @@
       {% if entry.starred %}<li class="featured-label">Featured</li>{% endif %}
     </ul>
     {% if entry.summary and entry.summary != empty %}<p>{{ entry.summary | escape }}</p>{% endif %}
+    {% endif %}
   </li>
   {% endfor %}
 </ul>

@@ -3,12 +3,33 @@ layout: default
 ---
 <div class="home">
   <header class="hero">
-    <p class="eyebrow"><span class="terminal-accent" aria-hidden="true">~/notebook</span> · Security in practice</p>
-    <h1>S3Z4R<br><span>Security Notebook</span></h1>
+    <p class="eyebrow"><span class="hero-prompt" aria-hidden="true">~/notebook <span class="terminal-cursor"></span></span><span>Security in practice</span></p>
+    <h1><span class="hero-name identity-word">S3Z4R<span class="glitch-layer" aria-hidden="true">S3Z4R</span></span><span class="hero-subtitle">Security Notebook</span></h1>
+    <p class="hero-statement">{{ page.hero_statement | escape }}</p>
+    <div class="hero-narrative">{{ content }}</div>
+    <div class="hero-actions"><a href="{{ '/writeups/' | relative_url }}">Browse writeups <span aria-hidden="true">↗</span></a><a href="{{ '/topics/' | relative_url }}">Explore topics <span aria-hidden="true">↗</span></a></div>
     <p class="binary" aria-hidden="true">01010011 00110011 01011010 00110100 01010010</p>
-    {{ content }}
   </header>
+
   {% assign featured = site.notebook_entries | where: 'starred', true | slice: 0, 3 %}
-  {% if featured.size > 0 %}<section aria-labelledby="featured-title"><h2 id="featured-title">Featured</h2>{% include content-list.html entries=featured %}</section>{% endif %}
-  <section aria-labelledby="recent-title"><h2 id="recent-title">Recent activity</h2>{% assign recent = site.notebook_entries | slice: 0, 6 %}{% include content-list.html entries=recent %}</section>
+  {% if featured.size > 0 %}
+  <section class="home-section" aria-labelledby="featured-title">
+    <div class="section-heading"><h2 id="featured-title">Featured</h2><p>Selected from the notebook</p></div>
+    {% include content-list.html entries=featured %}
+  </section>
+  {% endif %}
+
+  <section class="home-section" aria-labelledby="latest-title">
+    <div class="section-heading"><h2 id="latest-title">Latest</h2><p>Recent additions, across the notebook</p></div>
+    {% assign recent = site.notebook_entries | slice: 0, 6 %}
+    {% include content-list.html entries=recent %}
+  </section>
+
+  {% assign selected_topics = site.notebook_topics | where: 'featured', true | sort_natural: 'title' %}
+  {% if selected_topics.size > 0 %}
+  <section class="home-section" aria-labelledby="explore-title">
+    <div class="section-heading"><h2 id="explore-title">Explore by topic</h2><a href="{{ '/topics/' | relative_url }}">All topics</a></div>
+    {% include content-list.html entries=selected_topics topics=true %}
+  </section>
+  {% endif %}
 </div>

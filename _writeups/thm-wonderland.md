@@ -13,6 +13,7 @@ toc: true
 toc_label: "Mission Log"
 permalink: /TryHackMe/wonderland.html
 legacy_body_header: true
+topics: ["linux-privilege-escalation", "reverse-engineering"]
 ---
 # CTF Writeup: [{{ page.title }}]({{ page.source_url }})
 {% include ctf-badges.html %}

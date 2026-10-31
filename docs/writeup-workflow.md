@@ -1,102 +1,74 @@
-# Writeup authoring and local publishing workflow
+# Authoring and publishing
 
-Phase 3: all 20 existing writeups are normalized in the flat _writeups collection. Publishing here means preparing and verifying static output locally; committing and deploying remain user-controlled actions.
+## Choose the content type
 
-## Create real content
-Copy _templates/ctf-template.md into _writeups/ with a clean lowercase kebab-case name.
-- TryHackMe: thm-<slug>.md
-- HackTheBox: htb-<slug>.md
-- Define another platform prefix only when real content requires it.
-No platform subdirectories. The visible title comes from title, never the filename.
+| Type | Use when | Collection / template |
+| --- | --- | --- |
+| WRITEUP | A walkthrough, lab, CTF/challenge or reproduction with an observed path | `_writeups/` / `ctf-template.md` |
+| NOTE | Short reusable technical knowledge or a reference | `_notes/` / `note-template.md` |
+| RESEARCH | Deeper investigation, experiment, analysis or an engineering lesson | `_research/` / `research-template.md` |
+| PROJECT | Something actually built or maintained by you | `_projects/` / `project-template.md` |
 
-The template is intentionally incomplete and is not publishable unchanged. Fill the real title, platform and ISO date; replace the commented permalink example with an explicit, unique route.
-New-content example route pattern: /writeups/<prefixed-source-stem>/.
-Existing migrated documents retain their exact /TryHackMe/<OriginalFilename>.html routes, including case. Never copy an existing article's permalink into a new one.
+Choose the primary purpose; a vulnerability reproduction can be a writeup, while investigation of its behavior can be research. No generic Articles collection. Templates are optional outlines, not mandatory narratives. Do not invent results or create sample content to fill an archive.
 
-## Factual metadata
-Use type: writeup, platform and source_url. parent/link/machine_url are obsolete and unsupported.
-If a source URL is available, use the approved http/https source and link the platform through it. For an exercise without an external source, omit source_url; do not fabricate a URL.
-OS and difficulty are optional if unknown. Remove unknown optional fields rather than inventing values; the layout handles absent or blank values.
-Use the real original date; do not substitute Git timestamps or file modification dates.
-Use tags: [] until factual tags are known and starred: false unless deliberately featuring the entry.
-Optional summary/topics/techniques/tools/updated require reviewed facts. Topics must reference curated topic documents, not arbitrary tags. No automatic old-tag-to-topic conversion.
+## Create, write, build
 
-The new template opts into the native TOC with toc: true. Optional toc_label customizes its accessible disclosure label.
-toc_sticky and toc_icon were theme-only settings and are no longer used.
-The 20 preserved articles retain legacy_body_header: true because their protected bodies already contain H1 headings. Do not add this flag to a new template-based writeup: article.html supplies its title.
+1. Copy the template from `_templates/` into the matching flat collection; create the directory if it has no content yet.
+2. Fill title, matching type, original ISO date (`YYYY-MM-DD`) and a unique explicit permalink. Supply only factual optional metadata; omit unknown values. The three new templates default to `published: false`; set true when reviewed. Keep `starred` false/absent unless intentionally featuring the entry.
+3. Write Markdown, using relevant H2/H3 sections. The article layout supplies the title; no extra H1 or `legacy_body_header` for new content. Keep commands/output accurate and screenshots under `assets/images/` with descriptive alt text.
+4. Build, validate, preview and review changes. Commit/push are user-controlled; pushes to `main` publish through Actions. PRs validate without deployment.
 
-## Adapt the outline
-The provided H2 sections are suggestions, not a checklist. Choose only sections supported by actual content:
-- machine exercises: reconnaissance, access, escalation, findings and defensive notes;
-- web labs: setup, hypothesis, testing and solution;
-- DFIR: evidence, timeline, analysis and conclusions;
-- CVE reproductions: versions, controlled setup, reproduction, observations and limitations;
-- custom labs or challenges: objectives, method, evidence and outcome.
-Keep technical commands/output accurate. Do not imply success, compromise, flags or conclusions without evidence.
-No second body H1 is necessary. Template guidance is in Liquid comments and is excluded from rendered output.
-The tag include is platform-neutral and generates local links without badge-service requests.
+No homepage, archive, platform list, tag index or existing topic index is manually edited. Latest mixes all four types by date. Notes/Research/Projects enter primary navigation automatically when published content exists.
 
-## Assets
-Retain existing assets and their case-sensitive paths. New screenshots should use meaningful filenames and descriptive alt text under assets/images/.
-Do not recompress, rename or edit existing screenshots as part of metadata/content organization work.
-Preview images in context; a source reference can exist while Markdown accidentally renders it literally as code.
+## Filenames, platform and URLs
 
-## Build and verify
-Use Ruby 3.4.10, root Gemfile and Gemfile.lock. No new dependencies were introduced for Phase 3.
-With the existing approved local bundle:
+Writeup source names use lowercase kebab-case:
+
+- TryHackMe: `_writeups/thm-<slug>.md`
+- HackTheBox: `_writeups/htb-<slug>.md`
+- Define another abbreviation only when real content requires it.
+
+Other types use `_notes/<slug>.md`, `_research/<slug>.md`, `_projects/<slug>.md`. Source names organize the repository; the visible title and platform come from metadata. No platform subdirectories.
+
+New route patterns: `/writeups/<prefixed-source-stem>/`, `/notes/<slug>/`, `/research/<slug>/`, `/projects/<slug>/`. Uncomment/fill the template permalink with a unique stable route. Existing articles retain their exact case-sensitive `/TryHackMe/*.html` permalinks. Do not copy one into new content.
+
+For writeups use `platform`, `source_url`, and known `os`/`difficulty`; omit a source URL when none exists. `parent`, `link`, `machine_url` are obsolete. New content can omit unknown OS/difficulty and optional summary/topics/techniques/tools/updated. Fields such as `starred` and `published` are YAML booleans, not quoted strings. Taxonomy fields are arrays of nonempty strings.
+
+Optional research `references` is an array of `{title: "Source title", url: "https://..."}` objects. Optional project `repository_url`/`demo_url` must be real approved public HTTP(S) destinations. These optional metadata fields are not rendered automatically: include useful links in the Markdown body. Project links do not create a personal profile panel.
+
+`published: false` prevents normal Jekyll output. Future dates are excluded by normal builds and become visible only after a subsequent build on/after that date; no scheduled build was added. `status: draft` omits discovery but does not itself prevent direct page output; use `published: false` for unfinished content. These controls are not confidentiality mechanisms. Research/note status may be draft/published/archived; project status may be active/maintenance/archived. Archived does not mean hidden.
+
+## Map an existing topic
+
+Add supported existing slugs to `topics: [...]` in front matter:
+`web-security`, `linux-privilege-escalation`, `credential-attacks`, `enumeration`, `network-forensics`, `reverse-engineering`.
+
+Tags are lightweight descriptors; topics are curated knowledge routes. A tag alone is not evidence for a topic mapping. Related lists, counts and article backlinks update automatically across all four types. New content does not need an entry in the historical `docs/topic-evidence.json`: that record protects the original 20 writeups. Reclassifying an original requires deliberate review of its evidence record.
+
+For a genuinely new topic, define a meaningful scope supported by real published content, create `_topics/<slug>.md` with `title`, stable `slug`, explicit `permalink`, and a factual human-readable `description`, and assign curated topic mappings in that content. The body can explain a useful reading route. Prefer multiple supported documents or clearly meaningful coverage; do not create empty or tag-derived topics. `featured: true` is an intentional editorial choice. Homepage/topic indexes need no manual list edits. This phase adds no new taxonomy or mappings.
+
+## Local checks
+
+Use the existing locked gems, `.ruby-version`, root Gemfile/lock and a repository-local bundle. This checkout uses `docs/vendor/bundle`; fresh root installs may use `vendor/bundle` instead. Do not use the historical `docs/baseline.Gemfile` for normal builds.
+
 ```sh
-BUNDLE_FROZEN=true BUNDLE_PATH="$PWD/docs/vendor/bundle" bundle exec jekyll build --trace
+export BUNDLE_PATH="$PWD/docs/vendor/bundle"
+export BUNDLE_FROZEN=true JEKYLL_ENV=production TZ=UTC
+bundle exec jekyll build --trace --baseurl ""
 python3 docs/verify-writeups.py _site
-python3 docs/verify-phase2.py _site
-git diff --check
-```
-If the root bundle was instead installed under vendor/bundle, use that BUNDLE_PATH. Follow AGENTS.md for dependency actions; new dependencies need approval.
-Do not use docs/baseline.Gemfile for normal notebook builds; it retains historical theme dependencies.
-
-verify-writeups.py verifies all 20 protected originals against the immutable Phase 1 manifest, allows only the three approved exact Liquid substitutions plus the narrowly recorded Phase 6 h4cked link/fence repairs in docs/editorial-corrections.json, checks YAML independently, validates local links/anchors/assets/canonical URLs and archive order, and reports inherited issues individually.
-It also validates normalized names/schema for additional authored writeups. Its archive expectations include every actual collection writeup; it does not freeze the collection at 20 forever.
-The older verify-phase2.py command remains as a compatibility entry point to the same current checks, not an assertion that the old mixed state still exists.
-For a pre-existing render snapshot, add its directory as a second argument to compare all original rendered code blocks and asset references:
-```sh
-python3 docs/verify-writeups.py _site .jekyll-cache/phase3-baseline
-```
-That baseline directory is a local ignored artifact captured before Phase 3, not an additional published source.
-
-For browser checks, serve _site on localhost and use an isolated Chromium profile/debug port; docs/verify-browser.py supports preview/debug origins as arguments and uses only Python's standard library. It writes ignored evidence under .jekyll-cache/phase3. It is a development tool, not frontend JavaScript.
-
-## Review before any publication
-Check the article, /writeups/, its platform view and /tools/ on desktop/mobile. Check keyboard focus, code/table scrolling, image legibility, headings and source links.
-No analytics, comments, profile marketing or remote runtime assets.
-The notebook plugin is build-only and currently required for complete output; see the Phase 3 report for the retention recommendation. Hosting/build-mode selection and deployment are separate decisions. This phase creates no workflow or hosting changes.
-
-## Phase 4: curated topics and automatic discovery
-The homepage, Latest, platform archives and Tools index update from published collection content; no manual article list is maintained in these templates.
-Primary navigation always shows Writeups and Topics. Notes, Research and Projects appear automatically when they contain published material.
-
-When a real article supports an existing knowledge route, add its reviewed slug to topics: []:
-- web-security
-- linux-privilege-escalation
-- credential-attacks
-- enumeration
-- network-forensics
-- reverse-engineering
-
-Tags name lightweight descriptors/tools; topics express a curated relationship supported by the article. A tag is not sufficient evidence by itself.
-Topic descriptions, selected starting points and featured-topic flags are intentionally editorial. Related lists and counts are automatic across all four content types.
-docs/topic-evidence.json records the initial review of the protected 20 originals. Update that review record deliberately when reclassifying those originals. A new authored article with an existing topic slug requires no homepage/archive/platform-index edit.
-Do not invent a topic to fill a gap. A new topic needs supported content, a real _topics page and a reviewed description.
-
-Use these additional checks after building:
-```sh
 python3 docs/verify-phase4.py _site
+python3 docs/verify-publication.py
+bundle exec ruby docs/verify-authoring.rb
+git diff --check
+bundle exec jekyll serve --host 127.0.0.1 --baseurl ""
 ```
-This includes in-memory future-content fixtures only; no sample content is written.
-docs/verify-browser.py now covers home/topics/identity, reduced motion and native Chrome 400% zoom when available, using an isolated local test profile. Its ignored output lives under .jekyll-cache/phase4/.
-The existing writeup template remains unchanged.
 
-Published discovery omits entries with published: false, future dates under normal Jekyll publishing rules, or status: draft. Direct draft-preview behavior is not a confidentiality mechanism.
+The plugin validates shared title/type/date, explicit local permalink, taxonomy arrays, boolean starred, optional summary and HTTP(S) link/reference shapes. It validates curated topic membership and output-route uniqueness. Preserve the original date; never replace it with Git/build timestamps.
 
-## Current publication and preservation status
-The production site now uses the approved GitHub Actions build. See [publication.md](publication.md) for launch controls, validation and rollback. New writeups automatically enter homepage/activity, archives, platform views and tag/topic indexes through metadata; no manual index editing is required.
+`verify-writeups.py` preserves all 20 originals against the immutable manifest, allowing only approved Liquid substitutions and exact Phase 6 repairs recorded in `editorial-corrections.json`. It checks metadata, images/hashes, all generated links/anchors, routes and publication-aware writeup/platform archives. New writeups, including the first real HTB entry, are supported. `verify-phase2.py` is a compatibility wrapper for that same check.
 
-The original preservation manifest remains immutable. Phase 6 repairs only the h4cked absolute lab-IP link and fenced-code/screenshot boundaries; exact old/new text is recorded in editorial-corrections.json and enforced by the preservation verifier. All original screenshot files remain unchanged.
+`verify-phase4.py` checks actual published homepage/activity/navigation/topics and the original curated evidence without freezing the future content/topic counts. `verify-authoring.rb` builds all four real templates in an isolated ignored source, verifies article/archive/Latest/topic discovery, excludes draft/future fixtures, checks invalid metadata, and removes its entire disposable source/output. No fake content enters the real collections. No new dependencies.
+
+Optional `docs/verify-browser.py` uses an existing isolated Chromium/debugging instance and local preview; evidence stays under ignored `.jekyll-cache/phase4/`. Review keyboard focus, code/table scrolling, image legibility and mobile pages before publication. No browser runtime dependency is added to the site.
+
+See [publication.md](publication.md) for Actions behavior, manual controls and source-based rollback. Historical architecture and phase reports remain under `docs/`.

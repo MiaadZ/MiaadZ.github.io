@@ -12,18 +12,21 @@ module Notebook
     def generate(site)
       collection_types = {"writeups" => "writeup", "notes" => "note", "research" => "research", "projects" => "project"}
       entries = collection_types.keys.flat_map { |name| site.collections.fetch(name).docs }
-      entries = entries.select { |entry| site.publisher.publish?(entry) && entry.data["status"] != "draft" }
-      entries.each do |entry|
+      # Check required editorial fields before Publisher asks Document#date,
+      # which can otherwise replace a missing date with the build time.
+      entries.reject { |entry| entry.data["published"] == false || entry.data["status"] == "draft" }.each do |entry|
         unless entry.data["type"] == collection_types.fetch(entry.collection.label)
           raise Jekyll::Errors::FatalException, "Invalid content type: #{entry.path}"
         end
-        if entry.data["title"].to_s.strip.empty?
+        if !entry.data["title"].is_a?(String) || entry.data["title"].strip.empty?
           raise Jekyll::Errors::FatalException, "Missing title: #{entry.path}"
         end
         if entry.data["date"].nil?
           raise Jekyll::Errors::FatalException, "Missing date: #{entry.path}"
         end
       end
+      entries = entries.select { |entry| site.publisher.publish?(entry) && entry.data["status"] != "draft" }
+      entries.each { |entry| validate_metadata!(entry) }
       site.config["notebook_entries"] = entries.sort_by do |entry|
         [-Date.parse(entry.data["date"].to_s).jd, entry.data["title"].to_s.downcase, entry.url]
       end
@@ -67,6 +70,44 @@ module Notebook
       urls = (site.pages + site.collections.values.flat_map(&:docs)).group_by(&:url)
       duplicates = urls.select { |_url, documents| documents.length > 1 }.keys
       raise Jekyll::Errors::FatalException, "Duplicate routes: #{duplicates.join(', ')}" unless duplicates.empty?
+    end
+    private
+
+    def validate_metadata!(entry)
+      data = entry.data
+      invalid = lambda do |field|
+        raise Jekyll::Errors::FatalException, "Invalid #{field}: #{entry.path}"
+      end
+      route = data["permalink"]
+      invalid.call("permalink") unless route.is_a?(String) && route.start_with?("/") && !route.start_with?("//") && !route.match?(/[?#\\\s]/)
+      %w[tags topics techniques tools].each do |field|
+        next unless data.key?(field)
+        values = data[field]
+        invalid.call(field) unless values.is_a?(Array) && values.all? { |v| v.is_a?(String) && !v.strip.empty? }
+      end
+      invalid.call("starred") unless [true, false].include?(data.fetch("starred", false))
+      invalid.call("summary") if data.key?("summary") && !data["summary"].is_a?(String)
+      if data["type"] == "writeup"
+        invalid.call("platform") unless data["platform"].is_a?(String) && !data["platform"].strip.empty?
+      end
+      %w[source_url repository_url demo_url].each do |field|
+        next if !data.key?(field) || data[field] == ""
+        invalid.call(field) unless valid_url?(data[field])
+      end
+      if data.key?("references")
+        references = data["references"]
+        invalid.call("references") unless references.is_a?(Array) && references.all? do |ref|
+          ref.is_a?(Hash) && ref["title"].is_a?(String) && !ref["title"].strip.empty? && valid_url?(ref["url"])
+        end
+      end
+    end
+
+    def valid_url?(value)
+      return false unless value.is_a?(String)
+      uri = URI.parse(value)
+      %w[http https].include?(uri.scheme) && uri.host && !uri.userinfo
+    rescue URI::InvalidURIError
+      false
     end
   end
 

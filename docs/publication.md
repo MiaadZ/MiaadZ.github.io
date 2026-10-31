@@ -16,15 +16,15 @@ Build permissions: `contents: read`, `pages: read` (Pages metadata lookup only).
 
 Build jobs cancel superseded builds for the same PR/ref. Deployment has separate `pages` concurrency with `cancel-in-progress: false`, preserving a running deployment and replacing obsolete pending work. Concurrency is not a FIFO guarantee. The standard `github-pages` environment is used; recommend manually restricting deployment branches to `main`, optionally requiring a reviewer. No environment settings were changed here.
 
-All action references are immutable commit SHAs resolved from their official repositories during Phase 5:
+All action references are immutable commit SHAs. The table below reflects the current workflow; the two Pages runtime upgrades were reviewed in Phase 7:
 
 | Action | Reviewed version | Commit |
 | --- | --- | --- |
 | actions/checkout | v6 | d23441a48e516b6c34aea4fa41551a30e30af803 |
-| actions/configure-pages | v5 | 983d7736d9b0ae728b81ab479565c72886d7745b |
+| actions/configure-pages | v6.0.0 | 45bfe0192ca1faeb007ade9deae92b16b8254a0d |
 | ruby/setup-ruby | v1 branch | de492cf36cbab201753d720ce4f4e336cd688c94 |
-| actions/upload-pages-artifact | v4 | 7b1f4a764d45c48632c6b24a0339c27f5614fb0b |
-| actions/deploy-pages | v4 | d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e |
+| actions/upload-pages-artifact | v5.0.0 | fc324d3547104276b827a68afc52ff2a11cc49c9 |
+| actions/deploy-pages | v5.0.1 | 368f82528645a54fb793d4d04e342629a3f51346 |
 
 Pins prevent moving tags from silently replacing workflow code. Review upstream changes before updating pins. `ruby/setup-ruby` is third-party executable build code: it downloads prebuilt Ruby and runs Bundler, so it remains a supply-chain trust boundary even when pinned. It reads `.ruby-version`, uses `BUNDLED WITH` from `Gemfile.lock`, and caches locked build gems in repository-local `vendor/bundle`. Existing lockfile checksums and frozen mode protect dependency resolution; no new gem dependency was introduced. Hosted runner images, action runtimes and upstream availability are still external dependencies.
 
@@ -77,3 +77,6 @@ Identify the last known-good commit from the successful `github-pages` deploymen
 - Artifact upload/deploy failure: inspect Pages size/file/link constraints and Actions logs; upload only `_site`, never the source/vendor tree.
 
 The inherited `h4cked` relative `10.10.10.10` link and literal `put.png` code rendering remain separately reviewable editorial issues.
+
+## Phase 7 runtime maintenance
+The reviewed stable [configure-pages v6.0.0](https://github.com/actions/configure-pages/releases/tag/v6.0.0) and [deploy-pages v5.0.1](https://github.com/actions/deploy-pages/releases/tag/v5.0.1) both declare `runs.using: node24`. Only their SHA references/comments changed; inputs, permissions, triggers and build/deployment commands are unchanged. Deploy v5.0.1 includes upstream polling backoff/jitter changes; no local deployment logic changed. These prepared updates have not run on GitHub during Phase 7; the next actual publication run must confirm hosted warnings are gone.

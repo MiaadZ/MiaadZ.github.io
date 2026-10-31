@@ -61,7 +61,11 @@ require "date"
 require "json"
 require "uri"
 review = JSON.parse(File.read("docs/topic-evidence.json"))
-topic_slugs = review["topics"].map { |topic| topic["slug"] }
+topic_slugs = Dir["_topics/*.md"].filter_map do |path|
+  raw = File.read(path)
+  data = YAML.safe_load(raw.match(/\A---\r?\n(.*?)\r?\n---(?:\r?\n|$)/m)[1], permitted_classes: [Date])
+  data["slug"] unless data["published"] == false
+end
 m = YAML.safe_load_file("docs/legacy-manifest.yml")
 records = {}
 Dir["_writeups/*.md"].sort.each do |path|
@@ -226,18 +230,25 @@ if len(sys.argv) > 1:
     assert "❯ nc -lnvp 4444\n" in h4cked.pre_texts
     print("PASS: h4cked absolute lab link, all nine rendered screenshots and intact listener command")
 
-    ordered = sorted(metadata, key=lambda p: (-int(metadata[p]["date"].replace("-", "")), metadata[p]["title"].lower(), metadata[p]["permalink"]))
+    # Draft/future source files are validated but are not published archive entries.
+    from datetime import date
+    published = {p: data for p, data in metadata.items()
+                 if data.get("published") is not False and data.get("status") != "draft"
+                 and data["date"] <= date.today().isoformat()}
+    ordered = sorted(published, key=lambda p: (-int(metadata[p]["date"].replace("-", "")), metadata[p]["title"].lower(), metadata[p]["permalink"]))
     expected_urls = [metadata[p]["permalink"] for p in ordered]
     actual = documents[root / "writeups/index.html"].archive_links
     assert actual == expected_urls, "Writeup archive contents or sort mismatch"
     thm = [metadata[p]["permalink"] for p in ordered if metadata[p]["platform"] == "TryHackMe"]
     assert documents[root / "tryhackme/index.html"].archive_links == thm, "Platform archive mismatch"
-    assert documents[root / "hackthebox/index.html"].archive_links == [], "Unexpected HTB content"
-    assert "No entries published yet." in (root / "hackthebox/index.html").read_text()
+    htb = [metadata[p]["permalink"] for p in ordered if metadata[p]["platform"] == "HackTheBox"]
+    assert documents[root / "hackthebox/index.html"].archive_links == htb, "HackTheBox platform archive mismatch"
+    if not htb:
+        assert "No entries published yet." in (root / "hackthebox/index.html").read_text()
     for excluded in ("docs", "AGENTS.md", "README.md", "Gemfile", "Gemfile.lock", "vendor", ".obsidian", "_plugins"):
         assert not (root / excluded).exists(), f"Published development artifact: {excluded}"
     assert not list(root.rglob("*.map")), "Published source map"
     print(f"PASS: {len(documents)} HTML pages; all 20 exact legacy/canonical routes, heading anchors and source links preserved")
-    print("PASS: newest-first normalized writeup archive, TryHackMe metadata filtering, clean HackTheBox empty state, Tools links/anchors, landmarks and publishing exclusions")
+    print("PASS: newest-first normalized writeup archive, TryHackMe metadata filtering, HackTheBox metadata filtering/empty state, Tools links/anchors, landmarks and publishing exclusions")
     for warning in sorted(set(warnings)):
         print("REVIEW:", warning)

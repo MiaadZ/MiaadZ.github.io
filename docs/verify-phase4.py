@@ -65,9 +65,16 @@ records = types.flat_map do |collection, type|
     data.merge("type" => data.fetch("type", type), "date" => data["date"].to_date.to_s, "path" => path)
   end
 end
-puts JSON.generate(records)
+topics = Dir["_topics/*.md"].filter_map do |path|
+  raw = File.read(path)
+  data = YAML.safe_load(raw.match(/\A---\n(.*?)\n---\n/m)[1], permitted_classes:[Date,Time])
+  next if data["published"] == false
+  data
+end
+puts JSON.generate({"entries"=>records, "topics"=>topics})
 '''
-records = json.loads(subprocess.check_output(["ruby", "-e", ruby]))
+source = json.loads(subprocess.check_output(["ruby", "-e", ruby]))
+records, published_topics = source["entries"], source["topics"]
 records.sort(key=lambda r: (-int(r["date"].replace("-", "")), r["title"].lower(), r["permalink"]))
 home = Tree(root / "index.html").root
 assert narrative in " ".join(home.text().split())
@@ -91,21 +98,22 @@ expected_nav = ["/writeups/", "/topics/"] + ["/" + c + "/" for c, t in (("notes"
 assert [n.attrs["href"] for n in nav.find("a")] == expected_nav
 assert {n.attrs["href"] for n in home.find("a") if urlsplit(n.attrs["href"]).scheme} == {"https://tryhackme.com/p/S3Z4R"}
 
-assert 5 <= len(review["topics"]) <= 8
+assert {t["slug"] for t in review["topics"]}.issubset({t["slug"] for t in published_topics})
 home_topic_urls = {n.attrs["href"] for n in section("explore-title").find("h3") for n in n.find("a")}
-assert home_topic_urls == {"/topics/" + t["slug"] + "/" for t in review["topics"] if t["featured"]}
+assert home_topic_urls == {t["permalink"] for t in published_topics if t.get("featured")}
 topic_rows = Tree(root / "topics/index.html").root.find("li", cls="topic-entry")
-assert len(topic_rows) == len(review["topics"])
+assert len(topic_rows) == len(published_topics)
 source_routes = {Path(e["target_source_path"]).name: e["permalink"] for e in manifest["writeups"]}
-for topic in review["topics"]:
-    tree = Tree(root / "topics" / topic["slug"] / "index.html").root
+for topic in published_topics:
+    tree = Tree(root / topic["permalink"].lstrip("/") / "index.html").root
     assert topic["description"] in tree.text()
     related = [r for type_ in ("note","writeup","research","project") for r in records if r["type"] == type_ and topic["slug"] in r.get("topics", [])]
     assert entry_urls(tree) == [r["permalink"] for r in related], topic["slug"]
-    assert str(len(related)) + " entries in the notebook" in " ".join(tree.text().split())
+    assert str(len(related)) + (" entry" if len(related) == 1 else " entries") + " in the notebook" in " ".join(tree.text().split())
     groups = tree.find("section", cls="topic-group")
     assert len(groups) == len({r["type"] for r in related}), topic["slug"]
     assert all(g.find("li", cls="content-entry") for g in groups)
+for topic in review["topics"]:
     assert len(topic["members"]) >= 2
     for source, anchor, reason in topic["members"]:
         doc = Tree(root / source_routes[source].lstrip("/")).root
@@ -165,5 +173,6 @@ puts "PASS: in-memory Notes/Research/Projects automatically enter Latest and pri
 '''
 env = dict(__import__("os").environ)
 env["BUNDLE_FROZEN"] = "true"
-env["BUNDLE_PATH"] = str(Path("docs/vendor/bundle").resolve()) if Path("docs/vendor/bundle").exists() else str(Path("vendor/bundle").resolve())
+if not env.get("BUNDLE_PATH"):
+    env["BUNDLE_PATH"] = str(Path("docs/vendor/bundle").resolve()) if Path("docs/vendor/bundle").exists() else str(Path("vendor/bundle").resolve())
 subprocess.run(["bundle", "exec", "ruby", "-e", fixture], env=env, check=True)

@@ -10,21 +10,13 @@ tags: [Nmap, FTP, Wireshark, Netcat]
 starred: false
 date: 2025-12-31
 toc: true
-toc_label: "Mission Log"
+toc_label: "Contents"
 permalink: /TryHackMe/Startup.html
 legacy_body_header: true
 topics: ["credential-attacks", "network-forensics"]
 ---
-# CTF Writeup: [{{ page.title }}]({{ page.source_url }})
-{% include ctf-badges.html %}
+# {{ page.title }} {#ctf-writeup-startup}
 
-> **Link:** [**{{ page.platform }}**]({{ page.source_url }}) |
-> **OS:** {{ page.os }} |
-> **Difficulty:** {{ page.difficulty }} |
-> **Date:** {{ page.date }} |
-> **Author:** [*S3Z4R*](https://tryhackme.com/p/S3Z4R)
-
----
 ## 1. Reconnaissance
 ### Nmap
 Using nmap we see that we have access to `ftp anonymous login`.

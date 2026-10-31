@@ -28,3 +28,13 @@ blockquote { border-inline-start: 3px solid var(--link); padding-inline: var(--s
 
 /* Retain the authored green cue while meeting contrast on the dark surface. */
 .article-body p[style="color: green;"] { color: var(--terminal) !important; }
+
+/* Break out only top-level code and tables; prose keeps the same measure. */
+@media (min-width: 70rem) {
+  .article-body > .highlighter-rouge,
+  .article-body > .scroll-region {
+    width: calc(100% + 10rem);
+    max-width: calc(100vw - 8rem);
+    margin-inline: -5rem;
+  }
+}

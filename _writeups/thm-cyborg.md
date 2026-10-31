@@ -10,21 +10,13 @@ tags: [Nmap, Borg, Bash]
 starred: false
 date: 2025-11-22
 toc: true
-toc_label: "Mission Log"
+toc_label: "Contents"
 permalink: /TryHackMe/Cyborg.html
 legacy_body_header: true
 topics: ["linux-privilege-escalation", "credential-attacks"]
 ---
-# CTF Writeup: [{{ page.title }}]({{ page.source_url }})
-{% include ctf-badges.html %}
+# {{ page.title }} {#ctf-writeup-cyborg}
 
-> **Link:** [**{{ page.platform }}**]({{ page.source_url }}) |
-> **OS:** {{ page.os }} |
-> **Difficulty:** {{ page.difficulty }} |
-> **Date:** {{ page.date }} |
-> **Author:** [*S3Z4R*](https://tryhackme.com/p/S3Z4R)
-
----
 ## 1. Reconnaissance
 ### Nmap
 At the start, we can scan using `nmap` to see the services available on the machine:

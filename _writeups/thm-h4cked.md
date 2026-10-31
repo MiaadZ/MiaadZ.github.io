@@ -15,15 +15,8 @@ permalink: /TryHackMe/h4cked.html
 legacy_body_header: true
 topics: ["credential-attacks", "network-forensics"]
 ---
-# Writeup: [{{ page.title }}]({{ page.source_url }})
-{% include ctf-badges.html %}
+# {{ page.title }} {#writeup-h4cked}
 
-> **Platform:** [**{{ page.platform }}**]({{ page.source_url }}) |
-> **OS:** {{ page.os }} |
-> **Difficulty:** {{ page.difficulty }} |
-> **Operator:** [*S3Z4R*](https://tryhackme.com/p/S3Z4R)
-
----
 ## 🔗 Attack Narrative
 *A high-level overview of the incident and validation path.*
 * 🔍 **Reconnaissance (DFIR):** `Wireshark` .pcapng analysis (Identified FTP dictionary attack & payload delivery)

@@ -10,21 +10,13 @@ tags: [Nmap, GPG, Zip, SSH]
 starred: false
 date: 2026-02-02
 toc: true
-toc_label: "Mission Log"
+toc_label: "Contents"
 permalink: /TryHackMe/Tomghost.html
 legacy_body_header: true
 topics: ["linux-privilege-escalation", "credential-attacks"]
 ---
-# CTF Writeup: [{{ page.title }}]({{ page.source_url }})
-{% include ctf-badges.html %}
+# {{ page.title }} {#ctf-writeup-tomghost}
 
-> **Link:** [**{{ page.platform }}**]({{ page.source_url }}) |
-> **OS:** {{ page.os }} |
-> **Difficulty:** {{ page.difficulty }} |
-> **Date:** {{ page.date }} |
-> **Author:** [*S3Z4R*](https://tryhackme.com/p/S3Z4R)
-
----
 ## 1. Reconnaissance
 ### Nmap
 We begin by scanning the target with `nmap` to identify running services and potential entry points:

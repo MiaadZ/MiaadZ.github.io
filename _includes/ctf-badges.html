@@ -1,5 +1,6 @@
-{% if page.tags.size > 0 %}
+{% assign entry_tags = include.tags | default: page.tags %}
+{% if entry_tags.size > 0 %}
 <ul class="badges" aria-label="Entry tags">
-  {% for tag in page.tags %}<li><a href="{{ '/tools/' | relative_url }}#{{ tag | slugify }}">{{ tag | escape }}</a></li>{% endfor %}
+  {% for tag in entry_tags %}<li><a href="{{ '/tools/' | relative_url }}#{{ tag | slugify }}">{{ tag | escape }}</a></li>{% endfor %}
 </ul>
 {% endif %}

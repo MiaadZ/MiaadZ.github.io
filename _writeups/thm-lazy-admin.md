@@ -10,21 +10,13 @@ tags: [Nmap, Feroxbuster, Netcat]
 starred: false
 date: 2025-11-08
 toc: true
-toc_label: "Mission Log"
+toc_label: "Contents"
 permalink: /TryHackMe/LazyAdmin.html
 legacy_body_header: true
 topics: ["web-security", "linux-privilege-escalation"]
 ---
-# CTF Writeup: [{{ page.title }}]({{ page.source_url }})
-{% include ctf-badges.html %}
+# {{ page.title }} {#ctf-writeup-lazyadmin}
 
-> **Link:** [**{{ page.platform }}**]({{ page.source_url }}) |
-> **OS:** {{ page.os }} |
-> **Difficulty:** {{ page.difficulty }} |
-> **Date:** {{ page.date }} |
-> **Author:** [*S3Z4R*](https://tryhackme.com/p/S3Z4R)
-
----
 ## 1. Reconnaissance
 ### Nmap Scanning
 Using `nmap` we have only `22` and `80` up and running which is fine!

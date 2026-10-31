@@ -11,23 +11,33 @@ layout: default
     <p class="binary" aria-hidden="true">01010011 00110011 01011010 00110100 01010010</p>
   </header>
 
+  {% assign writeups = site.notebook_entries | where: 'type', 'writeup' %}
+  {% assign platforms = writeups | map: 'platform' | compact | where_exp: 'value', 'value != empty' | uniq | sort %}
+  {% assign systems = writeups | map: 'os' | compact | where_exp: 'value', 'value != empty' | uniq | sort %}
+  <ul class="notebook-status" aria-label="Notebook status">
+    <li>{{ writeups.size }} {% if writeups.size == 1 %}Writeup{% else %}Writeups{% endif %}</li>
+    <li>{{ site.notebook_topics.size }} {% if site.notebook_topics.size == 1 %}Topic{% else %}Topics{% endif %}</li>
+    {% if platforms.size > 0 %}<li>{{ platforms | join: ' / ' | escape }}</li>{% endif %}
+    {% if systems.size > 0 %}<li>{{ systems | join: ' / ' | escape }}</li>{% endif %}
+  </ul>
+
   {% assign featured = site.notebook_entries | where: 'starred', true | slice: 0, 3 %}
   {% if featured.size > 0 %}
   <section class="home-section" aria-labelledby="featured-title">
     <div class="section-heading"><h2 id="featured-title">Featured</h2><p>Selected from the notebook</p></div>
-    {% include content-list.html entries=featured %}
+    {% include content-list.html entries=featured featured=true %}
   </section>
   {% endif %}
 
   <section class="home-section" aria-labelledby="latest-title">
     <div class="section-heading"><h2 id="latest-title">Latest</h2><a href="{{ '/writeups/' | relative_url }}">All writeups</a></div>
     {% assign recent = site.notebook_entries | slice: 0, 6 %}
-    {% include content-list.html entries=recent %}
+    {% include content-list.html entries=recent compact=true %}
   </section>
 
   {% if site.notebook_topics.size > 0 %}
   <section class="home-section" aria-labelledby="explore-title">
-    <div class="section-heading"><h2 id="explore-title">Explore by topic</h2><a href="{{ '/topics/' | relative_url }}">All topics</a></div>
+    <div class="section-heading"><h2 id="explore-title">Explore by topic</h2><a href="{{ '/topics/' | relative_url }}">View all topics <span aria-hidden="true">→</span></a></div>
     {% assign popular_topics = site.notebook_topics | sort: 'entry_count' | reverse | slice: 0, 6 %}
     {% include topic-links.html topics=popular_topics %}
   </section>

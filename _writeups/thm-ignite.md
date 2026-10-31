@@ -10,21 +10,13 @@ tags: [Netcat, Python, Searchsploit]
 starred: false
 date: 2026-02-04
 toc: true
-toc_label: "Mission Log"
+toc_label: "Contents"
 permalink: /TryHackMe/ignite.html
 legacy_body_header: true
 topics: ["web-security", "enumeration"]
 ---
-# CTF Writeup: [{{ page.title }}]({{ page.source_url }})
-{% include ctf-badges.html %}
+# {{ page.title }} {#ctf-writeup-ignite}
 
-> **Link:** [**{{ page.platform }}**]({{ page.source_url }}) |
-> **OS:** {{ page.os }} |
-> **Difficulty:** {{ page.difficulty }} |
-> **Date:** {{ page.date }} |
-> **Author:** [*S3Z4R*](https://tryhackme.com/p/S3Z4R)
-
----
 ## 1. Reconnaissance
 After starting the machine, first we need to understand what we are dealing with. By going to the web page we can see that the website is using `Fuel CMS 1.4`. That might be exploitable! But that's just an assumption! Let's gather more information first and move forward with evidence.
 

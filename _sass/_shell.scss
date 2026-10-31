@@ -15,7 +15,7 @@
 .eyebrow, .content-type { font-family: var(--mono); text-transform: uppercase; letter-spacing: .06em; font-size: .8rem; color: var(--muted); }
 
 .home { max-width: 68rem; }
-.hero { max-width: 58rem; padding-block: var(--space-4) var(--space-8); border-bottom: 1px solid var(--border); }
+.hero { max-width: 58rem; padding-block: var(--space-4) var(--space-8); border-bottom: 1px solid var(--border); background: radial-gradient(ellipse at 85% 15%, rgba(116, 183, 255, .055), transparent 65%); }
 .hero .eyebrow { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; align-items: center; }
 .hero-prompt { color: var(--terminal); display: inline-flex; gap: .5em; align-items: center; text-transform: none; }
 .hero h1 { margin-block: 1.75rem 1.5rem; }
@@ -26,6 +26,8 @@
 .hero-actions { display: flex; flex-wrap: wrap; gap: .5rem 1.75rem; margin-top: 1.5rem; }
 .hero-actions a { display: inline-block; padding-block: .5rem; }
 .binary { margin-top: 1.75rem; color: var(--muted); opacity: .55; font: .72rem/1.8 var(--mono); word-spacing: .35em; overflow-wrap: anywhere; }
+.notebook-status { display: flex; flex-wrap: wrap; gap: .5rem 1rem; margin-block: 1.25rem 2rem; padding: 0; list-style: none; color: var(--muted); font: .8rem/1.8 var(--mono); }
+.notebook-status li + li::before { content: "·"; margin-inline-end: 1rem; color: var(--terminal); }
 .home-section { margin-block: clamp(2.5rem, 5vw, 4rem); }
 .section-heading { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: .5rem 1rem; margin-bottom: .5rem; }
 .section-heading h2 { margin: 0; }

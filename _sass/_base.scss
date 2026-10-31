@@ -12,8 +12,8 @@ h3 { font-size: 1.25rem; }
 p, ul, ol, pre, blockquote, table { margin-block: var(--space-4); }
 hr { border: 0; border-top: 1px solid var(--border); margin-block: var(--space-8); }
 img { max-width: 100%; height: auto; }
-.skip-link { position: fixed; top: .5rem; left: .5rem; z-index: 10; padding: .5rem 1rem; background: var(--text); color: var(--background); transform: translateY(-200%); }
-.skip-link:focus { transform: none; }
+.skip-link { position: fixed; top: .5rem; left: .5rem; z-index: 10; padding: .5rem 1rem; background: var(--text); color: var(--background); transform: translateY(-200%); opacity: 0; pointer-events: none; }
+.skip-link:focus { transform: none; opacity: 1; pointer-events: auto; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }

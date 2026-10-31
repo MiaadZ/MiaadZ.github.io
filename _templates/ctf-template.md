@@ -13,34 +13,36 @@ starred: false
 toc: true
 published: false
 ---
-{% comment %} Fill title, platform and date (YYYY-MM-DD). Omit unknown optional fields.
-Set published: true when ready. The filename supplies the default URL;
-keep it stable after publication, or set permalink to preserve the old URL.
-The layout supplies the title. Keep only the sections this exercise needs.
-Web: hypothesis → testing → solution. DFIR: evidence → timeline → findings.
-Reversing: setup → analysis → behavior. CVE: versions → reproduction → impact.
-Use {% raw %} / {% endraw %} around code containing Liquid template syntax. {% endcomment %}
+{% comment %}
+Fill title, platform and date (YYYY-MM-DD). Omit unknown optional fields.
+Set published: true when ready. Keep the filename stable after publication;
+use permalink only if a different URL is needed. The shell supplies the title,
+metadata, tags and Contents. Remove or rename any section below.
 
-## Overview
+Choose the outline that fits the exercise, whatever the platform:
+- Machine: reconnaissance → initial access → privilege escalation → findings.
+- Web: enumeration → application analysis → exploitation → impact.
+- DFIR: incident discovery → evidence → timeline → findings → detection.
+- Reversing: overview → static/dynamic analysis → logic → solution → lessons.
+- CVE/custom lab: environment → reproduction → observed behavior → limitations.
+Use an Attack Narrative only when the evidence supports a clear path.
+Wrap code containing Liquid syntax in {% raw %} / {% endraw %}.
+{% endcomment %}
 
-{% comment %} Objective, environment and a short account of the path to the result. {% endcomment %}
+## Attack Narrative
 
-## Reconnaissance
+{% comment %}Optional: a few sentences or bullets outlining the observed path.
+No new claims; leave it out if an overview suits the exercise better.{% endcomment %}
 
-{% comment %} Evidence and commands that shaped the next step. {% endcomment %}
+## 1. Reconnaissance
 
-## Initial access
+## 2. Initial Access
 
-{% comment %} The weakness, how it was tested and the observed result. {% endcomment %}
+## 3. Privilege Escalation
 
-## Privilege escalation
+## 4. Findings
 
-{% comment %} Optional: the boundary crossed and evidence of the result. {% endcomment %}
+## 5. Remediation / Defensive Notes
 
-## Lessons
-
-{% comment %} What worked, what failed and what the evidence supports. {% endcomment %}
-
-## Defensive notes
-
-{% comment %} Optional: prevention, mitigation or detection specific to this exercise. {% endcomment %}
+{% comment %}Optional: only prevention, mitigation or detection supported by
+this exercise. Omit when there is nothing useful to add.{% endcomment %}

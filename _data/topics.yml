@@ -1,0 +1,12 @@
+credential-attacks:
+  description: "Credential discovery, password testing, cracking and reuse across FTP, SSH, web applications and exposed artifacts."
+enumeration:
+  description: "Service discovery, web paths and SMB shares used to narrow an attack path before exploitation."
+linux-privilege-escalation:
+  description: "Privilege boundaries in Linux labs: sudo rules, SUID programs, scheduled tasks, executable search paths and capabilities."
+network-forensics:
+  description: "Packet captures used to reconstruct activity, trace file transfers and recover evidence relevant to an attack path."
+reverse-engineering:
+  description: "Debugger-guided inspection of compiled programs, branch decisions and executable behavior."
+web-security:
+  description: "Lab walkthroughs covering authentication weaknesses, upload handling, exposed files and vulnerable web applications."

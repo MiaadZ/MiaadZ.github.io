@@ -36,6 +36,7 @@ module Notebook
         page = Jekyll::PageWithoutAFile.new(site, site.source, "topics/#{slug}", "index.html")
         page.data.merge!("layout" => "topic", "title" => slug.split("-").map(&:capitalize).join(" "),
                          "slug" => slug, "nav_section" => "topics", "generated_topic" => true,
+                         "description" => site.data.dig("topics", slug, "description"),
                          "entry_count" => entries.count { |entry| Array(entry.data["topics"]).include?(slug) })
         site.pages << page
         page

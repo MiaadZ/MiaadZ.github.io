@@ -10,21 +10,13 @@ tags: [Smbclient, Enum4Linux, Tar]
 starred: false
 date: 2025-12-07
 toc: true
-toc_label: "Mission Log"
+toc_label: "Contents"
 permalink: /TryHackMe/Skynet.html
 legacy_body_header: true
 topics: ["linux-privilege-escalation", "enumeration"]
 ---
-# CTF Writeup: [{{ page.title }}]({{ page.source_url }})
-{% include ctf-badges.html %}
+# {{ page.title }} {#ctf-writeup-skynet}
 
-> **Link:** [**{{ page.platform }}**]({{ page.source_url }}) |
-> **OS:** {{ page.os }} |
-> **Difficulty:** {{ page.difficulty }} |
-> **Date:** {{ page.date }} |
-> **Author:** [*S3Z4R*](https://tryhackme.com/p/S3Z4R)
-
----
 ## 1. Reconnaissance
 ### Nmap
 Let's start the scan with nmap to see what we have on the machine:

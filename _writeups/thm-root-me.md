@@ -10,21 +10,13 @@ tags: [Gobuster, Netcat, Python, Find]
 starred: false
 date: 2025-11-08
 toc: true
-toc_label: "Mission Log"
+toc_label: "Contents"
 permalink: /TryHackMe/RootMe.html
 legacy_body_header: true
 topics: ["web-security", "linux-privilege-escalation", "enumeration"]
 ---
-# CTF Writeup: [{{ page.title }}]({{ page.source_url }})
-{% include ctf-badges.html %}
+# {{ page.title }} {#ctf-writeup-rootme}
 
-> **Link:** [**{{ page.platform }}**]({{ page.source_url }}) |
-> **OS:** {{ page.os }} |
-> **Difficulty:** {{ page.difficulty }} |
-> **Date:** {{ page.date }} |
-> **Author:** [*S3Z4R*](https://tryhackme.com/p/S3Z4R)
-
----
 ## 1. Reconnaissance
 ```bash
 gobuster dir -u http://<Machine-IP>/ -w /usr/share/wordlists/dirb/common.txt -q -t 25 -x php,html,txt

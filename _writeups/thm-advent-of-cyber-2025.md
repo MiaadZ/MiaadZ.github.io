@@ -10,19 +10,16 @@ tags: [Docker, AWS Cli, Burp Suite]
 starred: true
 date: 2025-12-24
 toc: true
-toc_label: "Mission Log"
+toc_label: "Contents"
 permalink: /TryHackMe/Advent-of-Cyber-2025.html
 legacy_body_header: true
 topics: ["web-security"]
 ---
 
-# Event Log: [{{ page.title }}]({{ page.source_url }})
-{% include ctf-badges.html %}
+# {{ page.title }} {#event-log-advent-of-cyber-2025}
 
-> **Event:** TryHackMe Advent of Cyber 2025 |
 > **Focus:** Blue/Red Team |
 > **Duration:** 24 Days |
-> **Date:** Dec 2025 |
 > **Status:** Completed (24/24)
 
 ---

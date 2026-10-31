@@ -10,21 +10,13 @@ tags: [Steghide, GDB, Python, Perl, Capabilities]
 starred: false
 date: 2026-02-05
 toc: true
-toc_label: "Mission Log"
+toc_label: "Contents"
 permalink: /TryHackMe/wonderland.html
 legacy_body_header: true
 topics: ["linux-privilege-escalation", "reverse-engineering"]
 ---
-# CTF Writeup: [{{ page.title }}]({{ page.source_url }})
-{% include ctf-badges.html %}
+# {{ page.title }} {#ctf-writeup-wonderland}
 
-> **Link:** [**{{ page.platform }}**]({{ page.source_url }}) |
-> **OS:** {{ page.os }} |
-> **Difficulty:** {{ page.difficulty }} |
-> **Date:** {{ page.date }} |
-> **Author:** [*S3Z4R*](https://tryhackme.com/p/S3Z4R)
-
----
 
 ## 1. Reconnaissance
 ### Nmap

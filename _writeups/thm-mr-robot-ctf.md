@@ -10,21 +10,13 @@ tags: [Nmap, WPScan, Find]
 starred: true
 date: 2025-11-15
 toc: true
-toc_label: "Mission Log"
+toc_label: "Contents"
 permalink: /TryHackMe/MrRobotCTF.html
 legacy_body_header: true
 topics: ["web-security", "credential-attacks", "enumeration"]
 ---
-# CTF Writeup: [{{ page.title }}]({{ page.source_url }})
-{% include ctf-badges.html %}
+# {{ page.title }} {#ctf-writeup-mr-robot-ctf}
 
-> **Link:** [**{{ page.platform }}**]({{ page.source_url }}) |
-> **OS:** {{ page.os }} |
-> **Difficulty:** {{ page.difficulty }} |
-> **Date:** {{ page.date }} |
-> **Author:** [*S3Z4R*](https://tryhackme.com/p/S3Z4R)
-
----
 ## 1. Reconnaissance
 First of all, let's scan the network to get a general idea of what we are dealing with:
 ### Nmap

@@ -1,7 +1,7 @@
 {% if include.entries.size > 0 %}
-<ul class="content-list">
+<ul class="content-list{% if include.featured %} featured-list{% endif %}">
   {% for entry in include.entries %}
-  <li class="content-entry{% if entry.starred %} is-featured{% endif %}">
+  <li class="content-entry{% if include.featured %} is-featured{% endif %}">
     <h3><a href="{{ entry.url | relative_url }}">{{ entry.title | escape }}</a></h3>
     <ul class="metadata" aria-label="Entry metadata">
       {% if entry.type %}<li class="content-type">{{ entry.type | escape }}</li>{% endif %}
@@ -11,7 +11,8 @@
       {% if entry.date %}<li><time datetime="{{ entry.date | date: '%Y-%m-%d' }}">{{ entry.date | date: '%d %b %Y' }}</time></li>{% endif %}
       {% if entry.starred %}<li class="featured-label">Featured</li>{% endif %}
     </ul>
-    {% if entry.summary and entry.summary != empty %}<p>{{ entry.summary | escape }}</p>{% endif %}
+    {% if entry.summary and entry.summary != empty and include.compact != true %}<p>{{ entry.summary | escape }}</p>{% endif %}
+    {% if include.featured %}{% include ctf-badges.html tags=entry.tags %}{% endif %}
   </li>
   {% endfor %}
 </ul>

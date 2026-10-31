@@ -6,59 +6,41 @@ source_url: ""
 os: ""
 difficulty: ""
 date:
+summary: ""
 tags: []
+topics: []
 starred: false
 toc: true
-# permalink: /writeups/<prefix>-<slug>/
+published: false
 ---
-{% comment %}
-AUTHOR GUIDE — remove or adapt any section that does not fit the exercise.
-Fill the factual front matter before previewing. Use an ISO date (YYYY-MM-DD)
-and an explicit stable permalink. Remove unknown optional fields rather than
-inventing values. The article layout supplies the title and metadata: do not
-add a second H1 or repeat a platform/profile block.
+{% comment %} Fill title, platform and date (YYYY-MM-DD). Omit unknown optional fields.
+Set published: true when ready. The filename supplies the default URL;
+keep it stable after publication, or set permalink to preserve the old URL.
+The layout supplies the title. Keep only the sections this exercise needs.
+Web: hypothesis → testing → solution. DFIR: evidence → timeline → findings.
+Reversing: setup → analysis → behavior. CVE: versions → reproduction → impact.
+Use {% raw %} / {% endraw %} around code containing Liquid template syntax. {% endcomment %}
 
-The outline below suits many machine-style exercises, but it is not mandatory:
-- Web labs/challenges: setup, hypothesis, testing, solution and limitations.
-- DFIR: evidence, timeline, analysis, findings and defensive observations.
-- CVE reproductions: affected versions, isolated setup, reproduction,
-  observed behavior, impact, limitations and mitigation.
-- Custom environments: objectives, assumptions, method and results.
+## Overview
 
-Keep only relevant sections. Distinguish observations from assumptions.
-Record commands and output accurately; do not fabricate flags or findings.
-Optional summary/topics/techniques/tools/updated require reviewed facts.
-See docs/writeup-workflow.md for naming, URLs, validation and local preview.
-{% endcomment %}
-
-{% include ctf-badges.html %}
-
-## Overview / Attack Narrative
-
-{% comment %}Briefly describe the exercise, objective, scope and observed path.
-State prerequisites or environment details only where useful and known.{% endcomment %}
+{% comment %} Objective, environment and a short account of the path to the result. {% endcomment %}
 
 ## Reconnaissance
 
-{% comment %}Relevant evidence, services, artifacts or initial hypotheses.
-Include only meaningful commands/output and explain what they established.{% endcomment %}
+{% comment %} Evidence and commands that shaped the next step. {% endcomment %}
 
-## Initial Access
+## Initial access
 
-{% comment %}If applicable: the tested weakness, execution and observed result.
-For a web lab or reproduction, rename this section to match the actual task.{% endcomment %}
+{% comment %} The weakness, how it was tested and the observed result. {% endcomment %}
 
-## Privilege Escalation
+## Privilege escalation
 
-{% comment %}Optional. Omit when there is no escalation component.
-Document the actual boundary crossed and evidence for the result.{% endcomment %}
+{% comment %} Optional: the boundary crossed and evidence of the result. {% endcomment %}
 
-## Findings / Lessons
+## Lessons
 
-{% comment %}Explain what the evidence supports, important limitations and lessons.
-Do not imply a system was compromised or a hypothesis confirmed without evidence.{% endcomment %}
+{% comment %} What worked, what failed and what the evidence supports. {% endcomment %}
 
-## Remediation / Defensive Notes
+## Defensive notes
 
-{% comment %}Optional evidence-supported prevention, mitigation or detection notes.
-Use exercise-specific conclusions rather than generic claims.{% endcomment %}
+{% comment %} Optional: prevention, mitigation or detection specific to this exercise. {% endcomment %}

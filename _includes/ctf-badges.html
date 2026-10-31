@@ -1,5 +1,5 @@
 {% if page.tags.size > 0 %}
-<ul class="badges" aria-label="Writeup tags">
+<ul class="badges" aria-label="Entry tags">
   {% for tag in page.tags %}<li><a href="{{ '/tools/' | relative_url }}#{{ tag | slugify }}">{{ tag | escape }}</a></li>{% endfor %}
 </ul>
 {% endif %}

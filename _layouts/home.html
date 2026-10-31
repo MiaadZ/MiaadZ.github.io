@@ -3,7 +3,7 @@ layout: default
 ---
 <div class="home">
   <header class="hero">
-    <p class="eyebrow"><span class="hero-prompt" aria-hidden="true">~/notebook <span class="terminal-cursor"></span></span><span>Security in practice</span></p>
+    <p class="eyebrow"><span class="hero-prompt" aria-hidden="true">~/notebook <span class="terminal-cursor"></span></span><span>Offensive security · Security engineering · Systems</span></p>
     <h1><span class="hero-name identity-word">S3Z4R<span class="glitch-layer" aria-hidden="true">S3Z4R</span></span><span class="hero-subtitle">Security Notebook</span></h1>
     <p class="hero-statement">{{ page.hero_statement | escape }}</p>
     <div class="hero-narrative">{{ content }}</div>
@@ -20,16 +20,16 @@ layout: default
   {% endif %}
 
   <section class="home-section" aria-labelledby="latest-title">
-    <div class="section-heading"><h2 id="latest-title">Latest</h2><p>Recent additions, across the notebook</p></div>
+    <div class="section-heading"><h2 id="latest-title">Latest</h2><a href="{{ '/writeups/' | relative_url }}">All writeups</a></div>
     {% assign recent = site.notebook_entries | slice: 0, 6 %}
     {% include content-list.html entries=recent %}
   </section>
 
-  {% assign selected_topics = site.notebook_topics | where: 'featured', true | sort_natural: 'title' %}
-  {% if selected_topics.size > 0 %}
+  {% if site.notebook_topics.size > 0 %}
   <section class="home-section" aria-labelledby="explore-title">
     <div class="section-heading"><h2 id="explore-title">Explore by topic</h2><a href="{{ '/topics/' | relative_url }}">All topics</a></div>
-    {% include content-list.html entries=selected_topics topics=true %}
+    {% assign popular_topics = site.notebook_topics | sort: 'entry_count' | reverse | slice: 0, 6 %}
+    {% include topic-links.html topics=popular_topics %}
   </section>
   {% endif %}
 </div>

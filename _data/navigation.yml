@@ -10,9 +10,6 @@ main:
   - title: Notes
     url: /notes/
     key: notes
-  - title: Research
-    url: /research/
-    key: research
   - title: Projects
     url: /projects/
     key: projects

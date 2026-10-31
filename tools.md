@@ -6,7 +6,7 @@ nav_section: topics
 ---
 <section class="archive">
 <h1>Tools and tags</h1>
-<p>This legacy tag index links to existing writeups. Reviewed knowledge routes will live under <a href="{{ '/topics/' | relative_url }}">Topics</a>.</p>
+<p>Commands, techniques and tools used across the notebook. Browse a tag to find the entries that use it.</p>
 <ul class="tag-index">
 {% for tag in site.notebook_tags %}<li><a href="#{{ tag | slugify }}">{{ tag | escape }}</a></li>{% endfor %}
 </ul>

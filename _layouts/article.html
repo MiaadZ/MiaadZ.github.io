@@ -10,15 +10,23 @@ layout: default
       {% if page.type == 'writeup' %}
         {% if page.platform and page.platform != empty %}<li>{% assign source = page.source_url | notebook_source_url %}{% if source %}<a href="{{ source | escape }}">{{ page.platform | escape }}</a>{% else %}{{ page.platform | escape }}{% endif %}</li>{% endif %}
         {% if page.os and page.os != empty %}<li>{{ page.os | escape }}</li>{% endif %}
-        {% if page.difficulty and page.difficulty != empty %}<li>Difficulty: {{ page.difficulty | escape }}</li>{% endif %}
+        {% if page.difficulty and page.difficulty != empty %}<li>{{ page.difficulty | escape }}</li>{% endif %}
       {% endif %}
       {% if page.date %}<li><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%d %b %Y' }}</time></li>{% endif %}
+      {% if page.type == 'project' and page.status %}<li>{{ page.status | escape }}</li>{% endif %}
       {% if page.starred %}<li class="featured-label">Featured</li>{% endif %}
     </ul>
     {% if page.summary and page.summary != empty %}<p class="article-summary">{{ page.summary | escape }}</p>{% endif %}
+    {% unless page.legacy_body_header %}{% include ctf-badges.html %}{% endunless %}
   </header>
   {% if page.toc %}{{ content | notebook_toc: page.toc_label }}{% endif %}
   <div class="article-body">{{ content | notebook_article_body | notebook_overflow }}</div>
+  {% if page.type == 'project' %}
+  <ul class="project-links">
+    {% if page.repository_url and page.repository_url != empty %}<li><a href="{{ page.repository_url | escape }}">Source code</a></li>{% endif %}
+    {% if page.demo_url and page.demo_url != empty %}<li><a href="{{ page.demo_url | escape }}">Demo</a></li>{% endif %}
+  </ul>
+  {% endif %}
   {% if page.topics.size > 0 %}
   <footer class="article-topics"><h2>Related topics</h2><ul>
     {% for slug in page.topics %}{% assign topic = site.notebook_topics | where: 'slug', slug | first %}{% if topic %}<li><a href="{{ topic.url | relative_url }}">{{ topic.title | escape }}</a></li>{% endif %}{% endfor %}

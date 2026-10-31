@@ -15,11 +15,11 @@
 .eyebrow, .content-type { font-family: var(--mono); text-transform: uppercase; letter-spacing: .06em; font-size: .8rem; color: var(--muted); }
 
 .home { max-width: 68rem; }
-.hero { max-width: 58rem; padding-block: var(--space-4) var(--space-8); }
+.hero { max-width: 58rem; padding-block: var(--space-4) var(--space-8); border-bottom: 1px solid var(--border); }
 .hero .eyebrow { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; align-items: center; }
 .hero-prompt { color: var(--terminal); display: inline-flex; gap: .5em; align-items: center; text-transform: none; }
 .hero h1 { margin-block: 1.75rem 1.5rem; }
-.hero-name { font-size: clamp(3.5rem, 13vw, 6.5rem); font-weight: 750; line-height: 1.05; letter-spacing: -.055em; }
+.hero-name { font-family: var(--mono); font-size: clamp(3.5rem, 13vw, 6.5rem); font-weight: 750; line-height: 1.05; letter-spacing: -.055em; }
 .hero-subtitle { display: block; margin-top: .5rem; font-size: clamp(1.25rem, 3vw, 1.9rem); font-weight: 500; letter-spacing: -.025em; color: var(--muted); }
 .hero-statement { font-size: clamp(1.1rem, 2vw, 1.3rem); font-weight: 550; }
 .hero-narrative { max-width: 65ch; color: var(--muted); font-size: 1.0625rem; }

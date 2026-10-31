@@ -133,5 +133,5 @@ Before declaring an implementation phase complete:
 - run `git diff --check`
 - validate relevant internal links and routes
 - verify image references
-- verify preserved writeup content against the migration manifest
+- verify unchanged writeup sources and assets against Git unless content edits were requested
 - report warnings and errors

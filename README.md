@@ -1,54 +1,56 @@
 # S3Z4R Security Notebook
 
-A Markdown-first technical security notebook: writeups, notes, research, real projects and curated knowledge routes. Jekyll, repository-owned layouts/Sass, no frontend JavaScript or tracking.
+Writeups, practical notes and things I build. Custom Jekyll layouts, local assets,
+no frontend JavaScript or tracking.
 
-## Where things live
+## Structure
 
-| Directory | Purpose |
-| --- | --- |
-| `_writeups/` | Flat lab/CTF/challenge walkthroughs; existing public URLs preserved |
-| `_notes/`, `_research/`, `_projects/` | Reusable knowledge, deeper analysis, authored tools/projects |
-| `_topics/` | Curated routes connecting published content |
-| `_templates/` | Unpublished authoring scaffolds |
-| `_layouts/`, `_includes/`, `_sass/`, `assets/` | Shared presentation and local assets |
-| `docs/` | Authoring, validation, architecture and historical reports; excluded from publication |
+- `_writeups/`: flat lab/CTF/challenge Markdown (`thm-<slug>.md`, `htb-<slug>.md`).
+- `_notes/`, `_projects/`: create these folders when publishing the first entry.
+- `_templates/`: copy-and-edit starting points for the three content types.
+- `_layouts/`, `_includes/`, `_sass/`, `assets/`: presentation and images.
+- `_plugins/`, `scripts/`: automatic indexes and publishing checks.
 
-## Add content
+## Write and publish
 
-1. Copy the matching `_templates/*-template.md` into its collection. Writeups use `ctf-template.md`: `thm-<slug>.md` for TryHackMe or `htb-<slug>.md` for HackTheBox. Other types use `<slug>.md`.
-2. Fill factual front matter: title, type, original ISO date, unique explicit permalink, plus known metadata. Platform is metadata, not a folder or visible-title prefix. New templates start with `published: false`; set true when ready.
-3. Write Markdown. The shared article layout supplies the title. Attach existing curated topic slugs only when supported by the content.
-4. Build, validate and review locally; then commit/push through the normal review process.
+Copy a template to its collection. Fill title and date (`YYYY-MM-DD`), and
+platform for a writeup. Omit unknown optional fields. Write Markdown, remove
+irrelevant headings and set `published: true` when ready.
 
-Homepage, archives, platform views, Latest, navigation and existing topic lists update automatically. New curated topics are deliberate editorial work; no manual article index is maintained. See the concise [authoring/type guide](docs/writeup-workflow.md).
+The filename generates the URL. Keep it stable after publication; an optional
+`permalink` can preserve an older URL. Existing writeup permalinks stay intact.
+Use `published: false` for drafts; future dates are withheld automatically.
 
-## Run locally
+Optional metadata:
 
-Use `.ruby-version`, `Gemfile` and `Gemfile.lock`. Choose the existing local bundle path (`docs/vendor/bundle` in this checkout, or `vendor/bundle` for a fresh root install):
+- `summary`, `tags`, `starred: true` (Featured).
+- `topics: [web-security, linux-privilege-escalation]`: any lowercase hyphenated
+  subject. Topic pages, labels, counts and links generate automatically.
+- Writeups: `source_url`, `os`, `difficulty`, `toc: true`.
+- Projects: `status`, `repository_url`, `demo_url`.
+
+Use `/assets/images/<entry>/` for screenshots. Wrap code containing Liquid
+syntax in `{% raw %}` / `{% endraw %}`. The layout supplies the article title.
+
+Push to `main` → Actions validates and builds → GitHub Pages deploys.
+Archives, Latest, Featured and Topics update automatically. Notes and Projects
+enter navigation when their first published entry exists. PRs validate only.
+
+## Local preview and checks
+
+Use the Ruby version in `.ruby-version` and Bundler from `Gemfile.lock`.
 
 ```sh
-export BUNDLE_PATH="$PWD/docs/vendor/bundle"
-export BUNDLE_FROZEN=true JEKYLL_ENV=production TZ=UTC
-# Only if the declared locked gems are not installed:
-# bundle install
-bundle exec jekyll serve --host 127.0.0.1 --baseurl ""
+bundle config set --local path vendor/bundle
+bundle install
+bundle exec jekyll serve
 ```
 
-## Validate
+Before pushing, optionally run the same checks as CI:
 
 ```sh
-bundle exec jekyll build --trace --baseurl ""
-python3 docs/verify-writeups.py _site
-python3 docs/verify-phase4.py _site
-python3 docs/verify-publication.py
-bundle exec ruby docs/verify-authoring.rb
+JEKYLL_ENV=production bundle exec jekyll build
+python3 scripts/check-site.py _site
+bundle exec ruby scripts/check-authoring.rb
 git diff --check
 ```
-
-Run these in the same environment as the local commands above. The authoring regression creates and removes isolated fixtures under ignored `.jekyll-cache/`; no sample content is published. Preservation checks require full Git history and the original objects named in `docs/legacy-manifest.yml`. Keep that manifest immutable. Optional browser QA: `docs/verify-browser.py` (existing local Chromium; no frontend dependency).
-
-## Publishing
-
-GitHub Actions builds the locked Jekyll environment with `_plugins/notebook.rb`, uploads `_site` as a Pages artifact and deploys it. PRs targeting `main` validate only; pushes to `main` publish after checks. Manual runs default to validation; deployment requires `deploy: true` on `main`.
-
-No output branch, generated HTML commits, custom tokens or manual homepage/archive edits. See [publication/rollback runbook](docs/publication.md). `AGENTS.md` defines agent permissions; commits and publication remain user-controlled.

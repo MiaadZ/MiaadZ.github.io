@@ -1,5 +1,5 @@
 title: "S3Z4R Security Notebook"
-description: "Technical security writeups, notes, research and projects."
+description: "Technical security writeups, notes and projects."
 url: "https://miaadz.github.io"
 baseurl: ""
 lang: en
@@ -17,15 +17,9 @@ collections:
   notes:
     output: true
     permalink: /notes/:path/
-  research:
-    output: true
-    permalink: /research/:path/
   projects:
     output: true
     permalink: /projects/:path/
-  topics:
-    output: true
-    permalink: /topics/:path/
 defaults:
   - scope:
       path: ""
@@ -48,29 +42,14 @@ defaults:
       nav_section: notes
   - scope:
       path: ""
-      type: research
-    values:
-      layout: article
-      type: research
-      nav_section: research
-  - scope:
-      path: ""
       type: projects
     values:
       layout: article
       type: project
       nav_section: projects
-  - scope:
-      path: ""
-      type: topics
-    values:
-      layout: topic
-      nav_section: topics
 exclude:
   - AGENTS.md
   - README.md
-  - docs
-  - .obsidian
   - .bundle
   - .ruby-version
   - .gitignore
@@ -78,8 +57,5 @@ exclude:
   - Gemfile.lock
   - vendor
   - scripts
-  - node_modules
-  - package.json
-  - package-lock.json
   - .jekyll-cache
   - .sass-cache

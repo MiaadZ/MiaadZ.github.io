@@ -53,7 +53,7 @@ git diff --check
 If the root bundle was instead installed under vendor/bundle, use that BUNDLE_PATH. Follow AGENTS.md for dependency actions; new dependencies need approval.
 Do not use docs/baseline.Gemfile for normal notebook builds; it retains historical theme dependencies.
 
-verify-writeups.py verifies all 20 protected originals against the immutable Phase 1 manifest, allows only the three approved exact Liquid substitutions, checks YAML independently, validates local links/anchors/assets/canonical URLs and archive order, and reports inherited issues individually.
+verify-writeups.py verifies all 20 protected originals against the immutable Phase 1 manifest, allows only the three approved exact Liquid substitutions plus the narrowly recorded Phase 6 h4cked link/fence repairs in docs/editorial-corrections.json, checks YAML independently, validates local links/anchors/assets/canonical URLs and archive order, and reports inherited issues individually.
 It also validates normalized names/schema for additional authored writeups. Its archive expectations include every actual collection writeup; it does not freeze the collection at 20 forever.
 The older verify-phase2.py command remains as a compatibility entry point to the same current checks, not an assertion that the old mixed state still exists.
 For a pre-existing render snapshot, add its directory as a second argument to compare all original rendered code blocks and asset references:
@@ -95,3 +95,8 @@ docs/verify-browser.py now covers home/topics/identity, reduced motion and nativ
 The existing writeup template remains unchanged.
 
 Published discovery omits entries with published: false, future dates under normal Jekyll publishing rules, or status: draft. Direct draft-preview behavior is not a confidentiality mechanism.
+
+## Current publication and preservation status
+The production site now uses the approved GitHub Actions build. See [publication.md](publication.md) for launch controls, validation and rollback. New writeups automatically enter homepage/activity, archives, platform views and tag/topic indexes through metadata; no manual index editing is required.
+
+The original preservation manifest remains immutable. Phase 6 repairs only the h4cked absolute lab-IP link and fenced-code/screenshot boundaries; exact old/new text is recorded in editorial-corrections.json and enforced by the preservation verifier. All original screenshot files remain unchanged.

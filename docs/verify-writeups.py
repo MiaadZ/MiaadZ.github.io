@@ -15,6 +15,7 @@ import sys
 from urllib.parse import unquote, urljoin, urlsplit
 
 MANIFEST = json.loads(Path("docs/legacy-manifest.yml").read_text())
+CORRECTIONS = json.loads(Path("docs/editorial-corrections.json").read_text())["writeups"]
 BASELINE = json.loads(Path("docs/phase2-verification.json").read_text())
 TOKENS = {
     b"{{ page.machine_url }}": b"{{ page.source_url }}",
@@ -38,6 +39,10 @@ for entry in MANIFEST["writeups"]:
     expected = original_body
     for old, new in TOKENS.items():
         expected = expected.replace(old, new)
+    for correction in CORRECTIONS.get(entry["target_source_path"], []):
+        old, new = correction["old"].encode(), correction["new"].encode()
+        assert expected.count(old) == 1, "Editorial correction no longer matches immutable baseline"
+        expected = expected.replace(old, new, 1)
     actual = Path(entry["target_source_path"]).read_bytes()
     assert body_bytes(actual) == expected, f"Unexpected body edit: {entry['target_source_path']}"
     for asset in entry["referenced_local_assets"]:
@@ -48,7 +53,7 @@ assert not list(Path("TryHackMe").glob("*.md"))
 assert not [p for p in Path("_writeups").rglob("*.md") if p.parent != Path("_writeups")], "Nested writeup source"
 for p in Path("_writeups").glob("*.md"):
     assert re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)+\.md", p.name), p
-print("PASS: all 20 original bodies match exactly after only approved Liquid substitutions; all screenshot hashes unchanged")
+print("PASS: all 20 original bodies match exactly after approved Liquid substitutions and exact Phase 6 editorial corrections; all screenshot hashes unchanged")
 
 ruby = r'''
 require "yaml"
@@ -173,9 +178,6 @@ if len(sys.argv) > 1:
             if target.is_dir():
                 target /= "index.html"
             if not target.exists():
-                if path.relative_to(root).as_posix() == "TryHackMe/h4cked.html" and link == "10.10.10.10":
-                    warnings.append("Existing h4cked relative link 10.10.10.10 remains unchanged.")
-                    continue
                 raise AssertionError(f"Missing link: {path.relative_to(root)} -> {link}")
             if resolved.fragment and target in documents:
                 assert unquote(resolved.fragment) in documents[target].ids, f"Missing fragment: {link}"
@@ -186,11 +188,7 @@ if len(sys.argv) > 1:
         assert set(baseline_routes[entry["source_path"]]["preserved_heading_ids"]).issubset(document.ids), entry["target_source_path"]
         assert entry["external_source_url"] in document.links, entry["target_source_path"]
         for asset in entry["referenced_local_assets"]:
-            if asset["url"] not in document.assets:
-                # Confirmed in the pre-migration render; source Markdown remains protected.
-                literal_image = "![Sending the shell of our own](/assets/images/h4cked/put.png)"
-                assert entry["title"] == "h4cked" and asset["url"] == "/assets/images/h4cked/put.png" and any(literal_image in block for block in document.pre_texts), asset["url"]
-                warnings.append("Existing h4cked put.png reference renders literally as code; eight images render, all nine asset hashes are preserved.")
+            assert asset["url"] in document.assets, f"Screenshot not rendered: {asset['url']}"
             assert sha((root / asset["url"].lstrip("/")).read_bytes()) == asset["sha256"]
 
     if len(sys.argv) > 2:
@@ -198,9 +196,35 @@ if len(sys.argv) > 1:
         for entry in MANIFEST["writeups"]:
             old_document = Document((before / entry["permalink"].lstrip("/")).read_text())
             new_document = documents[root / entry["permalink"].lstrip("/")]
-            assert old_document.pre_texts == new_document.pre_texts, f"Rendered command/code change: {entry['target_source_path']}"
-            assert sorted(old_document.assets) == sorted(new_document.assets), f"Rendered asset change: {entry['target_source_path']}"
-        print("PASS: all rendered code/command-output blocks and runtime asset references match the pre-migration build")
+            if entry["target_source_path"] in CORRECTIONS:
+                # The original broken fence swallowed the image and listener prose.
+                literal = "![Sending the shell of our own](/assets/images/h4cked/put.png)"
+                broken = [b for b in old_document.pre_texts if literal in b]
+                if broken:
+                    assert len(broken) == 1 and broken[0].endswith("❯ nc -lnvp 4444\n")
+                    source = body_bytes(Path(entry["target_source_path"]).read_bytes()).decode()
+                    payload = re.search(r"```bash\n(From http://pentestmonkey.net/tools/php-reverse-shell .*?)\n```", source, re.S).group(1) + "\n"
+                    assert payload in new_document.pre_texts and "❯ nc -lnvp 4444\n" in new_document.pre_texts
+                    before_code = [b for b in old_document.pre_texts if b != broken[0]]
+                    after_code = list(new_document.pre_texts)
+                    after_code.remove(payload)
+                    after_code.remove("❯ nc -lnvp 4444\n")
+                    assert before_code == after_code, "Unapproved rendered code change"
+                    assert sorted(old_document.assets + ["/assets/images/h4cked/put.png"]) == sorted(new_document.assets)
+                else:
+                    assert old_document.pre_texts == new_document.pre_texts
+                    assert sorted(old_document.assets) == sorted(new_document.assets)
+            else:
+                assert old_document.pre_texts == new_document.pre_texts, f"Rendered command/code change: {entry['target_source_path']}"
+                assert sorted(old_document.assets) == sorted(new_document.assets), f"Rendered asset change: {entry['target_source_path']}"
+        print("PASS: rendered code/output and assets match the baseline except the exact approved h4cked rendering repair")
+
+    h4cked = documents[root / "TryHackMe/h4cked.html"]
+    assert "http://10.10.10.10" in h4cked.links and "10.10.10.10" not in h4cked.links
+    assert len([a for a in h4cked.assets if a.startswith("/assets/images/h4cked/")]) == 9
+    assert not any("![Sending the shell of our own]" in b for b in h4cked.pre_texts)
+    assert "❯ nc -lnvp 4444\n" in h4cked.pre_texts
+    print("PASS: h4cked absolute lab link, all nine rendered screenshots and intact listener command")
 
     ordered = sorted(metadata, key=lambda p: (-int(metadata[p]["date"].replace("-", "")), metadata[p]["title"].lower(), metadata[p]["permalink"]))
     expected_urls = [metadata[p]["permalink"] for p in ordered]

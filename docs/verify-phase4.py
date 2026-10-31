@@ -13,6 +13,7 @@ from urllib.parse import urlsplit
 
 root = Path(sys.argv[1] if len(sys.argv) > 1 else "_site")
 review = json.loads(Path("docs/topic-evidence.json").read_text())
+corrections = json.loads(Path("docs/editorial-corrections.json").read_text())["writeups"]
 manifest = json.loads(Path("docs/legacy-manifest.yml").read_text())
 narrative = "I started in software development, moved deeper into Linux and infrastructure, and eventually into security. This notebook is where I document the parts worth keeping: writeups, notes, research, experiments and tools."
 
@@ -117,12 +118,17 @@ for entry in manifest["writeups"]:
     def without_topics(data):
         match = re.match(br"\A---\r?\n.*?\r?\n---(?:\r?\n|$)", data, re.S)
         return re.sub(br"(?m)^topics:.*\r?\n", b"", data[:match.end()]) + data[match.end():]
+    for correction in corrections.get(path, []):
+        old, new = correction["old"].encode(), correction["new"].encode()
+        if old in prior:
+            assert prior.count(old) == 1
+            prior = prior.replace(old, new, 1)
     assert without_topics(current) == without_topics(prior), path
 assert Path("_templates/ctf-template.md").read_bytes() == subprocess.check_output(["git", "show", "HEAD:_templates/ctf-template.md"])
 assert not any(root.rglob("*.js"))
 assert all(not Tree(p).root.find("script") for p in root.rglob("*.html"))
 print("PASS: exact narrative, real featured/latest selection, content labels, conditional navigation, curated topic membership/counts/anchors and decorative ARIA")
-print("PASS: all 20 sources differ from Phase 3 only by reviewed topics metadata; template unchanged; no frontend JavaScript")
+print("PASS: all 20 sources match HEAD except reviewed topics metadata and exact Phase 6 editorial corrections; template unchanged; no frontend JavaScript")
 
 # Build-only in-memory fixtures: no fake Notes/Research/Projects source or HTML files.
 fixture = r'''

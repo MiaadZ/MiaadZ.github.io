@@ -2,8 +2,10 @@
 .content-entry { padding: var(--space-6) 0; border-bottom: 1px solid var(--border); }
 .content-entry h3 { margin: 0 0 var(--space-2); }
 .content-entry p { max-width: var(--measure); margin-bottom: 0; }
-.featured-list .content-entry { margin-block: .75rem; padding: 1.25rem 1.5rem; border: 1px solid var(--border); border-inline-start: 2px solid var(--featured); background: linear-gradient(100deg, rgba(228, 197, 109, .055), transparent 80%); }
+.featured-list { background: radial-gradient(ellipse at 0 50%, rgba(228, 197, 109, .035), transparent 70%); }
+.featured-list .content-entry { margin-block: .75rem; padding-block: 1.5rem; border: 0; }
 .featured-list h3 { font-size: 1.4rem; }
+.featured-list h3 a, .featured-list h3 a:visited { color: var(--featured); }
 .featured-list .badges { margin-bottom: 0; font: .8rem/1.6 var(--mono); }
 .featured-list .badges li { padding: 0; border: 0; }
 .featured-list .badges a { color: var(--muted); }
@@ -33,16 +35,16 @@
 
 .topic-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 2rem; list-style: none; padding: 0; margin-block: 1.5rem; }
 .topic-links li { min-width: 0; }
-.topic-links a { display: block; height: 100%; padding-block: 1.25rem; border-bottom: 1px solid var(--border); text-decoration: none; overflow-wrap: anywhere; }
+.topic-links a { display: block; height: 100%; padding-block: 1.25rem; text-decoration: none; overflow-wrap: anywhere; }
 .topic-links a:hover .topic-title { text-decoration: underline; text-underline-offset: .2em; }
 .topic-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
 .topic-title { font-weight: 650; }
 .topic-count { flex-shrink: 0; color: var(--muted); font: .85rem var(--mono); }
 .topic-count [aria-hidden] { color: var(--link); margin-inline-start: .5rem; }
-.topic-description { display: block; margin-top: .65rem; color: var(--muted); font-size: .9rem; line-height: 1.65; }
+.topic-tags { display: block; margin-top: .65rem; color: var(--muted); font-size: .9rem; line-height: 1.65; }
 @media (max-width: 40rem) {
   .topic-links { grid-template-columns: minmax(0, 1fr); }
-  .featured-list .content-entry { padding: 1rem; }
+  .featured-list .content-entry { padding-block: 1rem; }
 }
 .project-links { display: flex; flex-wrap: wrap; gap: 1.5rem; list-style: none; padding: 0; }
 .index-link { margin-top: 2rem; }

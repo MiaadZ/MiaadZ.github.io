@@ -33,8 +33,8 @@ blockquote { border-inline-start: 3px solid var(--link); padding-inline: var(--s
 @media (min-width: 70rem) {
   .article-body > .highlighter-rouge,
   .article-body > .scroll-region {
-    width: calc(100% + 10rem);
-    max-width: calc(100vw - 8rem);
-    margin-inline: -5rem;
+    width: calc(100% + var(--code-outset) + var(--code-outset));
+    max-width: calc(100vw - var(--gutter) - var(--gutter));
+    margin-inline: calc(0rem - var(--code-outset));
   }
 }

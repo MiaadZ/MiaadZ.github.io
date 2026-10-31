@@ -3,7 +3,7 @@
   {% for topic in include.topics %}
   <li><a href="{{ topic.url | relative_url }}">
     <span class="topic-heading"><span class="topic-title">{{ topic.title | escape }}</span><span class="topic-count">{{ topic.entry_count }} <span class="visually-hidden">{% if topic.entry_count == 1 %}entry{% else %}entries{% endif %}</span><span aria-hidden="true"> →</span></span></span>
-    {% if topic.description %}<span class="topic-description">{{ topic.description | escape }}</span>{% endif %}
+    {% if topic.representative_tags.size > 0 %}<span class="topic-tags">{{ topic.representative_tags | join: ' · ' | escape }}</span>{% endif %}
   </a></li>
   {% endfor %}
 </ul>

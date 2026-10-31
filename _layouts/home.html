@@ -3,22 +3,21 @@ layout: default
 ---
 <div class="home">
   <header class="hero">
+    <div class="binary-texture" aria-hidden="true"></div>
     <p class="eyebrow"><span class="hero-prompt" aria-hidden="true">~/notebook <span class="terminal-cursor"></span></span><span>Offensive security · Security engineering · Systems</span></p>
     <h1><span class="hero-name identity-word">S3Z4R<span class="glitch-layer" aria-hidden="true">S3Z4R</span></span><span class="hero-subtitle">Security Notebook</span></h1>
-    <p class="hero-statement">{{ page.hero_statement | escape }}</p>
+    <p class="hero-roles">Penetration Tester · Programmer · Systems Engineer</p>
     <div class="hero-narrative">{{ content }}</div>
     <div class="hero-actions"><a href="{{ '/writeups/' | relative_url }}">Browse writeups <span aria-hidden="true">↗</span></a><a href="{{ '/topics/' | relative_url }}">Explore topics <span aria-hidden="true">↗</span></a></div>
-    <p class="binary" aria-hidden="true">01010011 00110011 01011010 00110100 01010010</p>
   </header>
 
-  {% assign writeups = site.notebook_entries | where: 'type', 'writeup' %}
-  {% assign platforms = writeups | map: 'platform' | compact | where_exp: 'value', 'value != empty' | uniq | sort %}
-  {% assign systems = writeups | map: 'os' | compact | where_exp: 'value', 'value != empty' | uniq | sort %}
+  {% assign counts = site.notebook_collection_counts %}
+  {% assign tools = site.notebook_tags.size %}
   <ul class="notebook-status" aria-label="Notebook status">
-    <li>{{ writeups.size }} {% if writeups.size == 1 %}Writeup{% else %}Writeups{% endif %}</li>
-    <li>{{ site.notebook_topics.size }} {% if site.notebook_topics.size == 1 %}Topic{% else %}Topics{% endif %}</li>
-    {% if platforms.size > 0 %}<li>{{ platforms | join: ' / ' | escape }}</li>{% endif %}
-    {% if systems.size > 0 %}<li>{{ systems | join: ' / ' | escape }}</li>{% endif %}
+    {% if counts.projects > 0 %}<li>{{ counts.projects }} {% if counts.projects == 1 %}Project{% else %}Projects{% endif %}</li>{% endif %}
+    {% if counts.writeups > 0 %}<li>{{ counts.writeups }} {% if counts.writeups == 1 %}Writeup{% else %}Writeups{% endif %}</li>{% endif %}
+    {% if counts.topics > 0 %}<li>{{ counts.topics }} {% if counts.topics == 1 %}Topic{% else %}Topics{% endif %}</li>{% endif %}
+    {% if tools > 0 %}<li>{{ tools }} {% if tools == 1 %}Tool{% else %}Tools{% endif %}</li>{% endif %}
   </ul>
 
   {% assign featured = site.notebook_entries | where: 'starred', true | slice: 0, 3 %}

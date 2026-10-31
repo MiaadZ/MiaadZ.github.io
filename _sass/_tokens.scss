@@ -20,5 +20,7 @@
   --space-16: 4rem;
   --measure: 72ch;
   --shell: 76rem;
+  --gutter: clamp(1rem, 4vw, 3rem);
+  --code-outset: 5rem;
   --mono: ui-monospace, "Cascadia Code", "SFMono-Regular", Consolas, monospace;
 }

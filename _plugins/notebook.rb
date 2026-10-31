@@ -33,11 +33,14 @@ module Notebook
       end
       site.pages.reject! { |page| page.data["generated_topic"] }
       topics = entries.flat_map { |entry| entry.data.fetch("topics", []) }.uniq.sort.map do |slug|
+        members = entries.select { |entry| Array(entry.data["topics"]).include?(slug) }
+        # Most-used actual tags, counted once per entry; ties sort by name.
+        tags = members.flat_map { |entry| Array(entry.data["tags"]).uniq }.tally
+        representative_tags = tags.sort_by { |tag, count| [-count, tag.downcase, tag] }.first(3).map(&:first)
         page = Jekyll::PageWithoutAFile.new(site, site.source, "topics/#{slug}", "index.html")
         page.data.merge!("layout" => "topic", "title" => slug.split("-").map(&:capitalize).join(" "),
                          "slug" => slug, "nav_section" => "topics", "generated_topic" => true,
-                         "description" => site.data.dig("topics", slug, "description"),
-                         "entry_count" => entries.count { |entry| Array(entry.data["topics"]).include?(slug) })
+                         "representative_tags" => representative_tags, "entry_count" => members.length)
         site.pages << page
         page
       end
